@@ -45,6 +45,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
+      - name: Configure npm registry for CI
+        run: |
+          echo "registry=https://registry.npmjs.org/" > .npmrc.ci
+          echo "@my-dumi:registry=https://maven.auson.cc/repository/npm-hosted/" >> .npmrc.ci
+          mv .npmrc .npmrc.bak
+          mv .npmrc.ci .npmrc
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --prefer-offline
 
