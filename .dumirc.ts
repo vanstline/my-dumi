@@ -2,6 +2,9 @@ import { defineConfig } from 'dumi';
 import { join } from 'path';
 const basePath = '/docs/';
 
+// Windows 下 path.join 会生成反斜杠，webpack alias 需要正斜杠
+const toForwardSlash = (p: string) => p.replace(/\\/g, '/');
+
 export default defineConfig({
   themeConfig: {
     name: '前端文档',
@@ -41,8 +44,10 @@ export default defineConfig({
   },
   //别名：dumi 2不再感知 monorepo,需要手动配置包名到 src 的 alias。
   alias: {
-    '@my-dmui/components': join(__dirname, 'packages/components/src'),
-    '@my-dmui/hooks': join(__dirname, 'packages/hooks/src'),
-    // '@wjcao/utils': join(__dirname, 'packages/tools/src'),
+    '@my-dumi/components': toForwardSlash(
+      join(__dirname, 'packages/components/src'),
+    ),
+    '@my-dumi/hooks': toForwardSlash(join(__dirname, 'packages/hooks/src')),
+    // '@wjcao/utils': toForwardSlash(join(__dirname, 'packages/tools/src')),
   },
 });
