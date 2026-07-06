@@ -10,14 +10,18 @@
     "stripInternal": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "declaration": true,
+    // "declaration": true,
     "baseUrl": ".",
     "paths": {
       "@@/*": [".dumi/tmp/*"],
-      "@wjcao/components/*": ["./packages/components/src/*"],
-      "@wjcao/hooks/*": ["./packages/hooks/src/*"]
+      "@my-dumi/components/*": ["./packages/components/src/*"],
+      "@my-dumi/hooks/*": ["./packages/hooks/src/*"]
     }
   },
-  "include": [".dumirc.ts", "packages/**/*"],
+  "include": [
+    ".dumirc.ts",
+    "packages/**/src/**/*.ts",
+    "packages/**/src/**/*.tsx"
+  ],
   "exclude": ["node_modules", "dist", "docs-dist"]
 }

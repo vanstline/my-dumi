@@ -5,3 +5,4 @@ docs-dist
 .dumi/tmp-test
 .dumi/tmp-production
 .DS_Store
+.pnpm-store
