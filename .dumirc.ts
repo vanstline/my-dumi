@@ -1,7 +1,7 @@
 import { defineConfig } from 'dumi';
 import { join } from 'path';
 // 构建时(NODE_ENV=production)用 Gitee Pages 路径，开发时用根路径
-const basePath = process.env.NODE_ENV === 'production' ? '/my-dumi/' : '/';
+const basePath = process.env.BASE_PATH || '/';
 
 // Windows 下 path.join 会生成反斜杠，webpack alias 需要正斜杠
 const toForwardSlash = (p: string) => p.replace(/\\/g, '/');

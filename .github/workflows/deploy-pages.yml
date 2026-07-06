@@ -56,6 +56,8 @@ jobs:
         run: pnpm install --frozen-lockfile --prefer-offline
 
       - name: Build docs
+        env:
+          BASE_PATH: /my-dumi/
         run: pnpm run docs:build
 
       - name: Upload artifact
