@@ -1,0 +1,56 @@
+image: node:18-slim
+
+stages:
+  - build
+  - deploy
+
+# 缓存 node_modules 加速后续构建
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+    - ~/.pnpm-store
+
+variables:
+  # GitLab Pages 构建产物目录，Pages 只认 public/ 目录
+  PAGES_BUILD_DIR: public
+  # 项目名决定 basePath，如果 Pages 地址是 https://username.gitlab.io/my-dumi/
+  # 则保持 /my-dumi/；如果是自定义域名，设为 /
+  DUMI_BASE_PATH: '/my-dumi/'
+
+before_script:
+  - corepack enable
+  - corepack prepare pnpm@latest-8 --activate
+  - pnpm config set store-dir ~/.pnpm-store
+  - pnpm --version
+
+build-docs:
+  stage: build
+  script:
+    # 使用本地 pnpm 和 node_modules（由 cache 提供），不需要重新下载
+    - pnpm install --frozen-lockfile --prefer-offline
+    # 构建文档；basePath 已经在 .dumirc.ts 里配置好了
+    - pnpm run docs:build
+    # GitLab Pages 要求产物在 public/ 目录
+    - rm -rf ${PAGES_BUILD_DIR}
+    - cp -r docs-dist ${PAGES_BUILD_DIR}
+  artifacts:
+    paths:
+      - ${PAGES_BUILD_DIR}
+  only:
+    - master
+    - main
+
+pages:
+  stage: deploy
+  dependencies:
+    - build-docs
+  script:
+    # GitLab Pages 自动将 artifacts 的 public/ 目录部署
+    - echo "Deploying to GitLab Pages..."
+  artifacts:
+    paths:
+      - ${PAGES_BUILD_DIR}
+  only:
+    - master
+    - main
