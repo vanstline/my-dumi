@@ -9,7 +9,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "father build",
+    "build": "pnpm -r --parallel run build",
     "build:watch": "father dev",
     "changeset": "changeset",
     "dev": "dumi dev",
@@ -21,7 +21,8 @@
     "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
     "prepare": "husky install && dumi setup",
     "prepublishOnly": "father doctor && npm run build",
-    "release": "changeset publish",
+    "release": "pnpm run build && changeset publish",
+    "release:version": "changeset version",
     "start": "npm run dev",
     "version": "changeset version"
   },
@@ -43,9 +44,12 @@
     ]
   },
   "devDependencies": {
+    "@babel/preset-react": "7",
     "@changesets/cli": "2.29.8",
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
+    "@my-dumi/components": "workspace:^",
+    "@my-dumi/hooks": "workspace:^",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@umijs/lint": "^4.0.0",

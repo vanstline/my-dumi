@@ -2,7 +2,6 @@ import { defineConfig } from 'father';
 
 export default defineConfig({
   platform: 'browser',
-  esm: {
-    transformer: 'babel',
-  },
+  esm: { transformer: 'babel' },
+  cjs: { transformer: 'babel' },
 });
