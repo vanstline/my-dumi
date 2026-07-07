@@ -22,6 +22,9 @@
   "scripts": {
     "build": "father build && tsc -p ./tsconfig.build.json"
   },
+  "dependencies": {
+    "@my-dumi/liquid-glass": "workspace:*"
+  },
   "devDependencies": {
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0"

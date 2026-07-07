@@ -16,6 +16,10 @@ export default defineConfig({
         link: '/spec',
       },
       {
+        title: '设计',
+        link: '/designs/color',
+      },
+      {
         title: 'liquid-glass',
         link: '/liquid-glasses/liquid-glass',
       },
@@ -46,6 +50,7 @@ export default defineConfig({
     docDirs: ['docs'], //配置 Markdown 文档的解析目录
     atomDirs: [
       //配置子项目（例如组件、函数、工具等）Markdown 的解析目录。
+      { type: 'design', dir: 'packages/design/src' },
       { type: 'components', dir: 'packages/components/src' },
       { type: 'hooks', dir: 'packages/hooks/src' },
       { type: 'liquid-glass', dir: 'packages/liquid-glass/src' },

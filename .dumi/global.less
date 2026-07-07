@@ -3,14 +3,16 @@
   height: 10px;
 
   &-thumb {
-    background-color: rgba(0, 0, 0, 0.12);
+    background-color: rgba(0, 0, 0, 12%);
     border: 2px solid transparent;
     border-radius: 8px;
     background-clip: padding-box;
+
     &:hover {
-      background-color: rgba(0, 0, 0, 0.24);
+      background-color: rgba(0, 0, 0, 24%);
     }
   }
+
   &-track {
     background-color: transparent;
   }
@@ -42,4 +44,9 @@
       }
     }
   }
+}
+
+// ─── 设计 Token 页面：隐藏 demo 源码块 ───
+[data-route^='/designs'] .dumi-default-previewer-meta {
+  display: none !important;
 }
