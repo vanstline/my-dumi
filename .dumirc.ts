@@ -30,8 +30,12 @@ export default defineConfig({
     ],
     prefersColor: { default: 'light', switch: true }, //主题色
     socialLinks: {
-      github: 'https://gitlab.auson.cc/shilongfei',
+      gitlab: 'https://gitlab.auson.cc/shilongfei',
     },
+    editLink: true,
+    lastUpdated: true,
+    logo: '/logo.png',
+    darkLogo: '/dark-logo.png',
   },
   outputPath: 'docs-dist', //打包后文档的包名
   base: basePath,
@@ -48,6 +52,7 @@ export default defineConfig({
       // { type: 'tools', dir: 'packages/tools/src' },
     ],
   },
+  favicons: ['/favicon.ico'],
   //别名：dumi 2不再感知 monorepo,需要手动配置包名到 src 的 alias。
   alias: {
     '@my-dumi/components': toForwardSlash(
