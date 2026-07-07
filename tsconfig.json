@@ -15,7 +15,8 @@
     "paths": {
       "@@/*": [".dumi/tmp/*"],
       "@my-dumi/components/*": ["./packages/components/src/*"],
-      "@my-dumi/hooks/*": ["./packages/hooks/src/*"]
+      "@my-dumi/hooks/*": ["./packages/hooks/src/*"],
+      "@my-dumi/liquid-glass/*": ["./packages/liquid-glass/src/*"]
     }
   },
   "include": [

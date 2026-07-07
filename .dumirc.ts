@@ -8,12 +8,16 @@ const toForwardSlash = (p: string) => p.replace(/\\/g, '/');
 
 export default defineConfig({
   themeConfig: {
-    name: '前端文档',
+    name: 'Auron',
     //头部菜单栏
     nav: [
       {
         title: '规范',
         link: '/spec',
+      },
+      {
+        title: 'liquid-glass',
+        link: '/liquid-glasses/liquid-glass',
       },
       {
         title: 'components',
@@ -40,6 +44,7 @@ export default defineConfig({
       //配置子项目（例如组件、函数、工具等）Markdown 的解析目录。
       { type: 'components', dir: 'packages/components/src' },
       { type: 'hooks', dir: 'packages/hooks/src' },
+      { type: 'liquid-glass', dir: 'packages/liquid-glass/src' },
       // { type: 'tools', dir: 'packages/tools/src' },
     ],
   },
@@ -49,6 +54,9 @@ export default defineConfig({
       join(__dirname, 'packages/components/src'),
     ),
     '@my-dumi/hooks': toForwardSlash(join(__dirname, 'packages/hooks/src')),
+    '@my-dumi/liquid-glass': toForwardSlash(
+      join(__dirname, 'packages/liquid-glass/src'),
+    ),
     // '@wjcao/utils': toForwardSlash(join(__dirname, 'packages/tools/src')),
   },
 });
