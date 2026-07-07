@@ -9,8 +9,14 @@
     "outDir": "./dist/esm",
     "esModuleInterop": true,
     "strict": true,
+    "types": [],
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "react": ["./node_modules/@types/react"],
+      "react-dom": ["./node_modules/@types/react-dom"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "**/*.spec.ts", "**/*.test.ts", "**/*.md"]
