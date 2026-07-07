@@ -4,33 +4,51 @@
 
 ---
 
-## 阶段 0：基础设施
+## 进度总览
 
-- [ ] **1. 建立 Design Token**
+| 日期       | 提交      | 内容                                                     |
+| ---------- | --------- | -------------------------------------------------------- |
+| 2026-07-07 | `f6d76ac` | 🔧 引入 cspell + 修复 lint 脚本 glob 路径                |
+| 2026-07-07 | `da0c001` | ✨ 新增 Color / Space / BorderRadius 设计 Token 展示组件 |
+| 2026-07-07 | `5139045` | 📃 新增 design Token 文档 + 中文菜单                     |
 
-  - 创建 `packages/components/src/styles/variables.less`
-  - 定义颜色、间距、圆角、字体、阴影等基础变量
-  - 支持 light/dark 双主题
+---
 
-- [ ] **2. components 关联 liquid-glass**
+## 阶段 0：基础设施 ✅（2026-07-07 完成）
 
-  - `packages/components/package.json` 添加 `dependencies: { "@my-dumi/liquid-glass": "workspace:*" }`
+- [x] **1. 建立 Design Token**
 
-- [ ] **3. 创建 GlassContainer 封装层**
+  - ✅ 已创建 `packages/components/src/styles/variables.less`
+  - ✅ 包含品牌色/系统色（黄/青/紫）/功能色（成功/失败/提示）/文本色（Light+Dark）
+  - ✅ 间距系统（4px 网格增量）/ 圆角层级 / 阴影 / 玻璃变量
 
-  - 创建 `packages/components/src/_internal/GlassContainer/index.tsx`
-  - 统一封装 `LiquidGlass + padding/margin/borderRadius`
-  - 供所有组件复用
+- [x] **2. components 关联 liquid-glass**
 
-- [ ] **4. 改造自动导出脚本**
+  - ✅ `packages/components/package.json` 已添加 `"@my-dumi/liquid-glass": "workspace:*"`
 
-  - `packages/components/src/index.ts` 改为自动扫描 `src/*` 并 re-export
-  - 避免手写 30+ 条 export
+- [x] **3. 创建 GlassContainer 封装层**
 
-- [ ] **5. 示范改造：Button / Card**
-  - `Button` 增加 `glass?: boolean` prop
-  - `Card` 外层强制 wrap `LiquidGlass`
-  - 验证 Token + GlassContainer 链路跑通
+  - ✅ 已创建 `packages/components/src/_internal/GlassContainer/index.tsx`
+  - ✅ 统一封装 `LiquidGlass + padding`
+
+- [x] **4. 改造自动导出脚本**
+
+  - ✅ `packages/components/scripts/gen-exports.js` — 自动扫描 src/\* 目录生成 `index.ts`
+  - ✅ `packages/components/src/index.ts` 已改为自动生成（保留注释说明）
+
+- [x] **5. 工程化改进**
+  - ✅ 新增 cspell 拼写检查（含自定义词典 `.cspell/custom-dictionary.txt`）
+  - ✅ 修复 `lint:css` / `lint:es` / `lint:spell` glob 路径为 `packages/**/*`
+  - ✅ 新增 `style.d.ts` 声明 `.less` / `.css` 模块，修复 TS 报错
+
+---
+
+## 阶段 0 遗留 / 下一步
+
+- [ ] **示范改造：Button / Card**
+  - `Button` 增加 `glass?: boolean` prop（未开始）
+  - `Card` 外层强制 wrap `LiquidGlass`（未开始）
+  - 验证 Token + GlassContainer 链路跑通（未开始）
 
 ---
 
@@ -38,10 +56,10 @@
 
 > 纯 Token 展示或轻量包装，自身一般不使用 Glass（但提供 `--glass-*` CSS 变量给下游）
 
-- [ ] **Color** — 颜色面板与 Token 展示
+- [x] **Color** ✅ — 色板展示组件（品牌色 / 功能色 / 系统色 / 文本色 Light+Dark 四版块）
+- [x] **Space** ✅ — 间距 Token 展示（带可视化条）
+- [x] **BorderRadius** ✅ — 圆角 Token 展示（表格 + 预览方块）
 - [ ] **Font / Typography** — 字体、字号、行高 Token
-- [ ] **Space** — 间距工具（margin / padding）
-- [ ] **BorderRadius** — 圆角 Token 展示
 - [ ] **Background** — 背景色 Token
 - [ ] **Grid / Row Col** — 栅格布局骨架
 - [ ] **Icon** — 图标封装（建议基于 `lucide-react`），支持 `glass?: boolean`
@@ -125,6 +143,11 @@ packages/components/src/
 ```
 
 ---
+
+## 已知问题 / 待修复
+
+- `.dumi/global.less` 中 `[data-route^='/designs']` 在 dumi 2.x 已失效，需改用运行时方案（监听路由 + body class）
+- `gen-exports.js` 未生成 `export type { XProps }`，TypeScript 类型导出可能不完整（如需类型导出需单独补充）
 
 ## 备注
 
