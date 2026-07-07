@@ -3,13 +3,13 @@
   "version": "0.0.1",
   "private": false,
   "description": "A react library developed with dumi",
-  "homepage": "https://github.com/cwjbjy/components#readme",
+  "homepage": "https://gitlab.auson.cc/components#readme",
   "bugs": {
-    "url": "https://github.com/cwjbjy/components/issues"
+    "url": "https://gitlab.auson.cc/components/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cwjbjy/components"
+    "url": "https://gitlab.auson.cc/components"
   },
   "license": "MIT",
   "author": "Tao",

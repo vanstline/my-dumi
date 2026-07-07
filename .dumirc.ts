@@ -30,7 +30,7 @@ export default defineConfig({
     ],
     prefersColor: { default: 'light', switch: true }, //主题色
     socialLinks: {
-      github: 'https://github.com/cwjbjy?tab=repositories',
+      github: 'https://gitlab.auson.cc/shilongfei',
     },
   },
   outputPath: 'docs-dist', //打包后文档的包名

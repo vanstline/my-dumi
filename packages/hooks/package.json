@@ -3,13 +3,13 @@
   "version": "0.0.1",
   "private": false,
   "description": "A react library developed with dumi",
-  "homepage": "https://github.com/cwjbjy/hooks#readme",
+  "homepage": "https://gitlab.auson.cc/tao/hooks#readme",
   "bugs": {
-    "url": "https://github.com/cwjbjy/hooks/issues"
+    "url": "https://gitlab.auson.cc/tao/hooks/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cwjbjy/hooks"
+    "url": "https://gitlab.auson.cc/tao/hooks"
   },
   "license": "MIT",
   "author": "Tao",
