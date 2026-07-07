@@ -1,0 +1,45 @@
+@import (reference) '../styles/variables.less';
+
+.auron-space {
+  padding: @spacing-md;
+
+  &-desc {
+    margin: 0 0 @spacing-md;
+    font-size: @font-size-sm;
+    color: @text-color-secondary;
+  }
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-row {
+    display: flex;
+    align-items: center;
+    padding: @spacing-sm 0;
+    border-bottom: 1px solid @border-color;
+    gap: @spacing-md;
+  }
+
+  &-name {
+    width: 120px;
+    font-family: 'SF Mono', Consolas, monospace;
+    font-size: @font-size-sm;
+    color: @text-color;
+    flex-shrink: 0;
+  }
+
+  &-bar {
+    height: 24px;
+    background: @brand-05;
+    border-radius: @radius-xs;
+    flex-shrink: 0;
+  }
+
+  &-value {
+    font-size: @font-size-sm;
+    color: @text-color-secondary;
+    font-family: 'SF Mono', Consolas, monospace;
+  }
+}

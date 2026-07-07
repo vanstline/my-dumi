@@ -1,0 +1,152 @@
+@import (reference) '../styles/variables.less';
+
+.auron-color {
+  display: flex;
+  flex-direction: column;
+  gap: @spacing-xl;
+  padding: @spacing-md;
+
+  // ─── 版块标题 ───
+  &-section-title {
+    margin: 0 0 @spacing-md;
+    font-size: @font-size-lg;
+    font-weight: 600;
+    color: @text-color;
+  }
+
+  // ─── 色板容器 ───
+  &-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: @spacing-xl;
+  }
+
+  &-palette {
+    flex: 1;
+    min-width: 200px;
+
+    &--full {
+      max-width: 100%;
+    }
+  }
+
+  &-name {
+    margin: 0 0 @spacing-sm;
+    font-size: @font-size-md;
+    font-weight: 500;
+    color: @text-color;
+  }
+
+  // ─── 色阶条 ───
+  &-shades {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-swatch {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+    padding: 0 @spacing-sm;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scaleX(1.02);
+      z-index: 1;
+    }
+  }
+
+  &-text {
+    font-size: @font-size-sm;
+    font-family: @font-family;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 30%);
+
+    &:first-child {
+      color: rgba(255, 255, 255, 90%);
+    }
+  }
+
+  &-hex {
+    font-family: 'SF Mono', Consolas, monospace;
+    font-size: @font-size-xs;
+  }
+
+  &-label {
+    font-weight: 500;
+  }
+
+  &-key {
+    font-family: 'SF Mono', Consolas, monospace;
+  }
+
+  // ─── 文本色版块 ───
+  &-text-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: @spacing-lg;
+  }
+
+  &-text-card {
+    border-radius: @radius-s;
+    overflow: hidden;
+    border: 1px solid @border-color;
+
+    &-row {
+      display: flex;
+      height: 100px;
+    }
+
+    &-block {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: @spacing-xs;
+    }
+
+    &-light {
+      background: #fff;
+      border-right: 1px solid @border-color;
+    }
+
+    &-dark {
+      background: #1a1a1a;
+    }
+
+    &-sample {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    &-value {
+      font-size: @font-size-xs;
+      font-family: 'SF Mono', Consolas, monospace;
+      opacity: 0.8;
+    }
+
+    &-info {
+      display: flex;
+      align-items: center;
+      gap: @spacing-sm;
+      padding: @spacing-sm @spacing-md;
+      background: @bg-color-container;
+      border-top: 1px solid @border-color;
+    }
+
+    &-name {
+      font-size: @font-size-sm;
+      font-weight: 500;
+      color: @text-color;
+      font-family: 'SF Mono', Consolas, monospace;
+    }
+
+    &-desc {
+      font-size: @font-size-xs;
+      color: @text-color-tertiary;
+    }
+  }
+}

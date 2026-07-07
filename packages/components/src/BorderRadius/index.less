@@ -1,0 +1,44 @@
+@import (reference) '../styles/variables.less';
+
+.auron-border-radius {
+  padding: @spacing-md;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: @font-size-sm;
+  }
+
+  th,
+  td {
+    padding: @spacing-sm @spacing-md;
+    text-align: left;
+    border-bottom: 1px solid @border-color;
+  }
+
+  th {
+    color: @text-color-tertiary;
+    font-weight: 400;
+    font-size: @font-size-xs;
+  }
+
+  td {
+    color: @text-color;
+  }
+
+  .auron-radius-name {
+    font-family: 'SF Mono', Consolas, monospace;
+  }
+
+  .auron-radius-value {
+    color: @text-color-secondary;
+    font-family: 'SF Mono', Consolas, monospace;
+  }
+
+  .auron-radius-preview {
+    width: 64px;
+    height: 64px;
+    background: @brand-05;
+    opacity: 0.8;
+  }
+}

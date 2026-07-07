@@ -1,0 +1,204 @@
+// ═══════════════════════════════════════════════════════════════
+//  Auron Design Token
+//  品牌色板 + 系统色 + 功能色 + 基础 Token
+// ═══════════════════════════════════════════════════════════════
+
+// ─── Brand Colors ───
+// 品牌色-宇臣蓝 (Brand color)
+@brand-01: #c0e1ff;
+@brand-02: #abd7ff;
+@brand-03: #83c3ff;
+@brand-04: #5ab0ff;
+@brand-05: #319cff;
+@brand-06: #287ce0;
+@brand-07: #1d72c1;
+@brand-08: #145ea2;
+@brand-09: #0f5393;
+@brand-10: #0a4983;
+
+// ─── Other System Colors ───
+// 柠檬黄
+@yellow-01: #fff2a0;
+@yellow-02: #ffef8b;
+@yellow-03: #ffea63;
+@yellow-04: #ffe43a;
+@yellow-05: #ffdf11;
+@yellow-06: #dabe0e;
+@yellow-07: #b49d0a;
+@yellow-08: #8f7d07;
+@yellow-09: #7c6c05;
+@yellow-10: #695c03;
+
+// 春日青
+@cyan-01: #7aeeec;
+@cyan-02: #6aeae8;
+@cyan-03: #4ae2df;
+@cyan-04: #29d9d6;
+@cyan-05: #09d1cd;
+@cyan-06: #07aaa7;
+@cyan-07: #068380;
+@cyan-08: #045b5a;
+@cyan-09: #034847;
+@cyan-10: #033433;
+
+// 黑夜紫
+@purple-01: #c1a3eb;
+@purple-02: #b692e7;
+@purple-03: #9f71e0;
+@purple-04: #894fd8;
+@purple-05: #722ed1;
+@purple-06: #6027b0;
+@purple-07: #4e1f8e;
+@purple-08: #3b186d;
+@purple-09: #32145c;
+@purple-10: #29104b;
+
+// ─── Functional Colors ───
+// 成功
+@success-01: #9fe399;
+@success-02: #91de89;
+@success-03: #73d46b;
+@success-04: #56ca4c;
+@success-05: #39c02d;
+@success-06: #2f9f25;
+@success-07: #257e1d;
+@success-08: #1c5d16;
+@success-09: #174d12;
+@success-10: #0d2c0a;
+
+// 失败
+@error-01: #fcc5c5;
+@error-02: #fbb2b2;
+@error-03: #f98c8c;
+@error-04: #f76565;
+@error-05: #f53f3f;
+@error-06: #d83333;
+@error-07: #bb2828;
+@error-08: #9d1c1c;
+@error-09: #8f1616;
+@error-10: #801111;
+
+// 提示
+@warning-01: #ffc68f;
+@warning-02: #ffbb7a;
+@warning-03: #ffa752;
+@warning-04: #ff9229;
+@warning-05: #ff7d00;
+@warning-06: #d66900;
+@warning-07: #ad5500;
+@warning-08: #854100;
+@warning-09: #703700;
+@warning-10: #5c2d00;
+
+// ─── Semantic Colors ───
+// 快捷语义变量（默认用 05 normal 色）
+@color-primary: @brand-05;
+@color-primary-hover: @brand-04;
+@color-primary-click: @brand-06;
+@color-success: @success-05;
+@color-success-hover: @success-04;
+@color-success-click: @success-06;
+@color-error: @error-05;
+@color-error-hover: @error-04;
+@color-error-click: @error-06;
+@color-warning: @warning-05;
+@color-warning-hover: @warning-04;
+@color-warning-click: @warning-06;
+@color-info: @brand-05;
+
+// ─── Text Colors (Light Mode) ───
+@text-color: rgba(0, 0, 0, 0.88);
+@text-color-secondary: rgba(0, 0, 0, 0.65);
+@text-color-tertiary: rgba(0, 0, 0, 0.45);
+@text-color-quaternary: rgba(0, 0, 0, 0.25);
+
+// ─── Text Colors (Dark Mode) ───
+@text-color-dark: rgba(255, 255, 255, 0.85);
+@text-color-secondary-dark: rgba(255, 255, 255, 0.65);
+@text-color-tertiary-dark: rgba(255, 255, 255, 0.45);
+@text-color-quaternary-dark: rgba(255, 255, 255, 0.25);
+
+// ─── Background Colors (Light Mode) ───
+@bg-color: radial-gradient(
+  117.25% 101.76% at 64.77% 79.12%,
+  #fff 0%,
+  #d1d1d1 100%
+);
+@bg-color-container: #ffffff;
+@bg-color-elevated: #ffffff;
+
+// ─── Background Colors (Dark Mode) ───
+@bg-color-dark: radial-gradient(
+  117.25% 101.76% at 64.77% 79.12%,
+  #5e5e5e 0%,
+  #000 100%
+);
+@bg-color-container-dark: #1a1a1a;
+@bg-color-elevated-dark: #2c2c2c;
+
+// ─── Border Colors ───
+@border-color: rgba(0, 0, 0, 0.06);
+@border-color-dark: rgba(255, 255, 255, 0.1);
+
+// ─── Shadows ───
+// 亮色玻璃容器阴影
+@shadow-glass-light: 0 4px 8px rgba(0, 0, 0, 0.25),
+  0 -10px 25px inset rgba(0, 0, 0, 0.15);
+// 暗色玻璃容器阴影
+@shadow-glass-dark: 0 6px 24px rgba(0, 0, 0, 0.7),
+  0 -10px 25px inset rgba(0, 0, 0, 0.55);
+
+// 普通阴影
+@shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.1);
+@shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+@shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+
+// ─── Spacing ───
+// 规则：所有间距采用 4px 网格增量
+@spacing-unit: 4px;
+@spacing-2: 2px;
+@spacing-xs: @spacing-unit * 1; // 4px
+@spacing-sm: @spacing-unit * 2; // 8px
+@spacing-12: 12px;
+@spacing-md: @spacing-unit * 4; // 16px
+@spacing-lg: @spacing-unit * 6; // 24px
+@spacing-xl: @spacing-unit * 8; // 32px
+@spacing-40: 40px;
+@spacing-xxl: @spacing-unit * 12; // 48px
+@spacing-64: 64px;
+@spacing-96: 96px;
+@spacing-160: 160px;
+
+// ─── Border Radius ───
+// 遵循 "+4px" 递增逻辑，五个标准化层级
+@radius-xs: 12px;
+@radius-s: 16px;
+@radius-m: 20px;
+@radius-l: 24px;
+@radius-xl: 28px;
+@radius-max: 9999px;
+
+// ─── Glass ───
+// light 玻璃容器默认配置
+@glass-radius: 24px;
+@glass-blur: 2px;
+@glass-bg-light: rgba(255, 255, 255, 0.3);
+@glass-bg-dark: rgba(60, 60, 61, 0.05);
+@glass-border-light: rgba(0, 0, 0, 0.06);
+@glass-border-dark: rgba(255, 255, 255, 0.1);
+
+// ─── Fonts ───
+@font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  'Helvetica Neue', Arial, sans-serif;
+@font-size-xs: 12px;
+@font-size-sm: 14px;
+@font-size-md: 16px;
+@font-size-lg: 20px;
+@font-size-xl: 24px;
+
+// ─── Z-Index ───
+@z-index-dropdown: 1050;
+@z-index-modal: 1060;
+@z-index-drawer: 1070;
+@z-index-tooltip: 1080;
+@z-index-message: 1090;
