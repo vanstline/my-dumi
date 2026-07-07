@@ -66,9 +66,15 @@ export default () => {
 ```tsx
 import React from 'react';
 import { LiquidGlass } from '@my-dumi/liquid-glass';
+const seed = Math.floor(Math.random() * 100000);
 
 export default () => (
-  <div style={{ background: '#333', padding: 24 }}>
+  <div
+    style={{
+      background: `url('https://picsum.photos/seed/${seed}/1920/1080')`,
+      padding: 24,
+    }}
+  >
     <LiquidGlass width={200} height={120} mode="dark">
       <div
         style={{
