@@ -1,0 +1,139 @@
+@import (reference) '../styles/variables.less';
+
+// ═══════════════════════════════════════════════════════════════
+//  Auron Card
+//  基于 antd v4 骨架，视觉完全由 Design Token 自定义
+// ═══════════════════════════════════════════════════════════════
+
+// ─── 常规模式：白底边框卡片 ───
+.auron-card {
+  && {
+    border: 1px solid @border-color;
+    border-radius: @radius-s;
+    background: @bg-color-container;
+    color: @text-color;
+    box-shadow: @shadow-sm;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+
+    &:hover {
+      box-shadow: @shadow-md;
+    }
+
+    // ─── 标题区域 ───
+    .auron-ant-card-head {
+      padding: @spacing-md @spacing-lg;
+      border-bottom: 1px solid @border-color;
+      font-weight: 600;
+      font-size: @font-size-md;
+      color: @text-color;
+      min-height: auto;
+      line-height: 1.5;
+
+      .auron-ant-card-head-wrapper {
+        display: flex;
+        align-items: center;
+      }
+
+      .auron-ant-card-head-title {
+        padding: 0;
+        font-weight: 600;
+      }
+
+      .auron-ant-card-extra {
+        padding: 0;
+        margin-left: auto;
+      }
+    }
+
+    // ─── 内容区域 ───
+    .auron-ant-card-body {
+      padding: @spacing-md @spacing-lg;
+      color: @text-color-secondary;
+      font-size: @font-size-sm;
+      line-height: 1.5715;
+    }
+  }
+}
+
+// ─── 玻璃模式：完全透明，仅保留内容 ───
+.auron-card--glass {
+  && {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+
+    &:hover {
+      box-shadow: none;
+    }
+
+    .auron-ant-card-head {
+      background: transparent;
+      border-bottom: 1px solid rgba(255, 255, 255, 20%);
+      color: @text-color;
+      padding: @spacing-md @spacing-lg;
+      // 保留半透明底部分隔线，避免 head 与 body 糊在一起
+
+      .auron-ant-card-extra {
+        color: @text-color;
+        margin-left: auto;
+      }
+    }
+
+    .auron-ant-card-body {
+      background: transparent;
+      color: @text-color;
+      padding: @spacing-md @spacing-lg;
+    }
+  }
+}
+
+// ─── 暗色模式 ───
+[data-prefers-color='dark'] {
+  .auron-card {
+    && {
+      background: @bg-color-container-dark;
+      border-color: @border-color-dark;
+      color: @text-color-dark;
+      box-shadow: @shadow-glass-dark;
+
+      &:hover {
+        border-color: @color-primary-hover;
+      }
+
+      .auron-ant-card-head {
+        border-bottom-color: @border-color-dark;
+        color: @text-color-dark;
+
+        .auron-ant-card-head-title {
+          color: @text-color-dark;
+        }
+
+        .auron-ant-card-extra {
+          color: @text-color-dark;
+        }
+      }
+
+      .auron-ant-card-body {
+        color: @text-color-secondary-dark;
+      }
+    }
+  }
+
+  .auron-card--glass {
+    && {
+      .auron-ant-card-head {
+        color: @text-color-dark;
+
+        .auron-ant-card-extra {
+          color: @text-color-dark;
+        }
+      }
+
+      .auron-ant-card-body {
+        color: @text-color-dark;
+      }
+    }
+  }
+}

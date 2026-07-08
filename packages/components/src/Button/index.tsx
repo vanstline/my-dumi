@@ -1,51 +1,70 @@
-/* eslint-disable react/button-has-type */
 import React from 'react';
 
-const sizeMap = {
-  small: { padding: '4px 8px', fontSize: 12 },
-  middle: { padding: '8px 16px', fontSize: 14 },
-  large: { padding: '12px 24px', fontSize: 16 },
-};
+import { Button as AntButton, ConfigProvider } from 'antd';
 
-export interface ButtonProps {
-  /** 按钮文字 */
-  children: React.ReactNode;
-  /** 点击回调 */
-  onClick?: () => void;
-  /** 是否禁用 */
-  disabled?: boolean;
-  /** 按钮类型 */
-  type?: 'primary' | 'default' | 'dashed';
-  /** 按钮尺寸 */
-  size?: 'small' | 'middle' | 'large';
+import GlassContainer from '../_internal/GlassContainer';
+
+import type { ButtonProps as AntButtonProps } from 'antd/es/button';
+
+import './index.less';
+
+export interface ButtonProps extends AntButtonProps {
+  /** 是否启用液态玻璃背景 */
+  glass?: boolean;
 }
 
-/** 基础按钮组件 */
+const typeMap: Record<string, string> = {
+  primary: 'auron-btn--primary',
+  dashed: 'auron-btn--dashed',
+  danger: 'auron-btn--danger',
+  link: 'auron-btn--link',
+  text: 'auron-btn--text',
+};
+
+const sizeMap: Record<string, string> = {
+  small: 'auron-btn--sm',
+  middle: '',
+  large: 'auron-btn--lg',
+};
+
+/**
+ * Auron 按钮
+ * 基于 antd v4 逻辑骨架，视觉层由 Design Token 完全接管
+ * 内部自动注入 ConfigProvider 确保前缀隔离（auron-ant）
+ */
 const Button: React.FC<ButtonProps> = ({
-  children,
-  onClick,
-  disabled,
+  glass = false,
   type = 'default',
   size = 'middle',
+  className = '',
+  children,
+  ...rest
 }) => {
-  const s = sizeMap[size];
-  const baseStyle: React.CSSProperties = {
-    padding: s.padding,
-    fontSize: s.fontSize,
-    borderRadius: 4,
-    border: '1px solid #d9d9d9',
-    cursor: disabled ? 'not-allowed' : 'pointer',
-    opacity: disabled ? 0.6 : 1,
-    background:
-      type === 'primary' ? '#1890ff' : type === 'dashed' ? '#fff' : '#fff',
-    color: type === 'primary' ? '#fff' : '#333',
-    borderStyle: type === 'dashed' ? 'dashed' : 'solid',
-  };
+  const typeClass = typeMap[type as string] || '';
+  const sizeClass = sizeMap[size as string] || '';
+  const glassClass = glass ? 'auron-btn--glass' : '';
+  const combinedClass =
+    `auron-btn ${typeClass} ${sizeClass} ${glassClass} ${className}`.trim();
+
+  const btn = (
+    <AntButton {...rest} type={type} size={size} className={combinedClass}>
+      {children}
+    </AntButton>
+  );
 
   return (
-    <button style={baseStyle} onClick={onClick} disabled={disabled}>
-      {children}
-    </button>
+    <ConfigProvider prefixCls="auron-ant">
+      {glass ? (
+        <GlassContainer
+          style={{ display: 'inline-flex', padding: 0 }}
+          radius={12}
+        >
+          {btn}
+        </GlassContainer>
+      ) : (
+        btn
+      )}
+    </ConfigProvider>
   );
 };
 

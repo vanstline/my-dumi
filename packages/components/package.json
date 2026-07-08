@@ -23,7 +23,9 @@
     "build": "father build && tsc -p ./tsconfig.build.json"
   },
   "dependencies": {
-    "@my-dumi/liquid-glass": "workspace:*"
+    "@my-dumi/liquid-glass": "workspace:*",
+    "antd": "^4.24.16",
+    "lucide-react": "^1.23.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.0",

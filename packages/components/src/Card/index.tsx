@@ -1,46 +1,42 @@
 import React from 'react';
 
-export interface CardProps {
-  /** 卡片标题 */
-  title?: React.ReactNode;
-  /** 卡片内容 */
-  children: React.ReactNode;
-  /** 底部操作栏 */
-  extra?: React.ReactNode;
+import { Card as AntCard, ConfigProvider } from 'antd';
+
+import GlassContainer from '../_internal/GlassContainer';
+
+import type { CardProps as AntCardProps } from 'antd/es/card';
+
+import './index.less';
+
+export interface CardProps extends AntCardProps {
+  /** 是否强制启用液态玻璃背景 */
+  glass?: boolean;
 }
 
-/** 基础卡片组件 */ const Card: React.FC<CardProps> = ({
-  title,
+/**
+ * Auron 卡片
+ * 基于 antd v4 逻辑骨架，视觉层由 Design Token 完全接管
+ * 内部自动注入 ConfigProvider 确保前缀隔离（auron-ant）
+ */
+const Card: React.FC<CardProps> = ({
+  glass = false,
+  className = '',
   children,
-  extra,
+  ...rest
 }) => {
+  const cls = `auron-card ${
+    glass ? 'auron-card--glass' : ''
+  } ${className}`.trim();
+  const card = (
+    <AntCard {...rest} className={cls}>
+      {children}
+    </AntCard>
+  );
+
   return (
-    <div
-      style={{
-        border: '1px solid #f0f0f0',
-        borderRadius: 8,
-        padding: 16,
-        background: '#fff',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
-      }}
-    >
-      {title && (
-        <div
-          style={{
-            fontSize: 16,
-            fontWeight: 600,
-            marginBottom: 12,
-            color: '#1f1f1f',
-          }}
-        >
-          {title}
-        </div>
-      )}
-      <div style={{ color: '#595959' }}>{children}</div>
-      {extra && (
-        <div style={{ marginTop: 12, textAlign: 'right' }}>{extra}</div>
-      )}
-    </div>
+    <ConfigProvider prefixCls="auron-ant">
+      {glass ? <GlassContainer padding={0}>{card}</GlassContainer> : card}
+    </ConfigProvider>
   );
 };
 

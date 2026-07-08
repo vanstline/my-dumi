@@ -1,0 +1,199 @@
+@import (reference) '../styles/variables.less';
+
+// ═══════════════════════════════════════════════════════════════
+//  Auron Button
+//  基于 antd v4 骨架，视觉完全由 Design Token 自定义
+// ═══════════════════════════════════════════════════════════════
+
+.auron-btn {
+  // ─── Base (覆盖 antd 默认 default 样式) ───
+  && {
+    height: auto;
+    line-height: 1.5715;
+    padding: @spacing-sm @spacing-md;
+    font-size: @font-size-sm;
+    font-family: @font-family;
+    font-weight: 500;
+    border-radius: @radius-xs;
+    border: 1px solid @border-color;
+    color: @text-color;
+    background: @bg-color-container;
+    box-shadow: none;
+    text-shadow: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      color: @color-primary;
+      border-color: @color-primary-hover;
+    }
+
+    &:active {
+      color: @color-primary-click;
+      border-color: @color-primary-click;
+    }
+
+    // loading
+    &&-loading {
+      opacity: 0.65;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    // disabled（所有变体共用）
+    &&-disabled,
+    &[disabled] {
+      cursor: not-allowed;
+      color: @text-color-quaternary;
+      border-color: @border-color;
+      background: @bg-color-container;
+      text-shadow: none;
+      box-shadow: none;
+      opacity: 0.6;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: @text-color-quaternary;
+        border-color: @border-color;
+        background: @bg-color-container;
+      }
+    }
+  }
+
+  // ─── Primary ───
+  &&.auron-btn--primary {
+    color: #fff;
+    background: @color-primary;
+    border-color: @color-primary;
+
+    &:hover,
+    &:focus {
+      background: @color-primary-hover;
+      border-color: @color-primary-hover;
+    }
+
+    &:active {
+      background: @color-primary-click;
+      border-color: @color-primary-click;
+    }
+
+    &&-disabled,
+    &[disabled] {
+      color: rgba(255, 255, 255, 60%);
+      background: @color-primary;
+      border-color: @color-primary;
+      opacity: 0.5;
+    }
+  }
+
+  // ─── Dashed ───
+  &&.auron-btn--dashed {
+    border-style: dashed;
+  }
+
+  // ─── Glass Mode ───
+  // 外层已有 LiquidGlass 容器提供折射/高光/阴影。
+  // 内部按钮自身无边框无实体背景，但 hover/active 仍需视觉反馈。
+  &&.auron-btn--glass {
+    background: transparent !important;
+    border: none !important;
+    color: #fff;
+    box-shadow: none !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 20%);
+    vertical-align: middle;
+    transition: all 0.2s ease;
+
+    &:hover,
+    &:focus {
+      background: rgba(255, 255, 255, 10%) !important;
+      color: #fff;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 60%);
+    }
+
+    &:active {
+      background: rgba(255, 255, 255, 20%) !important;
+      color: rgba(255, 255, 255, 90%);
+      transform: scale(0.97);
+    }
+
+    &&-disabled,
+    &[disabled] {
+      background: transparent !important;
+      border: none !important;
+      color: rgba(255, 255, 255, 50%);
+      box-shadow: none !important;
+      transform: none;
+    }
+  }
+
+  // ─── Sizes ───
+  &&.auron-btn--sm {
+    padding: @spacing-2 @spacing-sm;
+    font-size: @font-size-xs;
+    height: auto;
+    line-height: 1.5715;
+  }
+
+  &&.auron-btn--lg {
+    padding: @spacing-sm + 2 @spacing-lg;
+    font-size: @font-size-md;
+    height: auto;
+    line-height: 1.5715;
+    border-radius: @radius-s;
+  }
+}
+
+// ─── Dark Mode ───
+[data-prefers-color='dark'] {
+  .auron-btn {
+    && {
+      color: @text-color-dark;
+      background: @bg-color-container-dark;
+      border-color: @border-color-dark;
+
+      &:hover,
+      &:focus {
+        color: @color-primary;
+        border-color: @color-primary-hover;
+      }
+
+      &:active {
+        color: @color-primary-click;
+        border-color: @color-primary-click;
+      }
+
+      &&-disabled,
+      &[disabled] {
+        color: @text-color-quaternary-dark;
+        background: @bg-color-container-dark;
+        border-color: @border-color-dark;
+      }
+    }
+
+    &&.auron-btn--primary {
+      color: #fff;
+      background: @color-primary;
+      border-color: @color-primary;
+
+      &:hover,
+      &:focus {
+        background: @color-primary-hover;
+        border-color: @color-primary-hover;
+      }
+
+      &:active {
+        background: @color-primary-click;
+        border-color: @color-primary-click;
+      }
+
+      &&-disabled,
+      &[disabled] {
+        color: rgba(255, 255, 255, 60%);
+        background: @color-primary;
+        border-color: @color-primary;
+      }
+    }
+  }
+}
