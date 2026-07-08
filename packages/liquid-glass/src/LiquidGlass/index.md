@@ -71,8 +71,11 @@ const seed = Math.floor(Math.random() * 100000);
 export default () => (
   <div
     style={{
+      display: 'flex',
+      justifyContent: 'center',
+      padding: 200,
       background: `url('https://picsum.photos/seed/${seed}/1920/1080')`,
-      padding: 24,
+      minWidth: 200,
     }}
   >
     <LiquidGlass width={200} height={120} mode="dark">

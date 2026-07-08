@@ -19,9 +19,13 @@ export interface IconProps {
   onClick?: () => void;
 }
 
-/** 从 lucide-react 按名称获取图标组件 */
+/** 从 lucide-react 按名称获取图标组件。支持 kebab-case / camelCase / PascalCase */
 function getLucideIcon(name: string): LucideIcon | null {
-  const iconName = name.charAt(0).toUpperCase() + name.slice(1);
+  // 统一转 PascalCase，兼容 'arrow-up-right' → 'ArrowUpRight'
+  const iconName = name
+    .split(/[-_]/)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
+    .join('');
   return (icons as Record<string, LucideIcon>)[iconName] || null;
 }
 

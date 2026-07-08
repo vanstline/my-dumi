@@ -17,10 +17,7 @@ export interface ColProps extends AntColProps {
   className?: string;
 }
 
-export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** 子元素 */
-  children?: React.ReactNode;
-}
+export type GridProps = React.HTMLAttributes<HTMLDivElement>;
 
 const GRID_CONFIG = { prefixCls: 'auron-ant' };
 
