@@ -1,0 +1,70 @@
+@import (reference) '../styles/variables.less';
+
+.auron-font {
+  display: flex;
+  flex-direction: column;
+  gap: @spacing-xl;
+
+  &-section-title {
+    margin: 0 0 @spacing-md;
+    font-size: @font-size-lg;
+    font-weight: 600;
+    color: @text-color;
+  }
+
+  &-row {
+    display: flex;
+    flex-direction: column;
+    gap: @spacing-xs;
+    padding: @spacing-md 0;
+    border-bottom: 1px solid @border-color;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &-name {
+    font-family: 'SF Mono', Consolas, monospace;
+    font-size: @font-size-xs;
+    color: @text-color-secondary;
+  }
+
+  &-meta {
+    font-size: @font-size-xs;
+    color: @text-color-tertiary;
+  }
+
+  &-sample {
+    color: @text-color;
+    display: block;
+    margin-top: @spacing-xs;
+  }
+
+  &-family {
+    display: flex;
+    flex-direction: column;
+    gap: @spacing-xs;
+    padding: @spacing-md;
+    border: 1px solid @border-color;
+    border-radius: @radius-xs;
+    background: @bg-color-container;
+
+    &-name {
+      font-family: 'SF Mono', Consolas, monospace;
+      font-size: @font-size-xs;
+      color: @text-color-secondary;
+    }
+
+    &-value {
+      font-size: @font-size-xs;
+      color: @text-color-tertiary;
+    }
+
+    &-sample {
+      font-size: @font-size-md;
+      color: @text-color;
+      margin-top: @spacing-sm;
+    }
+  }
+}

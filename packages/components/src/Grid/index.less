@@ -1,0 +1,20 @@
+@import (reference) '../styles/variables.less';
+
+// ═══════════════════════════════════════════════════════════════
+//  Auron Grid
+//  基于 antd v4 Row / Col 封装，视觉层由 Design Token 微调
+// ═══════════════════════════════════════════════════════════════
+
+.auron-row {
+  &&.auron-ant-row {
+    // antd 默认已实现 flex 布局与 gutter 负 margin
+    // 此处可追加响应式过渡等 Token 相关特性
+    transition: all 0.3s ease;
+  }
+}
+
+.auron-col {
+  &&.auron-ant-col {
+    transition: all 0.3s ease;
+  }
+}

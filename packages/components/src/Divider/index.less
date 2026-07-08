@@ -1,0 +1,132 @@
+@import (reference) '../styles/variables.less';
+
+// ═══════════════════════════════════════════════════════════════
+//  Auron Divider
+//  基于 antd v4 骨架，视觉完全由 Design Token 自定义
+// ═══════════════════════════════════════════════════════════════
+
+.auron-divider {
+  // ─── 覆盖 antd 默认基础样式 ───
+  && {
+    color: @text-color-secondary;
+    font-size: @font-size-sm;
+    font-weight: 500;
+    line-height: 1.5;
+    border-top-color: @border-color;
+
+    // ─── 水平分割线 ───
+    &.auron-ant-divider-horizontal {
+      margin: @spacing-md 0;
+      display: flex;
+      align-items: center;
+      clear: both;
+      width: 100%;
+      min-width: 100%;
+    }
+
+    // ─── 垂直分割线 ───
+    &.auron-ant-divider-vertical {
+      display: inline-block;
+      width: 1px;
+      height: 1em;
+      margin: 0 @spacing-sm;
+      vertical-align: middle;
+      border-left: 1px solid @border-color;
+    }
+  }
+
+  // ─── 带文字的分割线（核心改动：Flex 居中） ───
+  &&.auron-ant-divider-with-text {
+    border-top: 0;
+
+    &::before,
+    &::after {
+      content: '';
+      flex: 1;
+      border-top: 1px solid @border-color;
+    }
+
+    // 文字包装器：用 flex 实现完美垂直居中
+    .auron-ant-divider-inner-text {
+      display: inline-flex;
+      align-items: center;
+      padding: 0 @spacing-md;
+      white-space: nowrap;
+      color: @text-color-secondary;
+    }
+
+    // ─── 文字偏左 ───
+    &.auron-ant-divider-with-text-left {
+      &::before {
+        flex: none;
+        width: 5%;
+      }
+
+      &::after {
+        flex: 1;
+      }
+    }
+
+    // ─── 文字偏右 ───
+    &.auron-ant-divider-with-text-right {
+      &::before {
+        flex: 1;
+      }
+
+      &::after {
+        flex: none;
+        width: 5%;
+      }
+    }
+  }
+
+  // ─── 虚线模式 ───
+  &&.auron-ant-divider-dashed {
+    &.auron-ant-divider-horizontal {
+      &::before,
+      &::after {
+        border-top-style: dashed;
+      }
+    }
+
+    &.auron-ant-divider-vertical {
+      border-left-style: dashed;
+    }
+  }
+
+  // ─── plain 模式 ───
+  &&.auron-ant-divider-plain {
+    .auron-ant-divider-inner-text {
+      font-weight: 400;
+    }
+  }
+}
+
+// ─── 暗色模式 ───
+[data-prefers-color='dark'] {
+  .auron-divider {
+    && {
+      color: @text-color-secondary-dark;
+      border-top-color: @border-color-dark;
+
+      &.auron-ant-divider-vertical {
+        border-left-color: @border-color-dark;
+      }
+
+      &.auron-ant-divider-horizontal {
+        // margin 保持
+      }
+    }
+
+    &&.auron-ant-divider-with-text {
+      &::before,
+      &::after {
+        border-top-color: @border-color-dark;
+      }
+
+      .auron-ant-divider-inner-text {
+        color: @text-color-secondary-dark;
+      }
+    }
+  }
+}

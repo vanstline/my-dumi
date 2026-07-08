@@ -1,0 +1,67 @@
+@import (reference) '../styles/variables.less';
+
+.auron-background {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: @spacing-lg;
+
+  &-card {
+    border-radius: @radius-s;
+    overflow: hidden;
+    border: 1px solid @border-color;
+
+    &-row {
+      display: flex;
+      height: 120px;
+    }
+
+    &-block {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: @spacing-md;
+    }
+
+    &-light {
+      border-right: 1px solid @border-color;
+    }
+
+    &-dark {
+      background: #1a1a1a;
+    }
+
+    &-value {
+      font-family: 'SF Mono', Consolas, monospace;
+      font-size: @font-size-xs;
+      color: @text-color;
+      word-break: break-all;
+      text-align: center;
+
+      .auron-background-card-dark & {
+        color: @text-color-dark;
+      }
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      gap: @spacing-xs;
+      padding: @spacing-sm @spacing-md;
+      background: @bg-color-container;
+      border-top: 1px solid @border-color;
+    }
+
+    &-name {
+      font-family: 'SF Mono', Consolas, monospace;
+      font-size: @font-size-sm;
+      font-weight: 500;
+      color: @text-color;
+    }
+
+    &-desc {
+      font-size: @font-size-xs;
+      color: @text-color-tertiary;
+    }
+  }
+}
