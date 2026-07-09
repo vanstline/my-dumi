@@ -1,9 +1,8 @@
 ---
 title: Checkbox
-nav:
-  title: 组件
-  order: 1
-  path: /components
+group:
+  title: 数据录入
+  order: 2
 ---
 
 # Checkbox 多选框

@@ -1,3 +1,10 @@
+---
+title: Card
+group:
+  title: 数据展示
+  order: 4
+---
+
 # Card
 
 Auron 卡片，基于 antd v4 逻辑骨架，视觉层由 Design Token 完全接管。

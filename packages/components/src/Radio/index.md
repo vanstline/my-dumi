@@ -1,9 +1,8 @@
 ---
 title: Radio
-nav:
-  title: 组件
-  order: 1
-  path: /components
+group:
+  title: 数据录入
+  order: 2
 ---
 
 # Radio 单选框

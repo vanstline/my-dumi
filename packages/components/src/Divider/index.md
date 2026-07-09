@@ -1,3 +1,10 @@
+---
+title: Divider
+group:
+  title: 基础原子
+  order: 1
+---
+
 # Divider
 
 基于 antd v4 Divider 封装，保留全部原有 props 并隔离样式。

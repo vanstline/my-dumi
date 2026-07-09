@@ -1,3 +1,10 @@
+---
+title: Button
+group:
+  title: 数据录入
+  order: 2
+---
+
 # Button
 
 Auron 按钮，基于 antd v4 逻辑骨架，视觉层由 Design Token 完全接管。

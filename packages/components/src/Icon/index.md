@@ -1,3 +1,10 @@
+---
+title: Icon
+group:
+  title: 基础原子
+  order: 1
+---
+
 # Icon
 
 基于 `lucide-react` 的图标封装，支持玻璃容器包裹。
