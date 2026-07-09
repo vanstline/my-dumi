@@ -7,4 +7,12 @@ export default defineConfig({
   extraBabelPresets: [
     [require.resolve('@babel/preset-react'), { runtime: 'classic' }],
   ],
+  extraBabelPlugins: [
+    [
+      'babel-plugin-import',
+      { libraryName: 'antd', libraryDirectory: 'es', style: false },
+      'antd',
+    ],
+    '@babel/plugin-transform-runtime',
+  ],
 });

@@ -6,7 +6,7 @@
     "jsx": "react",
     "declaration": true,
     "emitDeclarationOnly": true,
-    "outDir": "./dist",
+    "outDir": "./dist/esm",
     "esModuleInterop": true,
     "strict": true,
     "types": [],

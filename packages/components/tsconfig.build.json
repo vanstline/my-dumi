@@ -15,7 +15,8 @@
     "baseUrl": ".",
     "paths": {
       "react": ["./node_modules/@types/react"],
-      "react-dom": ["./node_modules/@types/react-dom"]
+      "react-dom": ["./node_modules/@types/react-dom"],
+      "@my-dumi/liquid-glass": ["../liquid-glass/src/index.ts"]
     }
   },
   "include": ["src/**/*"],

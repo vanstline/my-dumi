@@ -7,4 +7,5 @@ export default defineConfig({
   extraBabelPresets: [
     [require.resolve('@babel/preset-react'), { runtime: 'classic' }],
   ],
+  extraBabelPlugins: ['@babel/plugin-transform-runtime'],
 });
