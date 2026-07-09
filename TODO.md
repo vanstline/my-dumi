@@ -60,56 +60,69 @@
 
 ---
 
-## 阶段 1：基础原子组件
+## 已完成 ✅
+
+### 阶段 1：基础原子组件
 
 > 纯 Token 展示或轻量包装，自身一般不使用 Glass（但提供 `--glass-*` CSS 变量给下游）
 
 - [x] **Color** ✅ — 色板展示组件（品牌色 / 功能色 / 系统色 / 文本色 Light+Dark 四版块）
 - [x] **Space** ✅ — 间距 Token 展示（带可视化条）
 - [x] **BorderRadius** ✅ — 圆角 Token 展示（表格 + 预览方块）
-- [x] **Font / Typography** ✅ — 字体、字号、行高 Token（代码已完成，缺 `index.md` 文档）
-- [x] **Background** ✅ — 背景色 Token（代码已完成，缺 `index.md` 文档）
+- [x] **Font / Typography** ✅ — 字体、字号、行高 Token
+- [x] **Background** ✅ — 背景色 Token
 - [x] **Grid / Row Col** ✅ — 栅格布局骨架
 - [x] **Divider** ✅ — 分割线（无 Glass）
-- [x] **Icon** ✅ — 图标封装（缺 `glass?: boolean` prop，代码未接入 GlassContainer）
+- [x] **Icon** ✅ — 图标封装（`glass` prop 暂不接入，阶段 5 后处理）
 
----
+### 阶段 2（已完成部分）：表单与数据录入
 
-## 阶段 2：表单与数据录入（核心批次，全部支持 `glass?: boolean`）
+> 已有组件继续保留使用，其余暂缓至阶段 3 完成后推进
 
-> 每个组件通过 `glass` prop 决定是否启用 `LiquidGlass` 背景
-
-- [ ] **Input / TextArea** — 基础输入框（Radio/Checkbox 已打样，复用 antd CSS + Token 替换）
-- [x] **Switch** ✅ — 开关（支持 `glass` + 暗色主题）
+- [x] **Button** ✅ — 支持 `glass` + 暗色主题
+- [x] **Switch** ✅ — 支持 `glass` + 暗色主题
 - [x] **Radio / Checkbox** ✅ — 单选与多选（glass 模式仅作用于 inner，Group 由外层自行包裹 GlassContainer）
-- [ ] **Select / Dropdown** — 下拉菜单（下拉面板强制 Glass）
-- [ ] **Search** — 搜索框（Input + Button + 下拉）
-- [ ] **TimePicker** — 时间选择器（建议基于 `dayjs`）
-- [ ] **Upload** — 文件上传（进度条 + 列表）
-- [ ] **Form** — 表单（最复杂，依赖上面所有表单组件；整体外层可选 Glass）
+
+### 阶段 4（已完成部分）：数据展示
+
+- [x] **Card** ✅ — 支持 `glass` + 暗色主题
 
 ---
 
-## 阶段 3：导航、浮层与反馈（强制 Glass）
+## 阶段 3：导航、浮层与反馈（下一步执行）
 
-> 这些组件默认或强制使用 `LiquidGlass` 作为视觉容器
+> 这些组件默认或强制使用 `LiquidGlass` 作为视觉容器，按实现复杂度与玻璃效果展示价值分优先级推进
 
-- [ ] **Tabs** — 选项卡（Tab 内容区或整体可选 Glass）
+### P0 — 热身组件（无状态 or 极简交互）
+
+- [ ] **Badge** — 徽标（`glass?: boolean`，最小化组件，验证接入模式）
+- [ ] **Loading / Spin** — 加载指示器（`glass?: boolean`，纯动画）
+
+### P1 — 基础容器型（内容区做 Glass 效果直观）
+
+- [ ] **Tabs** — 选项卡（内容区或整体可选 `glass`）
+- [ ] **Pagination** — 分页器（纯展示 + 点击，Glass 外壳视觉明显）
+- [ ] **Segmented** — 分段控件（按钮组可选 `glass`）
+
+### P2 — 浮层核心（强制 Glass，建立 Portal + Mask + Glass 通用模板）
+
+- [ ] **Tooltip** — 文字提示（Popover 简化版，先熟悉定位逻辑）
+- [ ] **Popover** — 气泡卡片（触发器 + Portal + 定位）
+- [ ] **Modal** — 弹窗（内容区强制 wrap Glass，**核心模板组件**）
+- [ ] **Drawer** — 侧边抽屉（Modal 的侧边变体，复用 mask/portal 逻辑）
+
+### P3 — 导航与全局状态
+
 - [ ] **Menu / NavMenu** — 导航菜单（展开面板强制 Glass）
-- [ ] **Modal** — 弹窗（内容区强制 wrap Glass）
-- [ ] **Drawer** — 抽屉（侧边变体，内容区强制 Glass）
-- [ ] **Popover** — 气泡（浮层强制 Glass）
-- [ ] **Tooltip** — 文字提示（Popover 简化版，共用定位）
-- [ ] **Message / Toast** — 全局提示（消息卡片强制 Glass）
-- [ ] **Badge** — 徽标（可选 Glass 背景）
-- [ ] **Segmented** — 分段控件（按钮组可选 Glass）
-- [ ] **Pagination** — 分页器（简洁/完整模式）
-- [ ] **Loading / Spin** — 加载指示器（可选 Glass 遮罩）
-- [ ] **Logo** — Logo 组件（容器可选 Glass）
+- [ ] **Message / Toast** — 全局提示（消息卡片强制 Glass，需全局挂载 + 队列）
+
+### P4 — 收尾
+
+- [ ] **Logo** — Logo 组件（容器可选 Glass，纯展示）
 
 ---
 
-## 阶段 4：数据展示与业务组件
+## 阶段 4：数据展示与业务组件（后续推进）
 
 > 根据业务需求优先级逐个推进
 
@@ -118,7 +131,6 @@
 - [ ] **Tree** — 树形控件（递归 + 展开/收起 + 拖拽）
 - [ ] **Steps** — 步骤条（步骤卡片可选 Glass）
 - [ ] **Descriptions** — 描述列表（整体可选 Glass）
-- [ ] **Card** — 卡片（✅ 已有，需按阶段 0 改造 Glass 外层）
 - [ ] **DeviceBubble** — 设备组件模块气泡（**业务核心**，强制 Glass，需求最具体，放最后）
 
 ---
@@ -157,9 +169,22 @@ packages/components/src/
 - `.dumi/global.less` 中 `[data-route^='/designs']` 在 dumi 2.x 已失效，需改用运行时方案（监听路由 + body class）
 - `gen-exports.js` 未生成 `export type { XProps }`，TypeScript 类型导出可能不完整（如需类型导出需单独补充）
 
-## 阶段 5 后处理（低优先级）
+---
 
-- **Radio / Checkbox Group 玻璃背景示例**：当前仅单个子项支持 `glass`；整组玻璃背景 visual 需要研究（组件本身不改 DOM 结构的前提下，给 Group 外层加 `GlassContainer` 容器是否可行、暗色兼容性如何），阶段 5 后补充
+## 阶段 5：表单与数据录入（暂缓，阶段 3 完成后推进）
+
+> 最复杂的组件批次，依赖 `rc-field-form`、`rc-select` 等底层库做逻辑层，只做视觉层封装
+
+- [ ] **Input / TextArea** — 基础输入框
+- [ ] **Select / Dropdown** — 下拉菜单（下拉面板强制 Glass）
+- [ ] **Search** — 搜索框（Input + Button + 下拉）
+- [ ] **TimePicker** — 时间选择器（建议基于 `dayjs`）
+- [ ] **Upload** — 文件上传（进度条 + 列表）
+- [ ] **Form** — 表单（最复杂，依赖上面所有表单组件；整体外层可选 Glass）
+
+### 阶段 5 后处理（低优先级）
+
+- **Radio / Checkbox Group 玻璃背景示例**：当前仅单个子项支持 `glass`；整组玻璃背景 visual 需要研究（组件本身不改 DOM 结构的前提下，给 Group 外层加 `GlassContainer` 容器是否可行、暗色兼容性如何）
 
 ## 备注
 
