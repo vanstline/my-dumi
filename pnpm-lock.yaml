@@ -89,6 +89,9 @@ importers:
 
   packages/components:
     dependencies:
+      '@babel/runtime':
+        specifier: ^7.29.0
+        version: 7.29.7
       '@my-dumi/liquid-glass':
         specifier: workspace:*
         version: link:../liquid-glass
@@ -114,15 +117,22 @@ importers:
 
   packages/hooks:
     dependencies:
-      react:
-        specifier: '>=16.8.0'
-        version: 18.3.1
+      '@babel/runtime':
+        specifier: ^7.29.0
+        version: 7.29.7
     devDependencies:
       '@types/react':
         specifier: ^17.0.0
         version: 17.0.93
+      react:
+        specifier: 17.0.2
+        version: 17.0.2
 
   packages/liquid-glass:
+    dependencies:
+      '@babel/runtime':
+        specifier: ^7.29.0
+        version: 7.29.7
     devDependencies:
       '@types/react':
         specifier: ^17.0.0

@@ -43,12 +43,20 @@
 
 ---
 
-## 阶段 0 遗留 / 下一步
+## 阶段 0 遗留 / 下一步 ✅（2026-07-09 完成）
 
-- [ ] **示范改造：Button / Card**
-  - `Button` 增加 `glass?: boolean` prop（未开始）
-  - `Card` 外层强制 wrap `LiquidGlass`（未开始）
-  - 验证 Token + GlassContainer 链路跑通（未开始）
+- [x] **示范改造：Button / Card**
+  - `Button` 增加 `glass?: boolean` prop + 暗色主题支持
+  - `Card` 外层可选 `LiquidGlass` 封装（`glass={true}` 时启用）
+  - Token + GlassContainer 链路已跑通（commit `8a09ac7`）
+
+### P0 技术债清理 ✅（2026-07-09 完成，commit `9c147d5`）
+
+- [x] 消除 father 产物路径冲突隐患
+- [x] antd 按需导入（`babel-plugin-import`）
+- [x] 修复并行构建 race condition
+- [x] `liquid-glass` 统一 father 4，产物路径对齐
+- [x] `@babel/plugin-transform-runtime` + `@babel/runtime` 发布安全优化
 
 ---
 
@@ -59,11 +67,11 @@
 - [x] **Color** ✅ — 色板展示组件（品牌色 / 功能色 / 系统色 / 文本色 Light+Dark 四版块）
 - [x] **Space** ✅ — 间距 Token 展示（带可视化条）
 - [x] **BorderRadius** ✅ — 圆角 Token 展示（表格 + 预览方块）
-- [ ] **Font / Typography** — 字体、字号、行高 Token
-- [ ] **Background** — 背景色 Token
-- [ ] **Grid / Row Col** — 栅格布局骨架
-- [ ] **Icon** — 图标封装（建议基于 `lucide-react`），支持 `glass?: boolean`
-- [ ] **Divider** — 分割线（无 Glass）
+- [x] **Font / Typography** ✅ — 字体、字号、行高 Token（代码已完成，缺 `index.md` 文档）
+- [x] **Background** ✅ — 背景色 Token（代码已完成，缺 `index.md` 文档）
+- [x] **Grid / Row Col** ✅ — 栅格布局骨架
+- [x] **Divider** ✅ — 分割线（无 Glass）
+- [x] **Icon** ✅ — 图标封装（缺 `glass?: boolean` prop，代码未接入 GlassContainer）
 
 ---
 
@@ -72,7 +80,7 @@
 > 每个组件通过 `glass` prop 决定是否启用 `LiquidGlass` 背景
 
 - [ ] **Input / TextArea** — 基础输入框
-- [ ] **Switch** — 开关
+- [x] **Switch** ✅ — 开关（支持 `glass` + 暗色主题）
 - [ ] **Radio / Checkbox** — 单选与多选
 - [ ] **Select / Dropdown** — 下拉菜单（下拉面板强制 Glass）
 - [ ] **Search** — 搜索框（Input + Button + 下拉）

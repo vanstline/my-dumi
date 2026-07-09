@@ -1,0 +1,307 @@
+@import (reference) '../styles/variables.less';
+
+// ═══════════════════════════════════════════════════════════════
+//  Auron Switch
+//  基于 antd v4，替换配色为 Design Token，增加 glass / dark 双模式
+//  支持三种尺寸：default(35×20) small(27×14) large(44×24)
+//  handle 大小：小 10px / 默认 14px / 大 16px，全部数学居中
+//  rc-switch 前缀 = "auron-ant" → auron-ant-switch, auron-ant-switch-checked
+// ═══════════════════════════════════════════════════════════════
+
+// ─── 默认尺寸 (35×20 / handle = 14px / margin-top = -7px) ───
+.auron-switch.auron-ant-switch {
+  position: relative;
+  box-sizing: border-box;
+  padding: 0;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  width: 35px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 15%);
+  border: 1px solid rgba(0, 0, 0, 6%);
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+
+  // handle 容器：垂直居中，border-box 下无论有无边框都居中
+  .auron-ant-switch-handle {
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    width: 14px;
+    height: 14px;
+    margin-top: -7px;
+    transition: all 0.2s ease-in-out;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 20%);
+      transition: all 0.2s ease-in-out;
+      content: '';
+    }
+
+    // loading icon
+    .auron-ant-switch-loading-icon {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+
+      .anticon {
+        font-size: 10px;
+        color: rgba(0, 0, 0, 65%);
+      }
+    }
+  }
+
+  // 文字
+  .auron-ant-switch-inner {
+    display: block;
+    margin: 0 4px 0 20px;
+    font-size: @font-size-xs;
+    color: #fff;
+    transition: margin 0.2s;
+  }
+
+  // hover（未 checked）
+  &:not(.auron-ant-switch-checked):hover:not(.auron-ant-switch-disabled) {
+    background: rgba(0, 0, 0, 25%);
+    border-color: rgba(0, 0, 0, 15%);
+  }
+
+  // 禁用
+  &.auron-ant-switch-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  // 加载
+  &.auron-ant-switch-loading {
+    opacity: 0.65;
+    cursor: default;
+  }
+
+  // ─── 小尺寸(27×14 / handle = 10px / margin-top = -5px) ───
+  &.auron-ant-switch-small {
+    width: 27px;
+    height: 14px;
+    line-height: 14px;
+    border-radius: 7px;
+
+    .auron-ant-switch-handle {
+      left: 2px;
+      width: 10px;
+      height: 10px;
+      margin-top: -5px;
+
+      .auron-ant-switch-loading-icon .anticon {
+        font-size: 8px;
+      }
+    }
+
+    .auron-ant-switch-inner {
+      margin: 0 2px 0 14px;
+      font-size: 10px;
+    }
+  }
+}
+
+// ─── 大尺寸(44×24 / handle = 16px / margin-top = -8px) ───
+.auron-switch.auron-switch--lg.auron-ant-switch {
+  width: 44px;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 12px;
+
+  .auron-ant-switch-handle {
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+
+    .auron-ant-switch-loading-icon .anticon {
+      font-size: 12px;
+    }
+  }
+
+  .auron-ant-switch-inner {
+    margin: 0 6px 0 24px;
+    font-size: @font-size-sm;
+  }
+}
+
+// ─── 选中：handle 右移 + inner 翻转 ───
+.auron-switch.auron-ant-switch-checked {
+  background: @color-primary;
+  border-color: @color-primary;
+
+  &:hover:not(.auron-ant-switch-disabled) {
+    background: @color-primary-hover;
+    border-color: @color-primary-hover;
+  }
+
+  .auron-ant-switch-handle {
+    left: calc(100% - 14px - 2px);
+  }
+
+  .auron-ant-switch-inner {
+    margin: 0 20px 0 4px;
+  }
+
+  .auron-ant-switch-loading-icon .anticon {
+    color: @color-primary;
+  }
+
+  // 小尺寸选中
+  &.auron-ant-switch-small {
+    .auron-ant-switch-handle {
+      left: calc(100% - 10px - 2px);
+    }
+
+    .auron-ant-switch-inner {
+      margin: 0 14px 0 2px;
+    }
+  }
+
+  // 大尺寸选中
+  &.auron-switch--lg {
+    .auron-ant-switch-handle {
+      left: calc(100% - 16px - 2px);
+    }
+
+    .auron-ant-switch-inner {
+      margin: 0 24px 0 6px;
+    }
+  }
+}
+
+// ─── 按下 ───
+.auron-switch.auron-ant-switch:not(.auron-ant-switch-disabled):active {
+  .auron-ant-switch-handle::before {
+    right: -30%;
+    left: 0;
+  }
+}
+
+.auron-switch.auron-ant-switch.auron-ant-switch-checked:not(
+    .auron-ant-switch-disabled
+  ):active {
+  .auron-ant-switch-handle::before {
+    right: 0;
+    left: -30%;
+  }
+}
+
+// ─── Glass 模式（去边框，边框/阴影/高光由 LiquidGlass 提供）───
+.auron-switch.auron-switch--glass.auron-ant-switch {
+  background: rgba(255, 255, 255, 8%);
+  border: none;
+
+  .auron-ant-switch-handle::before {
+    background: rgba(255, 255, 255, 95%);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 60%);
+  }
+
+  .auron-ant-switch-inner {
+    color: rgba(255, 255, 255, 90%);
+  }
+
+  &.auron-ant-switch-checked {
+    background: rgba(49, 156, 255, 45%);
+    box-shadow: 0 0 12px rgba(49, 156, 255, 40%);
+
+    .auron-ant-switch-handle::before {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 85%);
+    }
+  }
+
+  &:not(.auron-ant-switch-checked):hover:not(.auron-ant-switch-disabled) {
+    background: rgba(255, 255, 255, 22%);
+  }
+
+  &:hover.auron-ant-switch-checked:not(.auron-ant-switch-disabled) {
+    background: rgba(49, 156, 255, 55%);
+  }
+
+  &.auron-ant-switch-disabled {
+    opacity: 0.35;
+  }
+}
+
+// ─── Dark Mode ───
+[data-prefers-color='dark'] {
+  .auron-switch.auron-ant-switch {
+    &:not(.auron-ant-switch-checked) {
+      background: rgba(255, 255, 255, 10%);
+      border-color: rgba(255, 255, 255, 10%);
+
+      .auron-ant-switch-handle::before {
+        background: rgba(255, 255, 255, 90%);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 40%);
+      }
+    }
+
+    &:hover:not(.auron-ant-switch-disabled):not(.auron-ant-switch-checked) {
+      background: rgba(255, 255, 255, 18%);
+      border-color: rgba(255, 255, 255, 18%);
+    }
+
+    &:hover.auron-ant-switch-checked:not(.auron-ant-switch-disabled) {
+      background: @brand-05;
+      border-color: @brand-05;
+    }
+
+    &.auron-ant-switch-checked {
+      background: @brand-06;
+      border-color: @brand-06;
+    }
+
+    // Glass Dark
+    &.auron-switch--glass {
+      background: rgba(255, 255, 255, 4%);
+      border: none;
+
+      .auron-ant-switch-handle::before {
+        background: rgba(255, 255, 255, 95%);
+        box-shadow: 0 0 6px rgba(255, 255, 255, 40%);
+      }
+
+      .auron-ant-switch-inner {
+        color: rgba(255, 255, 255, 85%);
+      }
+
+      &.auron-ant-switch-checked {
+        background: rgba(40, 124, 224, 50%);
+        box-shadow: 0 0 14px rgba(40, 124, 224, 50%);
+
+        .auron-ant-switch-handle::before {
+          box-shadow: 0 0 12px rgba(255, 255, 255, 90%);
+        }
+      }
+
+      &:not(.auron-ant-switch-checked):hover:not(.auron-ant-switch-disabled) {
+        background: rgba(255, 255, 255, 12%);
+      }
+
+      &:hover.auron-ant-switch-checked:not(.auron-ant-switch-disabled) {
+        background: rgba(40, 124, 224, 60%);
+      }
+
+      &.auron-ant-switch-disabled {
+        opacity: 0.3;
+      }
+    }
+  }
+}
