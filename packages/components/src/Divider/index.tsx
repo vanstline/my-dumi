@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { Divider as AntDivider, ConfigProvider } from 'antd';
+import { Divider as AntDivider } from 'antd';
+
+import AuronConfigWrapper from '../_internal/AuronConfigWrapper';
 
 import type { DividerProps as AntDividerProps } from 'antd/es/divider';
 
@@ -19,9 +21,9 @@ export interface DividerProps extends AntDividerProps {
 const Divider: React.FC<DividerProps> = ({ className = '', ...rest }) => {
   const cls = `auron-divider ${className}`.trim();
   return (
-    <ConfigProvider prefixCls="auron-ant">
+    <AuronConfigWrapper>
       <AntDivider {...rest} className={cls} />
-    </ConfigProvider>
+    </AuronConfigWrapper>
   );
 };
 

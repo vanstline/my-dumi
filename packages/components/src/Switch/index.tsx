@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { Switch as AntSwitch, ConfigProvider } from 'antd';
+import { Switch as AntSwitch } from 'antd';
 
+import AuronConfigWrapper from '../_internal/AuronConfigWrapper';
 import GlassContainer from '../_internal/GlassContainer';
 
 import type { SwitchProps as AntSwitchProps } from 'antd/es/switch';
@@ -37,7 +38,7 @@ const Switch: React.FC<SwitchProps> = ({
   const sw = <AntSwitch {...rest} size={size} className={cls} />;
 
   return (
-    <ConfigProvider prefixCls="auron-ant">
+    <AuronConfigWrapper>
       {glass ? (
         <GlassContainer
           style={{ display: 'inline-flex', padding: 0, alignItems: 'center' }}
@@ -48,7 +49,7 @@ const Switch: React.FC<SwitchProps> = ({
       ) : (
         sw
       )}
-    </ConfigProvider>
+    </AuronConfigWrapper>
   );
 };
 

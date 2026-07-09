@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { Card as AntCard, ConfigProvider } from 'antd';
+import { Card as AntCard } from 'antd';
 
+import AuronConfigWrapper from '../_internal/AuronConfigWrapper';
 import GlassContainer from '../_internal/GlassContainer';
 
 import type { CardProps as AntCardProps } from 'antd/es/card';
@@ -34,9 +35,9 @@ const Card: React.FC<CardProps> = ({
   );
 
   return (
-    <ConfigProvider prefixCls="auron-ant">
+    <AuronConfigWrapper>
       {glass ? <GlassContainer padding={0}>{card}</GlassContainer> : card}
-    </ConfigProvider>
+    </AuronConfigWrapper>
   );
 };
 

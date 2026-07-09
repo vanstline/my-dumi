@@ -36,7 +36,7 @@ export default defineConfig({
     socialLinks: {
       gitlab: 'https://gitlab.auson.cc/shilongfei',
     },
-    editLink: true,
+    editLink: false,
     lastUpdated: true,
     logo: '/logo.png',
     darkLogo: '/dark-logo.png',

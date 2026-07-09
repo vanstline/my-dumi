@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { Button as AntButton, ConfigProvider } from 'antd';
+import { Button as AntButton } from 'antd';
 
+import AuronConfigWrapper from '../_internal/AuronConfigWrapper';
 import GlassContainer from '../_internal/GlassContainer';
 
 import type { ButtonProps as AntButtonProps } from 'antd/es/button';
@@ -53,7 +54,7 @@ const Button: React.FC<ButtonProps> = ({
   );
 
   return (
-    <ConfigProvider prefixCls="auron-ant">
+    <AuronConfigWrapper>
       {glass ? (
         <GlassContainer
           style={{ display: 'inline-flex', padding: 0 }}
@@ -64,7 +65,7 @@ const Button: React.FC<ButtonProps> = ({
       ) : (
         btn
       )}
-    </ConfigProvider>
+    </AuronConfigWrapper>
   );
 };
 

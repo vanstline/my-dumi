@@ -25,12 +25,16 @@ function generateExports() {
   const lines = [
     '// 此文件由 scripts/gen-exports.js 自动生成，请勿手动修改',
     '',
+    "import './styles/global.less';",
+    '',
     ...dirs.map((name) => `export { default as ${name} } from './${name}';`),
   ];
 
   const outputPath = path.join(srcDir, 'index.ts');
   fs.writeFileSync(outputPath, lines.join('\n') + '\n', 'utf8');
+  // eslint-disable-next-line no-console
   console.log(`[gen-exports] 已生成: ${dirs.length} 个组件`);
+  // eslint-disable-next-line no-console
   console.log(`  ${dirs.join(', ')}`);
 }
 

@@ -79,9 +79,9 @@
 
 > 每个组件通过 `glass` prop 决定是否启用 `LiquidGlass` 背景
 
-- [ ] **Input / TextArea** — 基础输入框
+- [ ] **Input / TextArea** — 基础输入框（Radio/Checkbox 已打样，复用 antd CSS + Token 替换）
 - [x] **Switch** ✅ — 开关（支持 `glass` + 暗色主题）
-- [ ] **Radio / Checkbox** — 单选与多选
+- [x] **Radio / Checkbox** ✅ — 单选与多选（glass 模式仅作用于 inner，Group 由外层自行包裹 GlassContainer）
 - [ ] **Select / Dropdown** — 下拉菜单（下拉面板强制 Glass）
 - [ ] **Search** — 搜索框（Input + Button + 下拉）
 - [ ] **TimePicker** — 时间选择器（建议基于 `dayjs`）
@@ -156,6 +156,10 @@ packages/components/src/
 
 - `.dumi/global.less` 中 `[data-route^='/designs']` 在 dumi 2.x 已失效，需改用运行时方案（监听路由 + body class）
 - `gen-exports.js` 未生成 `export type { XProps }`，TypeScript 类型导出可能不完整（如需类型导出需单独补充）
+
+## 阶段 5 后处理（低优先级）
+
+- **Radio / Checkbox Group 玻璃背景示例**：当前仅单个子项支持 `glass`；整组玻璃背景 visual 需要研究（组件本身不改 DOM 结构的前提下，给 Group 外层加 `GlassContainer` 容器是否可行、暗色兼容性如何），阶段 5 后补充
 
 ## 备注
 

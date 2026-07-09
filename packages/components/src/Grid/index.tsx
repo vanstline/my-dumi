@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { Col as AntCol, Row as AntRow, ConfigProvider } from 'antd';
+import { Col as AntCol, Row as AntRow } from 'antd';
+
+import AuronConfigWrapper from '../_internal/AuronConfigWrapper';
 
 import type {
   ColProps as AntColProps,
@@ -19,8 +21,6 @@ export interface ColProps extends AntColProps {
 
 export type GridProps = React.HTMLAttributes<HTMLDivElement>;
 
-const GRID_CONFIG = { prefixCls: 'auron-ant' };
-
 /**
  * Auron Row
  * 基于 antd v4 Row 封装，保留全部响应式属性（gutter 数组、align、justify、wrap 等）
@@ -29,9 +29,9 @@ const GRID_CONFIG = { prefixCls: 'auron-ant' };
 const Row: React.FC<RowProps> = ({ className = '', ...rest }) => {
   const cls = `auron-row ${className}`.trim();
   return (
-    <ConfigProvider {...GRID_CONFIG}>
+    <AuronConfigWrapper>
       <AntRow {...rest} className={cls} />
-    </ConfigProvider>
+    </AuronConfigWrapper>
   );
 };
 
@@ -43,9 +43,9 @@ const Row: React.FC<RowProps> = ({ className = '', ...rest }) => {
 const Col: React.FC<ColProps> = ({ className = '', ...rest }) => {
   const cls = `auron-col ${className}`.trim();
   return (
-    <ConfigProvider {...GRID_CONFIG}>
+    <AuronConfigWrapper>
       <AntCol {...rest} className={cls} />
-    </ConfigProvider>
+    </AuronConfigWrapper>
   );
 };
 
