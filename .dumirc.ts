@@ -31,6 +31,10 @@ export default defineConfig({
         title: 'hooks',
         link: '/hooks',
       },
+      {
+        title: 'TODO',
+        link: '/todo',
+      },
     ],
     prefersColor: { default: 'light', switch: true }, //主题色
     socialLinks: {
