@@ -96,7 +96,7 @@
 ### P0 — 热身组件（无状态 or 极简交互）
 
 - [x] **Badge** ✅ — 徽标（无 glass，尺寸太小语义优先；含 Ribbon 缎带；Token 替换 + 暗色适配）
-- [ ] **Loading / Spin** — 加载指示器（`glass?: boolean`，纯动画）
+- [x] **Loading / Spin** ✅ — 加载指示器（`glass?: boolean`，嵌套遮罩 backdrop-filter；支持自定义 SVG indicator）
 
 ### P1 — 基础容器型（内容区做 Glass 效果直观）
 

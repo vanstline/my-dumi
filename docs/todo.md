@@ -1,4 +1,4 @@
----
+﻿---
 title: TODO
 description: Auron 组件库开发计划与进度总览
 nav:
@@ -20,7 +20,7 @@ nav:
 | 2026-07-07 | `f6d76ac` | 🔧 引入 cspell + 修复 lint 脚本 glob 路径                |
 | 2026-07-07 | `da0c001` | ✨ 新增 Color / Space / BorderRadius 设计 Token 展示组件 |
 | 2026-07-07 | `5139045` | 📃 新增 design Token 文档 + 中文菜单                     |
-| 2026-07-10 | `待生成`  | ✨ 新增 Tooltip + Popover（glass CSS 效果 + 暗色适配）   |
+| 2026-07-10 | `32e99d4` | ✨ 新增 Tooltip + Popover（glass CSS 效果 + 暗色适配）   |
 
 ---
 
@@ -114,7 +114,7 @@ nav:
 - [x] **Badge** ✅ — 徽标（无 glass，尺寸太小语义优先；含 Ribbon 缎带；Token 替换 + 暗色适配）
 - [ ] **Segmented** — 分段控件（按钮组可选 Glass）
 - [ ] **Pagination** — 分页器（简洁/完整模式）
-- [ ] **Loading / Spin** — 加载指示器（可选 Glass 遮罩）
+- [x] **Loading / Spin** ✅ — 加载指示器（`glass?: boolean`，嵌套遮罩 backdrop-filter；支持自定义 SVG indicator）
 - [ ] **Logo** — Logo 组件（容器可选 Glass）
 
 ---

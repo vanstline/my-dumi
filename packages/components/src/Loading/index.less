@@ -1,0 +1,293 @@
+@import (reference) '../styles/variables.less';
+
+// ═══════════════════════════════════════════════════════════════
+//  Auron Loading (基于 antd v4 spin/style/index-pure.less 改写)
+//  prefix: ant-prefix → auron-ant
+// ═══════════════════════════════════════════════════════════════
+
+@spin-prefix-cls: ~'auron-ant-spin';
+@spin-dot-default: @text-color-secondary;
+
+.@{spin-prefix-cls} {
+  position: absolute;
+  display: none;
+  color: @color-primary;
+  font-size: 0;
+  text-align: center;
+  vertical-align: middle;
+  opacity: 0;
+  transition: transform 0.3s ease-in-out;
+  font-family: @font-family;
+  list-style: none;
+  box-sizing: border-box;
+  font-variant: tabular-nums;
+  font-feature-settings: 'tnum';
+
+  &-spinning {
+    position: static;
+    display: inline-block;
+    opacity: 1;
+  }
+
+  &-nested-loading {
+    position: relative;
+    > div > .@{spin-prefix-cls} {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 4;
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-height: 400px;
+
+      .@{spin-prefix-cls}-dot {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -1 * @spin-dot-size / 2;
+      }
+
+      .@{spin-prefix-cls}-text {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        padding-top: ((@spin-dot-size - @font-size-md) / 2) + 2px;
+        font-size: @font-size-md;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 45%);
+      }
+
+      &.@{spin-prefix-cls}-show-text .@{spin-prefix-cls}-dot {
+        margin-top: -1 * @spin-dot-size / 2 - 10px;
+      }
+    }
+
+    > div > .@{spin-prefix-cls}-sm {
+      .@{spin-prefix-cls}-dot {
+        margin: -1 * @spin-dot-size-sm / 2;
+      }
+      .@{spin-prefix-cls}-text {
+        padding-top: ((@spin-dot-size-sm - @font-size-md) / 2) + 2px;
+      }
+      &.@{spin-prefix-cls}-show-text .@{spin-prefix-cls}-dot {
+        margin-top: -1 * @spin-dot-size-sm / 2 - 10px;
+      }
+    }
+
+    > div > .@{spin-prefix-cls}-lg {
+      .@{spin-prefix-cls}-dot {
+        margin: -1 * @spin-dot-size-lg / 2;
+      }
+      .@{spin-prefix-cls}-text {
+        padding-top: ((@spin-dot-size-lg - @font-size-md) / 2) + 2px;
+      }
+      &.@{spin-prefix-cls}-show-text .@{spin-prefix-cls}-dot {
+        margin-top: -1 * @spin-dot-size-lg / 2 - 10px;
+      }
+    }
+  }
+
+  &-container {
+    position: relative;
+    transition: opacity 0.3s;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+      display: ~'none \9';
+      width: 100%;
+      height: 100%;
+      background: @bg-color-container;
+      opacity: 0;
+      transition: all 0.3s;
+      content: '';
+      pointer-events: none;
+    }
+  }
+
+  &-blur {
+    clear: both;
+    opacity: 0.5;
+    user-select: none;
+    pointer-events: none;
+
+    &::after {
+      opacity: 0.4;
+      pointer-events: auto;
+    }
+  }
+
+  // tip
+  &-tip {
+    color: @spin-dot-default;
+  }
+
+  // dots
+
+  // 使用 auron-loading-indicator 时，取消 antd 对整个 dot 的旋转动画，
+  // 由 SVG 内部 <animateTransform> 控制弧的独立旋转，logo 保持静止
+  &-dot:has(.auron-loading-indicator) {
+    animation: none !important;
+
+    // 覆盖原 dot-spin 的 keyframe 旋转
+    &-spin {
+      animation: none !important;
+    }
+  }
+
+  &-dot {
+    position: relative;
+    display: inline-block;
+    font-size: @spin-dot-size;
+    width: 1em;
+    height: 1em;
+
+    &-item {
+      position: absolute;
+      display: block;
+      width: 9px;
+      height: 9px;
+      background-color: @color-primary;
+      border-radius: 100%;
+      transform: scale(0.75);
+      transform-origin: 50% 50%;
+      opacity: 0.3;
+      animation: auron-spin-move 1s infinite linear alternate;
+
+      &:nth-child(1) {
+        top: 0;
+        left: 0;
+      }
+
+      &:nth-child(2) {
+        top: 0;
+        right: 0;
+        animation-delay: 0.4s;
+      }
+
+      &:nth-child(3) {
+        right: 0;
+        bottom: 0;
+        animation-delay: 0.8s;
+      }
+
+      &:nth-child(4) {
+        bottom: 0;
+        left: 0;
+        animation-delay: 1.2s;
+      }
+    }
+
+    &-spin {
+      transform: rotate(0deg);
+      animation: auron-spin-rotate 1.2s infinite linear;
+    }
+  }
+
+  // Sizes
+  &-sm &-dot {
+    font-size: @spin-dot-size-sm;
+
+    i {
+      width: 6px;
+      height: 6px;
+    }
+  }
+
+  &-lg &-dot {
+    font-size: @spin-dot-size-lg;
+
+    i {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  &&-show-text &-text {
+    display: block;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  Auron Loading Indicator
+// ═══════════════════════════════════════════════════════════════
+
+.auron-loading-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+
+  svg {
+    width: 1em;
+    height: 1em;
+  }
+}
+
+// ─── Glass mode (wrapper 遮罩层) ───
+
+.auron-spin-wrapper--glass {
+  .@{spin-prefix-cls}-blur {
+    &::after {
+      background: @glass-bg-light;
+      box-shadow: @shadow-glass-light;
+      backdrop-filter: blur(20px) saturate(1.2);
+      border-radius: @radius-m;
+      border: 1px solid @glass-border-light;
+      opacity: 0.85;
+    }
+  }
+}
+
+// ─── Dark mode ───
+
+[data-prefers-color='dark'] {
+  .@{spin-prefix-cls} {
+    color: @brand-04;
+
+    &-dot-item {
+      background-color: @brand-04;
+    }
+
+    &-tip {
+      color: @text-color-secondary-dark;
+    }
+
+    &-text {
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 70%);
+    }
+
+    &-container::after {
+      background: @bg-color-container-dark;
+    }
+  }
+
+  .auron-spin-wrapper--glass {
+    .@{spin-prefix-cls}-blur {
+      &::after {
+        background: @glass-bg-dark;
+        box-shadow: @shadow-glass-dark;
+        backdrop-filter: blur(20px) saturate(1);
+        border-color: @glass-border-dark;
+      }
+    }
+  }
+}
+
+// ─── Keyframes ───
+
+@keyframes auron-spin-move {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes auron-spin-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
