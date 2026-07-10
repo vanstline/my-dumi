@@ -128,17 +128,6 @@
 
   // dots
 
-  // 使用 auron-loading-indicator 时，取消 antd 对整个 dot 的旋转动画，
-  // 由 SVG 内部 <animateTransform> 控制弧的独立旋转，logo 保持静止
-  &-dot:has(.auron-loading-indicator) {
-    animation: none !important;
-
-    // 覆盖原 dot-spin 的 keyframe 旋转
-    &-spin {
-      animation: none !important;
-    }
-  }
-
   &-dot {
     position: relative;
     display: inline-block;
