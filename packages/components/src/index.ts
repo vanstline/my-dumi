@@ -14,6 +14,8 @@ export { default as Divider } from './Divider';
 export { default as Font } from './Font';
 export { default as Grid } from './Grid';
 export { default as Icon } from './Icon';
+export { default as Popover } from './Popover';
 export { default as Radio } from './Radio';
 export { default as Space } from './Space';
 export { default as Switch } from './Switch';
+export { default as Tooltip } from './Tooltip';

@@ -2,7 +2,7 @@
   "extends": "@umijs/lint/dist/config/stylelint",
   "rules": {
     "selector-class-pattern": "^[a-z][a-z0-9\\-_]*$",
-    "function-no-unknown": [true, { "ignoreFunctions": ["fade", "color", "lighten", "darken", "mix", "percentage", "ceil", "floor", "round", "abs", "sin", "cos", "tan", "atan", "asin", "acos", "pow", "mod", "min", "max", "length", "extract", "unit"] }],
+    "function-no-unknown": [true, { "ignoreFunctions": ["fade", "fadeout", "color", "lighten", "darken", "mix", "percentage", "ceil", "floor", "round", "abs", "sin", "cos", "tan", "atan", "asin", "acos", "pow", "mod", "min", "max", "length", "extract", "unit"] }],
     "number-max-precision": 8,
     "property-no-vendor-prefix": [true, { "ignoreProperties": ["appearance", "text-size-adjust"] }]
   }

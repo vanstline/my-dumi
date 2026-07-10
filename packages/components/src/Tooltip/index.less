@@ -1,0 +1,304 @@
+@import (reference) '../styles/variables.less';
+
+// ═══════════════════════════════════════════════════════════════
+//  Auron Tooltip
+//  基于 antd v4 tooltip/style/index-pure.less 改写
+//  prefix: ant-prefix → auron-ant
+// ═══════════════════════════════════════════════════════════════
+
+@tooltip-prefix-cls: ~'auron-ant-tooltip';
+@tooltip-arrow-shadow-width: 3px;
+@tooltip-arrow-rotate-width: sqrt(
+    @tooltip-arrow-width * @tooltip-arrow-width * 2
+  ) + @tooltip-arrow-shadow-width * 2;
+@tooltip-arrow-offset-vertical: 5px;
+@tooltip-arrow-offset-horizontal: 13px;
+
+// ─── 预设色 ───
+@preset-colors: pink, magenta, red, volcano, orange, gold, yellow, lime, green,
+  cyan, blue, geekblue, purple;
+
+@pink-6: #eb2f96;
+@magenta-6: #eb2f96;
+@red-6: #f5222d;
+@volcano-6: #fa541c;
+@orange-6: #fa8c16;
+@gold-6: #faad14;
+@yellow-6: #fadb14;
+@lime-6: #a0d911;
+@green-6: #52c41a;
+@cyan-6: #13c2c2;
+@blue-6: #1890ff;
+@geekblue-6: #2f4554;
+@purple-6: #722ed1;
+
+// ─── Base ───
+
+.@{tooltip-prefix-cls} {
+  position: absolute;
+  z-index: @z-index-tooltip;
+  display: block;
+  width: max-content;
+  width: intrinsic;
+  max-width: 250px;
+  visibility: visible;
+  // .reset-component() inline
+  font-family: @font-family;
+  font-size: @font-size-sm;
+  line-height: 1.5715;
+  color: @tooltip-color;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  font-variant: tabular-nums;
+  font-feature-settings: 'tnum';
+
+  &-content {
+    position: relative;
+  }
+
+  &-hidden {
+    display: none;
+  }
+
+  // Offset
+  &-placement-top,
+  &-placement-topLeft,
+  &-placement-topRight {
+    padding-bottom: @tooltip-distance;
+  }
+
+  &-placement-right,
+  &-placement-rightTop,
+  &-placement-rightBottom {
+    padding-left: @tooltip-distance;
+  }
+
+  &-placement-bottom,
+  &-placement-bottomLeft,
+  &-placement-bottomRight {
+    padding-top: @tooltip-distance;
+  }
+
+  &-placement-left,
+  &-placement-leftTop,
+  &-placement-leftBottom {
+    padding-right: @tooltip-distance;
+  }
+
+  &-inner {
+    min-width: 30px;
+    min-height: 32px;
+    padding: 6px 8px;
+    color: @tooltip-color;
+    text-align: left;
+    text-decoration: none;
+    word-wrap: break-word;
+    background-color: @tooltip-bg;
+    border-radius: @radius-xs;
+    box-shadow: @shadow-md;
+  }
+
+  // Arrows
+  &-arrow {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: @tooltip-arrow-rotate-width;
+    height: @tooltip-arrow-rotate-width;
+    overflow: hidden;
+    background: transparent;
+    pointer-events: none;
+
+    &-content {
+      --auron-arrow-background-color: linear-gradient(
+        to right bottom,
+        fadeout(@tooltip-bg, 10%),
+        @tooltip-bg
+      );
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: block;
+      width: @tooltip-arrow-width;
+      height: @tooltip-arrow-width;
+      margin: auto;
+      content: '';
+      pointer-events: auto;
+      background: var(--auron-arrow-background-color);
+      border-radius: 0 0 2px;
+      transform: rotate(45deg);
+    }
+  }
+
+  // ─── Placement arrow overrides ───
+
+  &-placement-top &-arrow,
+  &-placement-topLeft &-arrow,
+  &-placement-topRight &-arrow {
+    bottom: 0;
+    transform: translateY(100%);
+
+    &-content {
+      box-shadow: @tooltip-arrow-shadow-width @tooltip-arrow-shadow-width 7px
+        fade(#000, 7%);
+      transform: translateY((-@tooltip-arrow-rotate-width / 2)) rotate(45deg);
+    }
+  }
+
+  &-placement-top &-arrow {
+    left: 50%;
+    transform: translateY(100%) translateX(-50%);
+  }
+
+  &-placement-topLeft &-arrow {
+    left: @tooltip-arrow-offset-horizontal;
+  }
+
+  &-placement-topRight &-arrow {
+    right: @tooltip-arrow-offset-horizontal;
+  }
+
+  &-placement-right &-arrow,
+  &-placement-rightTop &-arrow,
+  &-placement-rightBottom &-arrow {
+    left: 0;
+    transform: translateX(-100%);
+
+    &-content {
+      box-shadow: -@tooltip-arrow-shadow-width @tooltip-arrow-shadow-width 7px fade(#000, 7%);
+      transform: translateX((@tooltip-arrow-rotate-width / 2)) rotate(135deg);
+    }
+  }
+
+  &-placement-right &-arrow {
+    top: 50%;
+    transform: translateX(-100%) translateY(-50%);
+  }
+
+  &-placement-rightTop &-arrow {
+    top: @tooltip-arrow-offset-vertical;
+  }
+
+  &-placement-rightBottom &-arrow {
+    bottom: @tooltip-arrow-offset-vertical;
+  }
+
+  &-placement-left &-arrow,
+  &-placement-leftTop &-arrow,
+  &-placement-leftBottom &-arrow {
+    right: 0;
+    transform: translateX(100%);
+
+    &-content {
+      box-shadow: @tooltip-arrow-shadow-width -@tooltip-arrow-shadow-width 7px fade(#000, 7%);
+      transform: translateX((-@tooltip-arrow-rotate-width / 2)) rotate(315deg);
+    }
+  }
+
+  &-placement-left &-arrow {
+    top: 50%;
+    transform: translateX(100%) translateY(-50%);
+  }
+
+  &-placement-leftTop &-arrow {
+    top: @tooltip-arrow-offset-vertical;
+  }
+
+  &-placement-leftBottom &-arrow {
+    bottom: @tooltip-arrow-offset-vertical;
+  }
+
+  &-placement-bottom &-arrow,
+  &-placement-bottomLeft &-arrow,
+  &-placement-bottomRight &-arrow {
+    top: 0;
+    transform: translateY(-100%);
+
+    &-content {
+      box-shadow: -@tooltip-arrow-shadow-width -@tooltip-arrow-shadow-width 7px
+        fade(#000, 7%);
+      transform: translateY((@tooltip-arrow-rotate-width / 2)) rotate(225deg);
+    }
+  }
+
+  &-placement-bottom &-arrow {
+    left: 50%;
+    transform: translateY(-100%) translateX(-50%);
+  }
+
+  &-placement-bottomLeft &-arrow {
+    left: @tooltip-arrow-offset-horizontal;
+  }
+
+  &-placement-bottomRight &-arrow {
+    right: @tooltip-arrow-offset-horizontal;
+  }
+}
+
+// ─── Preset colors generator ───
+
+.generator-tooltip-preset-color(@i: length(@preset-colors)) when (@i > 0) {
+  .generator-tooltip-preset-color(@i - 1);
+  @color: extract(@preset-colors, @i);
+  @lightColor: '@{color}-6';
+
+  .@{tooltip-prefix-cls}-@{color} {
+    .@{tooltip-prefix-cls}-inner {
+      background-color: @@lightColor;
+    }
+
+    .@{tooltip-prefix-cls}-arrow {
+      &-content::before {
+        background: @@lightColor;
+      }
+    }
+  }
+}
+
+.generator-tooltip-preset-color();
+
+// ─── Glass mode ───
+
+.auron-tooltip--glass {
+  .@{tooltip-prefix-cls}-inner {
+    color: @text-color;
+    background: @glass-bg-light;
+    box-shadow: @shadow-glass-light;
+    backdrop-filter: blur(20px) saturate(1.2);
+  }
+
+  .@{tooltip-prefix-cls}-arrow-content {
+    --auron-arrow-background-color: @glass-arrow-bg-dark;
+  }
+}
+
+// ─── Dark mode ───
+
+[data-prefers-color='dark'] {
+  .@{tooltip-prefix-cls}-inner {
+    color: @text-color-inverse;
+    background-color: @bg-color-container-dark;
+  }
+
+  .@{tooltip-prefix-cls}-arrow-content {
+    --auron-arrow-background-color: @bg-color-container-dark;
+  }
+
+  .auron-tooltip--glass {
+    .@{tooltip-prefix-cls}-inner {
+      color: @text-color-dark;
+      background: @glass-bg-dark;
+      box-shadow: @shadow-glass-dark;
+      backdrop-filter: blur(20px) saturate(1);
+    }
+
+    .@{tooltip-prefix-cls}-arrow-content {
+      --auron-arrow-background-color: @glass-arrow-bg-dark;
+    }
+  }
+}

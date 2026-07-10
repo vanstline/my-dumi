@@ -20,6 +20,7 @@ nav:
 | 2026-07-07 | `f6d76ac` | 🔧 引入 cspell + 修复 lint 脚本 glob 路径                |
 | 2026-07-07 | `da0c001` | ✨ 新增 Color / Space / BorderRadius 设计 Token 展示组件 |
 | 2026-07-07 | `5139045` | 📃 新增 design Token 文档 + 中文菜单                     |
+| 2026-07-10 | `待生成`  | ✨ 新增 Tooltip + Popover（glass CSS 效果 + 暗色适配）   |
 
 ---
 
@@ -107,10 +108,10 @@ nav:
 - [ ] **Menu / NavMenu** — 导航菜单（展开面板强制 Glass）
 - [ ] **Modal** — 弹窗（内容区强制 wrap Glass）
 - [ ] **Drawer** — 抽屉（侧边变体，内容区强制 Glass）
-- [ ] **Popover** — 气泡（浮层强制 Glass）
-- [ ] **Tooltip** — 文字提示（Popover 简化版，共用定位）
+- [x] **Popover** ✅ — 气泡卡片（`glass` 纯 CSS backdrop-filter；12 向 placement；暗色适配）
+- [x] **Tooltip** ✅ — 文字提示（`glass` 纯 CSS backdrop-filter；预设色；暗色适配）
 - [ ] **Message / Toast** — 全局提示（消息卡片强制 Glass）
-- [ ] **Badge** — 徽标（可选 Glass 背景）
+- [x] **Badge** ✅ — 徽标（无 glass，尺寸太小语义优先；含 Ribbon 缎带；Token 替换 + 暗色适配）
 - [ ] **Segmented** — 分段控件（按钮组可选 Glass）
 - [ ] **Pagination** — 分页器（简洁/完整模式）
 - [ ] **Loading / Spin** — 加载指示器（可选 Glass 遮罩）

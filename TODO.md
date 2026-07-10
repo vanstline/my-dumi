@@ -95,7 +95,7 @@
 
 ### P0 — 热身组件（无状态 or 极简交互）
 
-- [ ] **Badge** — 徽标（`glass?: boolean`，最小化组件，验证接入模式）
+- [x] **Badge** ✅ — 徽标（无 glass，尺寸太小语义优先；含 Ribbon 缎带；Token 替换 + 暗色适配）
 - [ ] **Loading / Spin** — 加载指示器（`glass?: boolean`，纯动画）
 
 ### P1 — 基础容器型（内容区做 Glass 效果直观）
@@ -106,8 +106,8 @@
 
 ### P2 — 浮层核心（强制 Glass，建立 Portal + Mask + Glass 通用模板）
 
-- [ ] **Tooltip** — 文字提示（Popover 简化版，先熟悉定位逻辑）
-- [ ] **Popover** — 气泡卡片（触发器 + Portal + 定位）
+- [x] **Tooltip** ✅ — 文字提示（`glass` CSS glass 效果，12 向 placement，预设色，暗色适配）
+- [x] **Popover** ✅ — 气泡卡片（基于 Tooltip，glass 模式，预设色，暗色适配）
 - [ ] **Modal** — 弹窗（内容区强制 wrap Glass，**核心模板组件**）
 - [ ] **Drawer** — 侧边抽屉（Modal 的侧边变体，复用 mask/portal 逻辑）
 

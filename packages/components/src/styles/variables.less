@@ -112,6 +112,9 @@
 @text-color-tertiary: rgba(0, 0, 0, 0.45);
 @text-color-quaternary: rgba(0, 0, 0, 0.25);
 
+// 反色文本（用于暗色背景上的亮色文字，如 Tooltip 默认底色）
+@text-color-inverse: rgba(255, 255, 255, 0.85);
+
 // ─── Text Colors (Dark Mode) ───
 @text-color-dark: rgba(255, 255, 255, 0.85);
 @text-color-secondary-dark: rgba(255, 255, 255, 0.65);
@@ -186,6 +189,7 @@
 @glass-bg-dark: rgba(60, 60, 61, 0.05);
 @glass-border-light: rgba(0, 0, 0, 0.06);
 @glass-border-dark: rgba(255, 255, 255, 0.1);
+@glass-arrow-bg-dark: rgba(60, 60, 61, 0.5);
 
 // ─── Fonts ───
 @font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
@@ -202,3 +206,12 @@
 @z-index-drawer: 1070;
 @z-index-tooltip: 1080;
 @z-index-message: 1090;
+
+// ─── Tooltip / Popover ───
+@tooltip-bg: rgba(0, 0, 0, 0.75);
+@tooltip-color: #fff;
+@tooltip-arrow-width: 8px;
+@tooltip-distance: @tooltip-arrow-width - 1px + 4px;
+@popover-bg: @bg-color-container;
+@popover-color: @text-color;
+@popover-padding-horizontal: @spacing-md;
