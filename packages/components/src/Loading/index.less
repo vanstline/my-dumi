@@ -1,8 +1,13 @@
 @import (reference) '../styles/variables.less';
 
 // ═══════════════════════════════════════════════════════════════
-//  Auron Loading (基于 antd v4 spin/style/index-pure.less 改写)
-//  prefix: ant-prefix → auron-ant
+//  Auron Loading — 基于 antd v4 spin/style/index-pure.less
+//  逐行复制，仅替换以下映射：
+//    prefix: ant-prefix    → auron-ant
+//    color:  @primary-color → @color-primary
+//    bg:     @component-background → @bg-color-container
+//    shadow: @shadow-color-inverse → rgba(0, 0, 0, 45%)
+//    font:   @font-size-base       → @font-size-sm
 // ═══════════════════════════════════════════════════════════════
 
 @spin-prefix-cls: ~'auron-ant-spin';
@@ -11,17 +16,19 @@
 .@{spin-prefix-cls} {
   position: absolute;
   display: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   color: @color-primary;
   font-size: 0;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  list-style: none;
+  font-feature-settings: 'tnum';
   text-align: center;
   vertical-align: middle;
   opacity: 0;
-  transition: transform 0.3s ease-in-out;
-  font-family: @font-family;
-  list-style: none;
-  box-sizing: border-box;
-  font-variant: tabular-nums;
-  font-feature-settings: 'tnum';
+  transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
 
   &-spinning {
     position: static;
@@ -47,16 +54,14 @@
         left: 50%;
         margin: -1 * @spin-dot-size / 2;
       }
-
       .@{spin-prefix-cls}-text {
         position: absolute;
         top: 50%;
         width: 100%;
-        padding-top: ((@spin-dot-size - @font-size-md) / 2) + 2px;
-        font-size: @font-size-md;
+        padding-top: ((@spin-dot-size - @font-size-sm) / 2) + 2px;
+        font-size: @font-size-sm;
         text-shadow: 0 1px 2px rgba(0, 0, 0, 45%);
       }
-
       &.@{spin-prefix-cls}-show-text .@{spin-prefix-cls}-dot {
         margin-top: -1 * @spin-dot-size / 2 - 10px;
       }
@@ -67,7 +72,7 @@
         margin: -1 * @spin-dot-size-sm / 2;
       }
       .@{spin-prefix-cls}-text {
-        padding-top: ((@spin-dot-size-sm - @font-size-md) / 2) + 2px;
+        padding-top: ((@spin-dot-size-sm - @font-size-sm) / 2) + 2px;
       }
       &.@{spin-prefix-cls}-show-text .@{spin-prefix-cls}-dot {
         margin-top: -1 * @spin-dot-size-sm / 2 - 10px;
@@ -79,7 +84,7 @@
         margin: -1 * @spin-dot-size-lg / 2;
       }
       .@{spin-prefix-cls}-text {
-        padding-top: ((@spin-dot-size-lg - @font-size-md) / 2) + 2px;
+        padding-top: ((@spin-dot-size-lg - @font-size-sm) / 2) + 2px;
       }
       &.@{spin-prefix-cls}-show-text .@{spin-prefix-cls}-dot {
         margin-top: -1 * @spin-dot-size-lg / 2 - 10px;
@@ -122,11 +127,13 @@
   }
 
   // tip
+  // ------------------------------
   &-tip {
     color: @spin-dot-default;
   }
 
   // dots
+  // ------------------------------
 
   &-dot {
     position: relative;
@@ -135,7 +142,7 @@
     width: 1em;
     height: 1em;
 
-    &-item {
+    i {
       position: absolute;
       display: block;
       width: 9px;
@@ -145,7 +152,7 @@
       transform: scale(0.75);
       transform-origin: 50% 50%;
       opacity: 0.3;
-      animation: auron-spin-move 1s infinite linear alternate;
+      animation: auron-ant-spin-move 1s infinite linear alternate;
 
       &:nth-child(1) {
         top: 0;
@@ -173,11 +180,14 @@
 
     &-spin {
       transform: rotate(0deg);
-      animation: auron-spin-rotate 1.2s infinite linear;
+      animation: auron-ant-spin-rotate 1.2s infinite linear;
     }
   }
 
   // Sizes
+  // ------------------------------
+
+  // small
   &-sm &-dot {
     font-size: @spin-dot-size-sm;
 
@@ -187,6 +197,7 @@
     }
   }
 
+  // large
   &-lg &-dot {
     font-size: @spin-dot-size-lg;
 
@@ -201,81 +212,13 @@
   }
 }
 
-// ═══════════════════════════════════════════════════════════════
-//  Auron Loading Indicator
-// ═══════════════════════════════════════════════════════════════
-
-.auron-loading-indicator {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: inherit;
-
-  svg {
-    width: 1em;
-    height: 1em;
-  }
-}
-
-// ─── Glass mode (wrapper 遮罩层) ───
-
-.auron-spin-wrapper--glass {
-  .@{spin-prefix-cls}-blur {
-    &::after {
-      background: @glass-bg-light;
-      box-shadow: @shadow-glass-light;
-      backdrop-filter: blur(20px) saturate(1.2);
-      border-radius: @radius-m;
-      border: 1px solid @glass-border-light;
-      opacity: 0.85;
-    }
-  }
-}
-
-// ─── Dark mode ───
-
-[data-prefers-color='dark'] {
-  .@{spin-prefix-cls} {
-    color: @brand-04;
-
-    &-dot-item {
-      background-color: @brand-04;
-    }
-
-    &-tip {
-      color: @text-color-secondary-dark;
-    }
-
-    &-text {
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 70%);
-    }
-
-    &-container::after {
-      background: @bg-color-container-dark;
-    }
-  }
-
-  .auron-spin-wrapper--glass {
-    .@{spin-prefix-cls}-blur {
-      &::after {
-        background: @glass-bg-dark;
-        box-shadow: @shadow-glass-dark;
-        backdrop-filter: blur(20px) saturate(1);
-        border-color: @glass-border-dark;
-      }
-    }
-  }
-}
-
-// ─── Keyframes ───
-
-@keyframes auron-spin-move {
+@keyframes auron-ant-spin-move {
   to {
     opacity: 1;
   }
 }
 
-@keyframes auron-spin-rotate {
+@keyframes auron-ant-spin-rotate {
   to {
     transform: rotate(360deg);
   }
