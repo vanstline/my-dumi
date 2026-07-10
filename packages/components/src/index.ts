@@ -4,6 +4,7 @@ import './styles/global.less';
 
 export { default as AuronProvider } from './AuronProvider';
 export { default as Background } from './Background';
+export { default as Badge } from './Badge';
 export { default as BorderRadius } from './BorderRadius';
 export { default as Button } from './Button';
 export { default as Card } from './Card';

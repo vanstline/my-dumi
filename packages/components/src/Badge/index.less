@@ -1,0 +1,488 @@
+@import (reference) '../styles/variables.less';
+
+// ═══════════════════════════════════════════════════════════════
+//  Auron Badge
+//  基于 antd v4 badge/style/index-pure.less + ribbon.less 改写
+//  替换规则：
+//  ① 前缀 ant-prefix → auron-ant
+//  ② 颜色变量 → Design Token
+// ═══════════════════════════════════════════════════════════════
+
+@badge-prefix-cls: ~'auron-ant-badge';
+@scroll-number-prefix-cls: ~'auron-ant-scroll-number';
+
+// ─── Badge ───
+
+.@{badge-prefix-cls} {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+
+  &-count {
+    z-index: auto;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 20px;
+    white-space: nowrap;
+    text-align: center;
+    background: @color-error;
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px @bg-color-container;
+
+    a,
+    a:hover {
+      color: #fff;
+    }
+  }
+
+  &-count-sm {
+    min-width: 14px;
+    height: 14px;
+    padding: 0;
+    font-size: 12px;
+    line-height: 14px;
+    border-radius: 7px;
+  }
+
+  &-multiple-words {
+    padding: 0 8px;
+  }
+
+  &-dot {
+    z-index: auto;
+    width: 6px;
+    min-width: 6px;
+    height: 6px;
+    background: @color-error;
+    border-radius: 100%;
+    box-shadow: 0 0 0 1px @bg-color-container;
+  }
+
+  // Resolve https://github.com/ant-design/ant-design/issues/30088
+  &-dot.@{scroll-number-prefix-cls} {
+    transition: background 1.5s;
+  }
+
+  &-count,
+  &-dot,
+  .@{scroll-number-prefix-cls}-custom-component {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    transform-origin: 100% 0%;
+
+    &.anticon-spin {
+      animation: auron-ant-badge-loading-circle 1s infinite linear;
+    }
+  }
+
+  &-status {
+    line-height: inherit;
+    vertical-align: baseline;
+
+    &-dot {
+      position: relative;
+      top: -1px;
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      vertical-align: middle;
+      border-radius: 50%;
+    }
+
+    &-success {
+      background-color: @color-success;
+    }
+
+    &-processing {
+      position: relative;
+      background-color: @color-primary;
+
+      &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid @color-primary;
+        border-radius: 50%;
+        animation: auron-ant-status-processing 1.2s infinite ease-in-out;
+        content: '';
+      }
+    }
+
+    &-default {
+      background-color: @border-color;
+    }
+
+    &-error {
+      background-color: @color-error;
+    }
+
+    &-warning {
+      background-color: @color-warning;
+    }
+
+    // 预设色
+    &-red {
+      background: #f5222d;
+    }
+
+    &-volcano {
+      background: #fa541c;
+    }
+
+    &-orange {
+      background: #fa8c16;
+    }
+
+    &-gold {
+      background: #faad14;
+    }
+
+    &-yellow {
+      background: #fadb14;
+    }
+
+    &-lime {
+      background: #a0d911;
+    }
+
+    &-green {
+      background: #52c41a;
+    }
+
+    &-cyan {
+      background: #13c2c2;
+    }
+
+    &-blue {
+      background: #1890ff;
+    }
+
+    &-geekblue {
+      background: #2f4554;
+    }
+
+    &-purple {
+      background: #722ed1;
+    }
+
+    &-magenta {
+      background: #eb2f96;
+    }
+
+    &-pink {
+      background: #eb2f96;
+    }
+
+    &-text {
+      margin-left: 8px;
+      color: @text-color;
+      font-size: 14px;
+    }
+  }
+
+  // Zoom
+  &-zoom-appear,
+  &-zoom-enter {
+    animation: auron-ant-zoom-badge-in 0.3s cubic-bezier(0.71, 1.71, 0.47, 1.44);
+    animation-fill-mode: both;
+  }
+
+  &-zoom-leave {
+    animation: auron-ant-zoom-badge-out 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+    animation-fill-mode: both;
+  }
+
+  &-not-a-wrapper {
+    .@{badge-prefix-cls}-zoom-appear,
+    .@{badge-prefix-cls}-zoom-enter {
+      animation: auron-ant-no-wrapper-zoom-badge-in 0.3s
+        cubic-bezier(0.71, 1.71, 0.47, 1.44);
+    }
+
+    .@{badge-prefix-cls}-zoom-leave {
+      animation: auron-ant-no-wrapper-zoom-badge-out 0.3s
+        cubic-bezier(0.76, 0, 0.24, 1);
+    }
+
+    &:not(.@{badge-prefix-cls}-status) {
+      vertical-align: middle;
+    }
+
+    .@{scroll-number-prefix-cls}-custom-component,
+    .@{badge-prefix-cls}-count {
+      transform: none;
+    }
+
+    .@{scroll-number-prefix-cls}-custom-component,
+    .@{scroll-number-prefix-cls} {
+      position: relative;
+      top: auto;
+      display: block;
+      transform-origin: 50% 50%;
+    }
+  }
+}
+
+// ─── ScrollNumber ───
+
+.@{scroll-number-prefix-cls} {
+  overflow: hidden;
+  direction: ltr;
+
+  &-only {
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    > p.@{scroll-number-prefix-cls}-only-unit {
+      height: 20px;
+      margin: 0;
+    }
+  }
+
+  &-symbol {
+    vertical-align: top;
+  }
+}
+
+// ─── Keyframes ───
+
+@keyframes auron-ant-status-processing {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@keyframes auron-ant-zoom-badge-in {
+  0% {
+    transform: scale(0) translate(50%, -50%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1) translate(50%, -50%);
+  }
+}
+
+@keyframes auron-ant-zoom-badge-out {
+  0% {
+    transform: scale(1) translate(50%, -50%);
+  }
+
+  100% {
+    transform: scale(0) translate(50%, -50%);
+    opacity: 0;
+  }
+}
+
+@keyframes auron-ant-no-wrapper-zoom-badge-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes auron-ant-no-wrapper-zoom-badge-out {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes auron-ant-badge-loading-circle {
+  0% {
+    transform-origin: 50%;
+  }
+
+  100% {
+    transform: translate(50%, -50%) rotate(360deg);
+    transform-origin: 50%;
+  }
+}
+
+// ─── Ribbon ───
+
+@ribbon-prefix-cls: ~'auron-ant-ribbon';
+@ribbon-wrapper-prefix-cls: ~'auron-ant-ribbon-wrapper';
+
+.@{ribbon-wrapper-prefix-cls} {
+  position: relative;
+}
+
+.@{ribbon-prefix-cls} {
+  position: absolute;
+  top: 8px;
+  height: 22px;
+  padding: 0 8px;
+  font-size: 14px;
+  line-height: 22px;
+  white-space: nowrap;
+  background-color: @color-primary;
+  border-radius: 2px;
+
+  &-text {
+    color: #fff;
+  }
+
+  &-corner {
+    position: absolute;
+    top: 100%;
+    width: 8px;
+    height: 8px;
+    color: currentcolor;
+    border: 4px solid;
+    transform: scaleY(0.75);
+    transform-origin: top;
+
+    &::after {
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      width: inherit;
+      height: inherit;
+      color: rgba(0, 0, 0, 25%);
+      border: inherit;
+      content: '';
+    }
+  }
+
+  // 预设色
+  &-color-pink {
+    color: #eb2f96;
+    background: #eb2f96;
+  }
+
+  &-color-magenta {
+    color: #eb2f96;
+    background: #eb2f96;
+  }
+
+  &-color-red {
+    color: #f5222d;
+    background: #f5222d;
+  }
+
+  &-color-volcano {
+    color: #fa541c;
+    background: #fa541c;
+  }
+
+  &-color-orange {
+    color: #fa8c16;
+    background: #fa8c16;
+  }
+
+  &-color-gold {
+    color: #faad14;
+    background: #faad14;
+  }
+
+  &-color-yellow {
+    color: #fadb14;
+    background: #fadb14;
+  }
+
+  &-color-lime {
+    color: #a0d911;
+    background: #a0d911;
+  }
+
+  &-color-green {
+    color: #52c41a;
+    background: #52c41a;
+  }
+
+  &-color-cyan {
+    color: #13c2c2;
+    background: #13c2c2;
+  }
+
+  &-color-blue {
+    color: #1890ff;
+    background: #1890ff;
+  }
+
+  &-color-geekblue {
+    color: #2f4554;
+    background: #2f4554;
+  }
+
+  &-color-purple {
+    color: #722ed1;
+    background: #722ed1;
+  }
+
+  // placement
+  &.@{ribbon-prefix-cls}-placement-end {
+    right: -8px;
+    border-bottom-right-radius: 0;
+
+    .@{ribbon-prefix-cls}-corner {
+      right: 0;
+      border-color: currentcolor transparent transparent currentcolor;
+    }
+  }
+
+  &.@{ribbon-prefix-cls}-placement-start {
+    left: -8px;
+    border-bottom-left-radius: 0;
+
+    .@{ribbon-prefix-cls}-corner {
+      left: 0;
+      border-color: currentcolor currentcolor transparent transparent;
+    }
+  }
+}
+
+// ─── 暗色模式 ───
+
+[data-prefers-color='dark'] {
+  .@{badge-prefix-cls}-count {
+    box-shadow: 0 0 0 1px @bg-color-container-dark;
+  }
+
+  .@{badge-prefix-cls}-dot {
+    box-shadow: 0 0 0 1px @bg-color-container-dark;
+  }
+
+  .@{badge-prefix-cls}-status-dot {
+    &.@{badge-prefix-cls}-status-default {
+      background-color: @border-color-dark;
+    }
+
+    &.@{badge-prefix-cls}-status-processing {
+      box-shadow: 0 0 0 1px @bg-color-container-dark;
+
+      &::after {
+        border-color: @color-primary;
+      }
+    }
+  }
+
+  .@{badge-prefix-cls}-status-text {
+    color: @text-color-dark;
+  }
+}
