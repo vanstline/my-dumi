@@ -1,0 +1,881 @@
+@import (reference) '../styles/variables.less';
+
+// ═══════════════════════════════════════════════════════════════
+//  Auron Tabs — 基于 antd v4 tabs/style/index-pure.less 逐行复刻
+//  合并 index-pure + position + card + size + dropdown
+//  替换规则：prefix → auron-ant / 颜色 → Design Token
+// ═══════════════════════════════════════════════════════════════
+
+@tab-prefix-cls: ~'auron-ant-tabs';
+@iconfont-css-prefix: ~'anticon';
+
+// ─── 动画 ───
+@animation-duration-slow: 0.3s;
+@ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+// ─── Tabs 专属变量 ───
+@tabs-card-height: 40px;
+@tabs-card-gutter: 2px;
+@tabs-card-head-background: @bg-color-elevated;
+@tabs-horizontal-padding: @spacing-12 @spacing-md;
+@tabs-horizontal-padding-sm: @spacing-xs @spacing-md;
+@tabs-horizontal-padding-lg: @spacing-md @spacing-md;
+@tabs-card-horizontal-padding: @spacing-xs @spacing-md;
+@tabs-card-horizontal-padding-sm: @spacing-2 @spacing-xs;
+@tabs-card-horizontal-padding-lg: @spacing-xs @spacing-lg;
+@tabs-vertical-padding: @spacing-12 @spacing-lg;
+@tabs-vertical-margin: @spacing-md 0 0 0;
+@tabs-horizontal-margin: 0 0 0 @spacing-xl;
+@tabs-title-font-size: @font-size-sm;
+@tabs-title-font-size-sm: @font-size-sm;
+@tabs-title-font-size-lg: @font-size-md;
+@tabs-bar-margin: 0 0 @spacing-md 0;
+@tabs-ink-bar-color: @color-primary;
+@tabs-hover-color: @color-primary-hover;
+@tabs-active-color: @color-primary-click;
+@tabs-highlight-color: @color-primary;
+@tabs-card-active-color: @color-primary;
+
+// ─── 下拉菜单 ───
+@dropdown-edge-child-vertical-padding: 4px;
+@dropdown-menu-bg: @bg-color-container;
+@dropdown-vertical-padding: 5px;
+@control-padding-horizontal: @spacing-md;
+@dropdown-font-size: @font-size-sm;
+@dropdown-line-height: 1.5715;
+@item-hover-bg: @border-color;
+
+// ─── 通用 antd 缺省变量 ───
+@border-width-base: 1px;
+@border-style-base: solid;
+@border-radius-base: 6px;
+@box-shadow-base: @shadow-md;
+@margin-xs: @spacing-2;
+@margin-sm: @spacing-sm;
+@margin-md: @spacing-md;
+@margin-lg: @spacing-lg;
+@margin-xss: 4px;
+@padding-xs: @spacing-2;
+@padding-lg: @spacing-lg;
+
+@tabs-border-color: rgb(225, 225, 225);
+@tabs-active-bg-color: rgba(49, 156, 255, 0.23);
+@tabs-border-color-dark: rgba(69, 69, 69, 1);
+@tabs-bg-color-dark: rgba(33, 33, 33, 1);
+// ═══════════════════════════════════════════════════════════════
+//  合并总块：index-pure + position + card + size
+// ═══════════════════════════════════════════════════════════════
+
+.@{tab-prefix-cls} {
+  // .reset-component() 内联
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: @text-color;
+  font-size: @font-size-sm;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  list-style: none;
+  font-feature-settings: 'tnum';
+  display: flex;
+
+  // ========================== Navigation ==========================
+  > .@{tab-prefix-cls}-nav,
+  > div > .@{tab-prefix-cls}-nav {
+    position: relative;
+    display: flex;
+    flex: none;
+    align-items: center;
+
+    .@{tab-prefix-cls}-nav-wrap {
+      position: relative;
+      display: inline-block;
+      display: flex;
+      flex: auto;
+      align-self: stretch;
+      overflow: hidden;
+      white-space: nowrap;
+      transform: translate(0); // Fix chrome render bug
+      border: 1px solid @tabs-border-color;
+
+      // >>>>> Ping shadow
+      &::before,
+      &::after {
+        position: absolute;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity @animation-duration-slow;
+        content: '';
+        pointer-events: none;
+      }
+    }
+
+    .@{tab-prefix-cls}-nav-list {
+      position: relative;
+      display: flex;
+      transition: transform @animation-duration-slow;
+    }
+
+    // >>>>>>>> Operations
+    .@{tab-prefix-cls}-nav-operations {
+      display: flex;
+      align-self: stretch;
+
+      &-hidden {
+        position: absolute;
+        visibility: hidden;
+        pointer-events: none;
+      }
+    }
+
+    .@{tab-prefix-cls}-nav-more {
+      position: relative;
+      padding: @tabs-card-horizontal-padding;
+      background: transparent;
+      border: 0;
+
+      &::after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 5px;
+        transform: translateY(100%);
+        content: '';
+      }
+    }
+
+    .@{tab-prefix-cls}-nav-add {
+      min-width: @tabs-card-height;
+      // margin-left: @tabs-card-gutter;
+      padding: 0 @padding-xs;
+      background: @tabs-card-head-background;
+      border: @border-width-base @border-style-base @border-color;
+      // border-radius: @border-radius-base @border-radius-base 0 0;
+      outline: none;
+      cursor: pointer;
+      transition: all @animation-duration-slow @ease-in-out;
+
+      &:hover {
+        color: @tabs-hover-color;
+      }
+
+      &:active,
+      &:focus {
+        color: @tabs-active-color;
+      }
+    }
+  }
+
+  &-extra-content {
+    flex: none;
+  }
+
+  &-centered {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      .@{tab-prefix-cls}-nav-wrap {
+        &:not([class*='@{tab-prefix-cls}-nav-wrap-ping']) {
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  // ============================ InkBar ============================
+  &-ink-bar {
+    position: absolute;
+    background: @tabs-ink-bar-color;
+    pointer-events: none;
+  }
+
+  // ============================= Tabs =============================
+  &-tab {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: @tabs-horizontal-padding;
+    font-size: @tabs-title-font-size;
+    background: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+
+    &-btn,
+    &-remove {
+      &:focus,
+      &:active {
+        color: @tabs-active-color;
+      }
+    }
+
+    &-btn {
+      outline: none;
+      transition: all 0.3s;
+    }
+
+    &-remove {
+      flex: none;
+      margin-right: -@margin-xss;
+      margin-left: @margin-xs;
+      padding-left: @margin-md;
+      color: @text-color-secondary;
+      font-size: @font-size-sm;
+      background: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      transition: all @animation-duration-slow;
+
+      &:hover {
+        color: @text-color;
+      }
+    }
+
+    &:hover {
+      color: @tabs-hover-color;
+    }
+
+    &&-active &-btn {
+      color: @tabs-highlight-color;
+      text-shadow: 0 0 0.25px currentcolor;
+    }
+
+    &&-active &-remove {
+      color: @tabs-highlight-color;
+      text-shadow: 0 0 0.25px currentcolor;
+    }
+
+    &&-disabled {
+      color: @text-color-quaternary;
+      cursor: not-allowed;
+    }
+
+    &&-disabled &-btn,
+    &&-disabled &-remove {
+      &:focus,
+      &:active {
+        color: @text-color-quaternary;
+      }
+    }
+
+    & &-remove .@{iconfont-css-prefix} {
+      margin: 0;
+    }
+
+    .@{iconfont-css-prefix} {
+      margin-right: @margin-sm;
+    }
+
+    // margin: @tabs-horizontal-margin;
+    border-right: 1px solid @tabs-border-color;
+    background-color: @tabs-active-bg-color;
+  }
+
+  // =========================== TabPanes ===========================
+  &-content {
+    position: relative;
+    width: 100%;
+
+    &-holder {
+      flex: auto;
+      min-width: 0;
+      min-height: 0;
+    }
+  }
+
+  &-tabpane {
+    outline: none;
+
+    &-hidden {
+      display: none;
+    }
+  }
+
+  // Motion
+  &-switch {
+    &-appear,
+    &-enter {
+      transition: none;
+
+      &-start {
+        opacity: 0;
+      }
+
+      &-active {
+        opacity: 1;
+        transition: opacity @animation-duration-slow;
+      }
+    }
+
+    &-leave {
+      position: absolute;
+      inset: 0;
+      transition: none;
+
+      &-start {
+        opacity: 1;
+      }
+
+      &-active {
+        opacity: 0;
+        transition: opacity @animation-duration-slow;
+      }
+    }
+  }
+
+  // ========================== Position ==========================
+
+  // Top & Bottom
+  &-top,
+  &-bottom {
+    flex-direction: column;
+
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      margin: @tabs-bar-margin;
+
+      &::before {
+        position: absolute;
+        right: 0;
+        left: 0;
+        border-bottom: @border-width-base @border-style-base @border-color;
+        content: '';
+      }
+
+      // .@{tab-prefix-cls}-ink-bar {
+      //   height: 2px;
+
+      //   &-animated {
+      //     transition: width @animation-duration-slow,
+      //       left @animation-duration-slow, right @animation-duration-slow;
+      //   }
+      // }
+
+      .@{tab-prefix-cls}-nav-wrap {
+        &::before,
+        &::after {
+          top: 0;
+          bottom: 0;
+          width: 30px;
+        }
+
+        &::before {
+          left: 0;
+          box-shadow: inset 10px 0 8px -8px rgba(0, 0, 0, 8%);
+        }
+
+        &::after {
+          right: 0;
+          box-shadow: inset -10px 0 8px -8px rgba(0, 0, 0, 8%);
+        }
+
+        &.@{tab-prefix-cls}-nav-wrap-ping-left::before {
+          opacity: 1;
+        }
+        &.@{tab-prefix-cls}-nav-wrap-ping-right::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &-top {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      &::before {
+        bottom: 0;
+      }
+
+      .@{tab-prefix-cls}-ink-bar {
+        bottom: 0;
+      }
+    }
+  }
+
+  &-bottom {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      order: 1;
+      margin-top: @margin-md;
+      margin-bottom: 0;
+
+      &::before {
+        top: 0;
+      }
+
+      .@{tab-prefix-cls}-ink-bar {
+        top: 0;
+      }
+    }
+
+    > .@{tab-prefix-cls}-content-holder,
+    > div > .@{tab-prefix-cls}-content-holder {
+      order: 0;
+    }
+  }
+
+  // Left & Right
+  &-left,
+  &-right {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      flex-direction: column;
+      min-width: 50px;
+
+      .@{tab-prefix-cls}-tab {
+        padding: @tabs-vertical-padding;
+        text-align: center;
+      }
+
+      .@{tab-prefix-cls}-tab + .@{tab-prefix-cls}-tab {
+        margin: @tabs-vertical-margin;
+      }
+
+      .@{tab-prefix-cls}-nav-wrap {
+        flex-direction: column;
+
+        &::before,
+        &::after {
+          right: 0;
+          left: 0;
+          height: 30px;
+        }
+
+        &::before {
+          top: 0;
+          box-shadow: inset 0 10px 8px -8px rgba(0, 0, 0, 8%);
+        }
+
+        &::after {
+          bottom: 0;
+          box-shadow: inset 0 -10px 8px -8px rgba(0, 0, 0, 8%);
+        }
+
+        &.@{tab-prefix-cls}-nav-wrap-ping-top::before {
+          opacity: 1;
+        }
+        &.@{tab-prefix-cls}-nav-wrap-ping-bottom::after {
+          opacity: 1;
+        }
+      }
+
+      .@{tab-prefix-cls}-ink-bar {
+        width: 2px;
+
+        &-animated {
+          transition: height @animation-duration-slow,
+            top @animation-duration-slow;
+        }
+      }
+
+      .@{tab-prefix-cls}-nav-list,
+      .@{tab-prefix-cls}-nav-operations {
+        flex: 1 0 auto; // fix safari scroll problem
+        flex-direction: column;
+      }
+    }
+  }
+
+  &-left {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      .@{tab-prefix-cls}-ink-bar {
+        right: 0;
+      }
+    }
+
+    > .@{tab-prefix-cls}-content-holder,
+    > div > .@{tab-prefix-cls}-content-holder {
+      margin-left: -@border-width-base;
+      border-left: @border-width-base @border-style-base @border-color;
+
+      > .@{tab-prefix-cls}-content > .@{tab-prefix-cls}-tabpane {
+        padding-left: @padding-lg;
+      }
+    }
+  }
+
+  &-right {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      order: 1;
+
+      .@{tab-prefix-cls}-ink-bar {
+        left: 0;
+      }
+    }
+
+    > .@{tab-prefix-cls}-content-holder,
+    > div > .@{tab-prefix-cls}-content-holder {
+      order: 0;
+      margin-right: -@border-width-base;
+      border-right: @border-width-base @border-style-base @border-color;
+
+      > .@{tab-prefix-cls}-content > .@{tab-prefix-cls}-tabpane {
+        padding-right: @padding-lg;
+      }
+    }
+  }
+
+  // ========================== Card ==========================
+  &&-card {
+    // > .@{tab-prefix-cls}-nav,
+    // > div > .@{tab-prefix-cls}-nav {
+    //   .@{tab-prefix-cls}-tab {
+    //     margin: 0;
+    //     padding: @tabs-card-horizontal-padding;
+    //     background: @tabs-card-head-background;
+    //     border: @border-width-base @border-style-base @border-color;
+    //     transition: all @animation-duration-slow @ease-in-out;
+
+    //     &-active {
+    //       color: @tabs-card-active-color;
+    //       background: @bg-color-container;
+    //     }
+    //   }
+
+    //   .@{tab-prefix-cls}-ink-bar {
+    //     visibility: hidden;
+    //   }
+    // }
+
+    // Top & Bottom
+    // &.@{tab-prefix-cls}-top,
+    // &.@{tab-prefix-cls}-bottom {
+    //   > .@{tab-prefix-cls}-nav,
+    //   > div > .@{tab-prefix-cls}-nav {
+    //     .@{tab-prefix-cls}-tab + .@{tab-prefix-cls}-tab {
+    //       margin-left: @tabs-card-gutter;
+    //     }
+    //   }
+    // }
+
+    // &.@{tab-prefix-cls}-top {
+    //   > .@{tab-prefix-cls}-nav,
+    //   > div > .@{tab-prefix-cls}-nav {
+    //     .@{tab-prefix-cls}-tab {
+    //       border-radius: @border-radius-base @border-radius-base 0 0;
+
+    //       &-active {
+    //         border-bottom-color: @bg-color-container;
+    //       }
+    //     }
+    //   }
+    // }
+
+    // &.@{tab-prefix-cls}-bottom {
+    //   > .@{tab-prefix-cls}-nav,
+    //   > div > .@{tab-prefix-cls}-nav {
+    //     .@{tab-prefix-cls}-tab {
+    //       border-radius: 0 0 @border-radius-base @border-radius-base;
+
+    //       &-active {
+    //         border-top-color: @bg-color-container;
+    //       }
+    //     }
+    //   }
+    // }
+
+    // Left & Right
+    // &.@{tab-prefix-cls}-left,
+    // &.@{tab-prefix-cls}-right {
+    //   > .@{tab-prefix-cls}-nav,
+    //   > div > .@{tab-prefix-cls}-nav {
+    //     .@{tab-prefix-cls}-tab + .@{tab-prefix-cls}-tab {
+    //       margin-top: @tabs-card-gutter;
+    //     }
+    //   }
+    // }
+
+    // &.@{tab-prefix-cls}-left {
+    //   > .@{tab-prefix-cls}-nav,
+    //   > div > .@{tab-prefix-cls}-nav {
+    //     .@{tab-prefix-cls}-tab {
+    //       border-radius: @border-radius-base 0 0 @border-radius-base;
+
+    //       &-active {
+    //         border-right-color: @bg-color-container;
+    //       }
+    //     }
+    //   }
+    // }
+
+    // &.@{tab-prefix-cls}-right {
+    //   > .@{tab-prefix-cls}-nav,
+    //   > div > .@{tab-prefix-cls}-nav {
+    //     .@{tab-prefix-cls}-tab {
+    //       border-radius: 0 @border-radius-base @border-radius-base 0;
+
+    //       &-active {
+    //         border-left-color: @bg-color-container;
+    //       }
+    //     }
+    //   }
+    // }
+  }
+
+  // ========================== Size ==========================
+  &-small {
+    > .@{tab-prefix-cls}-nav {
+      .@{tab-prefix-cls}-tab {
+        padding: @tabs-horizontal-padding-sm;
+        font-size: @tabs-title-font-size-sm;
+      }
+    }
+
+    .@{tab-prefix-cls}-nav-add {
+      margin-left: 0;
+    }
+
+    &.@{tab-prefix-cls}-card {
+      > .@{tab-prefix-cls}-nav,
+      > div > .@{tab-prefix-cls}-nav {
+        .@{tab-prefix-cls}-tab {
+          padding: @tabs-card-horizontal-padding-sm;
+        }
+      }
+    }
+  }
+
+  &-large {
+    > .@{tab-prefix-cls}-nav {
+      .@{tab-prefix-cls}-tab {
+        padding: @tabs-horizontal-padding-lg;
+        font-size: @tabs-title-font-size-lg;
+      }
+    }
+
+    &.@{tab-prefix-cls}-card {
+      > .@{tab-prefix-cls}-nav,
+      > div > .@{tab-prefix-cls}-nav {
+        .@{tab-prefix-cls}-tab {
+          padding: @tabs-card-horizontal-padding-lg;
+        }
+      }
+    }
+  }
+}
+
+// ──────────────────────────────────────────────────────────────
+//  dropdown.less
+// ──────────────────────────────────────────────────────────────
+
+.@{tab-prefix-cls}-dropdown {
+  // .reset-component() 内联
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: @text-color;
+  font-size: @font-size-sm;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  list-style: none;
+  font-feature-settings: 'tnum';
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  z-index: @z-index-dropdown;
+  display: block;
+
+  &-hidden {
+    display: none;
+  }
+
+  &-menu {
+    max-height: 200px;
+    margin: 0;
+    padding: @dropdown-edge-child-vertical-padding 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: left;
+    list-style-type: none;
+    background-color: @dropdown-menu-bg;
+    background-clip: padding-box;
+    border-radius: @border-radius-base;
+    outline: none;
+    box-shadow: @box-shadow-base;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      min-width: 120px;
+      margin: 0;
+      padding: @dropdown-vertical-padding @control-padding-horizontal;
+      overflow: hidden;
+      color: @text-color;
+      font-weight: normal;
+      font-size: @dropdown-font-size;
+      line-height: @dropdown-line-height;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      > span {
+        flex: 1;
+        white-space: nowrap;
+      }
+
+      &-remove {
+        flex: none;
+        margin-left: @margin-sm;
+        color: @text-color-secondary;
+        font-size: @font-size-sm;
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+
+        &:hover {
+          color: @tabs-hover-color;
+        }
+      }
+
+      &:hover {
+        background: @item-hover-bg;
+      }
+
+      &-disabled {
+        &,
+        &:hover {
+          color: @text-color-quaternary;
+          background: transparent;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+
+// ──────────────────────────────────────────────────────────────
+//  Dark mode
+// ──────────────────────────────────────────────────────────────
+
+[data-prefers-color='dark'] {
+  .@{tab-prefix-cls} {
+    color: @text-color-dark;
+
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      &::before {
+        border-bottom-color: @border-color-dark;
+      }
+    }
+
+    .@{tab-prefix-cls}-nav-wrap {
+      border: 1px solid @tabs-border-color-dark;
+    }
+
+    &-ink-bar {
+      background: @color-primary;
+    }
+
+    &-tab {
+      color: @text-color-secondary-dark;
+      border-right: 1px solid @tabs-border-color-dark;
+      background-color: @tabs-bg-color-dark;
+
+      &:hover {
+        color: @color-primary-hover;
+      }
+
+      &&-active &-btn {
+        color: @color-primary;
+      }
+
+      &&-disabled {
+        color: @text-color-quaternary-dark;
+      }
+
+      &&-disabled &-btn,
+      &&-disabled &-remove {
+        &:focus,
+        &:active {
+          color: @text-color-quaternary-dark;
+        }
+      }
+
+      &-remove {
+        color: @text-color-secondary-dark;
+
+        &:hover {
+          color: @text-color-dark;
+        }
+      }
+    }
+
+    &-nav-add {
+      background-color: @tabs-bg-color-dark !important;
+      border-right-color: @tabs-border-color-dark !important;
+    }
+
+    &-tab + &-tab {
+      color: @text-color-secondary-dark;
+    }
+
+    &-dropdown-menu {
+      background-color: @bg-color-container-dark;
+      box-shadow: @shadow-glass-dark;
+
+      &-item {
+        color: @text-color-dark;
+
+        &:hover {
+          background: @border-color-dark;
+        }
+
+        &-disabled {
+          &,
+          &:hover {
+            color: @text-color-quaternary-dark;
+          }
+        }
+      }
+    }
+
+    // card dark
+    &&-card {
+      // > .@{tab-prefix-cls}-nav,
+      // > div > .@{tab-prefix-cls}-nav {
+      //   .@{tab-prefix-cls}-tab {
+      //     background: @bg-color-elevated-dark;
+      //     border-color: @border-color-dark;
+
+      //     &-active {
+      //       color: @color-primary;
+      //       background: @bg-color-container-dark;
+      //       border-bottom-color: @bg-color-container-dark;
+      //     }
+      //   }
+      // }
+
+      // &.@{tab-prefix-cls}-top {
+      //   > .@{tab-prefix-cls}-nav,
+      //   > div > .@{tab-prefix-cls}-nav {
+      //     .@{tab-prefix-cls}-tab-active {
+      //       border-bottom-color: @bg-color-container-dark;
+      //     }
+      //   }
+      // }
+    }
+
+    // position dark
+    &-top,
+    &-bottom {
+      > .@{tab-prefix-cls}-nav,
+      > div > .@{tab-prefix-cls}-nav {
+        &::before {
+          border-bottom-color: @border-color-dark;
+        }
+      }
+    }
+
+    &-left,
+    &-right {
+      > .@{tab-prefix-cls}-content-holder,
+      > div > .@{tab-prefix-cls}-content-holder {
+        border-color: @border-color-dark;
+      }
+    }
+  }
+}

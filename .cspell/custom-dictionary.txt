@@ -3,6 +3,8 @@ anticon
 auron
 disp
 geekblue
+iconfont
 nums
 rgba
 stylelint
+tabpane
