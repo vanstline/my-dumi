@@ -217,9 +217,9 @@ export default () => {
 };
 ```
 
-## 玻璃外壳
+## 无边框模式
 
-通过 `className` + 自定义 `<style>` 为 Tabs 内容区添加 Glass 效果：
+通过 `border={false}` 移除导航栏和标签项的边框，恢复经典的 ink-bar 指示器样式。
 
 ```tsx
 import { Tabs } from '@my-dumi/components';
@@ -228,42 +228,25 @@ import React from 'react';
 const { TabPane } = Tabs;
 
 export default () => (
-  <div>
-    <Tabs defaultActiveKey="1" className="auron-tabs-glass">
-      <TabPane tab="Glass-A" key="1">
-        <div style={{ padding: 16 }}>
-          <p>这里是带玻璃外壳的内容区。</p>
-          <p>通过 className + 内联 style 实现。</p>
-        </div>
-      </TabPane>
-      <TabPane tab="Glass-B" key="2">
-        <div style={{ padding: 16 }}>内容 2</div>
-      </TabPane>
-      <TabPane tab="Glass-C" key="3">
-        <div style={{ padding: 16 }}>内容 3</div>
-      </TabPane>
-    </Tabs>
-    <style>{`
-      .auron-tabs-glass .auron-ant-tabs-content-holder {
-        background: rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(16px) saturate(1.2);
-        border-radius: 0 0 12px 12px;
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        border-top: none;
-      }
-    `}</style>
-  </div>
+  <Tabs defaultActiveKey="1" border={false}>
+    <TabPane tab="Tab 1" key="1">
+      Content of Tab Pane 1
+    </TabPane>
+    <TabPane tab="Tab 2" key="2">
+      Content of Tab Pane 2
+    </TabPane>
+    <TabPane tab="Tab 3" key="3">
+      Content of Tab Pane 3
+    </TabPane>
+  </Tabs>
 );
 ```
-
-## 暗色模式
-
-配合 `data-prefers-color="dark"` 自动适配暗色主题。
 
 ## API
 
 | 属性             | 说明                               | 类型                                     | 默认值      |
 | ---------------- | ---------------------------------- | ---------------------------------------- | ----------- |
+| border           | 是否显示导航栏和标签项边框         | `boolean`                                | `true`      |
 | type             | 标签页样式                         | `'line' \| 'card' \| 'editable-card'`    | `'line'`    |
 | tabPosition      | 标签页位置                         | `'top' \| 'bottom' \| 'left' \| 'right'` | `'top'`     |
 | size             | 尺寸                               | `'large' \| 'default' \| 'small'`        | `'default'` |

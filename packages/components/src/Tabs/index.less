@@ -655,6 +655,35 @@
       }
     }
   }
+  // ========================== Borderless ==========================
+  &-borderless {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      .@{tab-prefix-cls}-nav-wrap {
+        border: none;
+      }
+    }
+
+    .@{tab-prefix-cls}-tab {
+      background: transparent;
+      border-right: none;
+    }
+
+    &.@{tab-prefix-cls}-top,
+    &.@{tab-prefix-cls}-bottom {
+      > .@{tab-prefix-cls}-nav,
+      > div > .@{tab-prefix-cls}-nav {
+        .@{tab-prefix-cls}-ink-bar {
+          height: 2px;
+
+          &-animated {
+            transition: width @animation-duration-slow,
+              left @animation-duration-slow, right @animation-duration-slow;
+          }
+        }
+      }
+    }
+  }
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -875,6 +904,18 @@
       > .@{tab-prefix-cls}-content-holder,
       > div > .@{tab-prefix-cls}-content-holder {
         border-color: @border-color-dark;
+      }
+    }
+
+    // borderless dark
+    &-borderless {
+      .@{tab-prefix-cls}-nav-wrap {
+        border: none;
+      }
+
+      .@{tab-prefix-cls}-tab {
+        background: transparent;
+        border-right: none;
       }
     }
   }

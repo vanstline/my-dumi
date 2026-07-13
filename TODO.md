@@ -100,7 +100,7 @@
 
 ### P1 — 基础容器型（内容区做 Glass 效果直观）
 
-- [x] **Tabs** ✅ — 完全透传 antd v4 Tabs，逐行复刻样式，无自定义扩展
+- [x] **Tabs** ✅ — 完全透传 antd v4 Tabs，逐行复刻样式；新增 `border?: boolean`（默认 `true`）控制是否显示导航栏与标签项边框，`border={false}` 时恢复 ink-bar 指示器
 - [ ] **Pagination** — 分页器（纯展示 + 点击，Glass 外壳视觉明显）
 - [ ] **Segmented** — 分段控件（按钮组可选 `glass`）
 
