@@ -114,7 +114,7 @@
 ### P3 — 导航与全局状态
 
 - [ ] **Menu / NavMenu** — 导航菜单（展开面板强制 Glass）
-- [ ] **Message / Toast** — 全局提示（消息卡片强制 Glass，需全局挂载 + 队列）
+- [x] **Message / Toast** ✅ — 全局提示（消息卡片强制 Glass，已初始化 prefixCls）
 
 ### P4 — 收尾
 
