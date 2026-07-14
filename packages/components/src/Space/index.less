@@ -43,3 +43,23 @@
     font-family: 'SF Mono', Consolas, monospace;
   }
 }
+
+[data-prefers-color='dark'] {
+  .auron-space {
+    &-desc {
+      color: @text-color-secondary-dark;
+    }
+
+    &-name {
+      color: @text-color-dark;
+    }
+
+    &-row {
+      border-bottom-color: @border-color-dark;
+    }
+
+    &-value {
+      color: @text-color-secondary-dark;
+    }
+  }
+}

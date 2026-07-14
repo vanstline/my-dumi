@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './index.less';
 
 export interface SpaceItem {
@@ -9,11 +10,27 @@ export interface SpaceItem {
 }
 
 export interface SpaceProps {
-  /** 间距列表 */
+  /** 间距大小 */
+  size?: number | 'small' | 'middle' | 'large';
+  /** 排列方向 */
+  direction?: 'horizontal' | 'vertical';
+  /** 是否自动换行 */
+  wrap?: boolean;
+  /** 对齐方式 */
+  align?: 'start' | 'end' | 'center' | 'baseline';
+  /** 子节点（有 children 时表现为布局容器，无 children 时展示间距 Token） */
+  children?: React.ReactNode;
+  /** 间距列表（仅在无 children 时生效） */
   items?: SpaceItem[];
-  /** 是否显示可视化条 */
+  /** 是否显示可视化条（仅在无 children 时生效） */
   visual?: boolean;
 }
+
+const gapMap: Record<string, number> = {
+  small: 8,
+  middle: 16,
+  large: 24,
+};
 
 // ─── 预设间距 ───
 export const defaultSpaces: SpaceItem[] = [
@@ -32,12 +49,44 @@ export const defaultSpaces: SpaceItem[] = [
 ];
 
 /**
- * 间距 Token 展示组件
+ * Space 间距组件
+ * - 传入 children 时：渲染 flex 布局间隙容器（类似 antd Space）
+ * - 不传 children 时：渲染间距 Token 展示（design token 文档用）
  */
 const Space: React.FC<SpaceProps> = ({
+  size = 8,
+  direction = 'horizontal',
+  wrap = false,
+  align,
+  children,
   items = defaultSpaces,
   visual = true,
 }) => {
+  // 布局容器模式
+  if (children !== undefined) {
+    const gap = typeof size === 'number' ? size : gapMap[size] || 8;
+    const flexWrap = wrap ? 'wrap' : 'nowrap';
+    const flexDir = direction === 'vertical' ? 'column' : 'row';
+    const alignItems =
+      align || (direction === 'horizontal' ? 'center' : undefined);
+
+    return (
+      <div
+        className="auron-space-container"
+        style={{
+          display: 'flex',
+          gap,
+          flexDirection: flexDir as 'row' | 'column',
+          flexWrap: flexWrap as 'wrap' | 'nowrap',
+          alignItems,
+        }}
+      >
+        {children}
+      </div>
+    );
+  }
+
+  // Token 展示模式
   return (
     <div className="auron-space">
       <p className="auron-space-desc">
