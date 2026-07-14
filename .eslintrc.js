@@ -32,7 +32,6 @@ module.exports = {
           'internal',
           ['parent', 'sibling', 'index'],
           'object',
-          'type',
           'unknown',
         ],
         pathGroups: [
@@ -46,12 +45,12 @@ module.exports = {
           },
           {
             pattern: '*/**/*.less',
-            group: 'type',
+            group: 'parent',
             position: 'after',
           },
           {
             pattern: '*/**/*.css',
-            group: 'type',
+            group: 'parent',
             position: 'after',
           },
           {
