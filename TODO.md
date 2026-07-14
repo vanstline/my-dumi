@@ -109,7 +109,7 @@
 - [x] **Tooltip** ✅ — 文字提示（`glass` CSS glass 效果，12 向 placement，预设色，暗色适配）
 - [x] **Popover** ✅ — 气泡卡片（基于 Tooltip，glass 模式，预设色，暗色适配）
 - [x] **Modal** ✅ — 弹窗（`glass` + 暗色主题；默认 footer 用 Auron Button 替换并自动注入 `glass`；静态方法注入 `prefixCls`；Modal.confirm 命令式层重写待 Icon 组件后继续）
-- [x] **Drawer** — 侧边抽屉（glass + 暗色主题），复用 Modal 已验证的 mask/portal/动画 逻辑
+- [x] **Drawer** ✅ — 侧边抽屉（glass + 暗色主题），复用 Modal 已验证的 mask/portal/动画 逻辑
 
 ### P3 — 导航与全局状态
 
