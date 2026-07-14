@@ -11,6 +11,7 @@ export { default as Card } from './Card';
 export { default as Checkbox } from './Checkbox';
 export { default as Color } from './Color';
 export { default as Divider } from './Divider';
+export { default as Drawer } from './Drawer';
 export { default as Font } from './Font';
 export { default as Grid } from './Grid';
 export { default as Icon } from './Icon';

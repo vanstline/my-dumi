@@ -1,0 +1,420 @@
+@import (reference) '../styles/variables.less';
+
+@drawer-prefix-cls: ~'auron-ant-drawer';
+
+// ═══════════════════════════════════════════════════════════════
+//  Auron Drawer — 复刻 antd v4 drawer/style/drawer.less
+//  颜色全部替换为 Design Token，前缀改为 auron-ant-drawer
+// ═══════════════════════════════════════════════════════════════
+
+.@{drawer-prefix-cls} {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: @z-index-drawer;
+  pointer-events: none;
+
+  &-inline {
+    position: absolute;
+  }
+
+  // ====================== Mask ======================
+  &-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: @z-index-drawer;
+    background: rgba(0, 0, 0, 6%);
+    pointer-events: auto;
+  }
+
+  // ==================== Content =====================
+  &-content-wrapper {
+    position: absolute;
+    z-index: @z-index-drawer;
+    transition: all 0.3s;
+
+    &-hidden {
+      display: none;
+    }
+
+    // Placement
+    .@{drawer-prefix-cls}-left > & {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      box-shadow: @shadow-lg;
+    }
+
+    .@{drawer-prefix-cls}-right > & {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      box-shadow: @shadow-lg;
+    }
+
+    .@{drawer-prefix-cls}-top > & {
+      top: 0;
+      right: 0;
+      left: 0;
+      box-shadow: @shadow-lg;
+    }
+
+    .@{drawer-prefix-cls}-bottom > & {
+      right: 0;
+      bottom: 0;
+      left: 0;
+      box-shadow: @shadow-lg;
+    }
+  }
+
+  &-content {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: @bg-color-container;
+    pointer-events: auto;
+  }
+
+  // ===================== Panel ======================
+  &-wrapper-body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+
+  // Header
+  &-header {
+    display: flex;
+    flex: 0;
+    align-items: center;
+    padding: @spacing-md @spacing-lg;
+    font-size: @font-size-md;
+    line-height: 1.4;
+    border-bottom: 1px solid @border-color;
+
+    &-title {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      min-width: 0;
+      min-height: 0;
+    }
+  }
+
+  &-extra {
+    flex: none;
+  }
+
+  &-close {
+    display: inline-block;
+    margin-right: 12px;
+    padding-right: 12px;
+    color: @text-color-tertiary;
+    font-weight: 700;
+    font-size: @font-size-lg;
+    font-style: normal;
+    line-height: 1;
+    text-align: center;
+    text-transform: none;
+    text-decoration: none;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: color 0.3s;
+    text-rendering: auto;
+
+    &:focus,
+    &:hover {
+      color: @text-color;
+      text-decoration: none;
+    }
+  }
+
+  &-title {
+    flex: 1;
+    margin: 0;
+    color: @text-color;
+    font-weight: 500;
+    font-size: @font-size-md;
+    line-height: 1.4;
+  }
+
+  // Body
+  &-body {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    padding: @spacing-md @spacing-lg;
+    overflow: auto;
+  }
+
+  // Footer
+  &-footer {
+    flex-shrink: 0;
+    padding: @spacing-sm @spacing-md;
+    border-top: 1px solid @border-color;
+    text-align: right;
+
+    // 兼容 glass 模式下按钮被 LiquidGlass wrapper 隔开
+    > * + * {
+      margin-left: 8px;
+    }
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  Glass 模式
+// ═══════════════════════════════════════════════════════════════
+
+.auron-drawer--glass .@{drawer-prefix-cls} {
+  &-content {
+    background: @glass-bg-light;
+    box-shadow: @shadow-glass-light;
+    backdrop-filter: blur(20px) saturate(1.2);
+    border: 1px solid @glass-border-light;
+  }
+
+  &-header {
+    background: transparent;
+    border-bottom-color: rgba(255, 255, 255, 20%);
+  }
+
+  &-body {
+    color: @text-color;
+  }
+
+  &-footer {
+    background: transparent;
+    border-top-color: rgba(255, 255, 255, 20%);
+  }
+
+  &-close {
+    color: @text-color-tertiary;
+
+    &:hover {
+      color: @text-color;
+    }
+  }
+
+  &-title {
+    color: @text-color;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  Dark 模式
+// ═══════════════════════════════════════════════════════════════
+
+[data-prefers-color='dark'] {
+  .@{drawer-prefix-cls} {
+    &-content {
+      background: @bg-color-container-dark;
+    }
+
+    &-header {
+      background: @bg-color-container-dark;
+      border-bottom-color: @border-color-dark;
+    }
+
+    &-title {
+      color: @text-color-dark;
+    }
+
+    &-body {
+      color: @text-color-dark;
+    }
+
+    &-footer {
+      background: @bg-color-container-dark;
+      border-top-color: @border-color-dark;
+    }
+
+    &-close {
+      color: @text-color-quaternary-dark;
+
+      &:hover {
+        color: @text-color-dark;
+      }
+    }
+  }
+
+  // Dark + glass
+  .auron-drawer--glass .@{drawer-prefix-cls} {
+    &-content {
+      background: @glass-bg-dark;
+      box-shadow: @shadow-glass-dark;
+      backdrop-filter: blur(20px) saturate(1);
+      border-color: @glass-border-dark;
+    }
+
+    &-header {
+      background: transparent;
+      border-bottom-color: rgba(255, 255, 255, 10%);
+    }
+
+    &-body {
+      color: @text-color-dark;
+    }
+
+    &-footer {
+      background: transparent;
+      border-top-color: rgba(255, 255, 255, 10%);
+    }
+
+    &-close {
+      color: @text-color-quaternary-dark;
+
+      &:hover {
+        color: @text-color-dark;
+      }
+    }
+
+    &-title {
+      color: @text-color-dark;
+    }
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  独立动画（自闭环，不依赖 antd/dist/antd.css）
+//  复刻 antd v4 drawer/style/motion.less
+// ═══════════════════════════════════════════════════════════════
+
+// ─── Mask motion ───
+.@{drawer-prefix-cls}-mask-motion-enter,
+.@{drawer-prefix-cls}-mask-motion-appear {
+  opacity: 0;
+}
+
+.@{drawer-prefix-cls}-mask-motion-enter-active,
+.@{drawer-prefix-cls}-mask-motion-appear-active {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.@{drawer-prefix-cls}-mask-motion-leave {
+  opacity: 1;
+}
+
+.@{drawer-prefix-cls}-mask-motion-leave-active {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+// ─── Panel motion mixin ───
+.panel-motion() {
+  &-enter,
+  &-appear,
+  &-leave {
+    &-start {
+      transition: none;
+    }
+
+    &-active {
+      transition: all 0.3s;
+    }
+  }
+}
+
+// ─── Panel motion — Left ───
+.@{drawer-prefix-cls}-panel-motion-left {
+  .panel-motion();
+
+  &-enter,
+  &-appear {
+    &-start {
+      transform: translateX(-100%) !important;
+    }
+
+    &-active {
+      transform: translateX(0);
+    }
+  }
+
+  &-leave {
+    transform: translateX(0);
+
+    &-active {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+// ─── Panel motion — Right ───
+.@{drawer-prefix-cls}-panel-motion-right {
+  .panel-motion();
+
+  &-enter,
+  &-appear {
+    &-start {
+      transform: translateX(100%) !important;
+    }
+
+    &-active {
+      transform: translateX(0);
+    }
+  }
+
+  &-leave {
+    transform: translateX(0);
+
+    &-active {
+      transform: translateX(100%);
+    }
+  }
+}
+
+// ─── Panel motion — Top ───
+.@{drawer-prefix-cls}-panel-motion-top {
+  .panel-motion();
+
+  &-enter,
+  &-appear {
+    &-start {
+      transform: translateY(-100%) !important;
+    }
+
+    &-active {
+      transform: translateY(0);
+    }
+  }
+
+  &-leave {
+    transform: translateY(0);
+
+    &-active {
+      transform: translateY(-100%);
+    }
+  }
+}
+
+// ─── Panel motion — Bottom ───
+.@{drawer-prefix-cls}-panel-motion-bottom {
+  .panel-motion();
+
+  &-enter,
+  &-appear {
+    &-start {
+      transform: translateY(100%) !important;
+    }
+
+    &-active {
+      transform: translateY(0);
+    }
+  }
+
+  &-leave {
+    transform: translateY(0);
+
+    &-active {
+      transform: translateY(100%);
+    }
+  }
+}

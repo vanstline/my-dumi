@@ -1,13 +1,12 @@
 import React from 'react';
 
 import { Modal as AntModal } from 'antd';
-
-import Button from '../Button';
-
 import type {
   ModalProps as AntModalProps,
   ModalFuncProps,
 } from 'antd/es/modal';
+
+import Button from '../Button';
 
 import './index.less';
 

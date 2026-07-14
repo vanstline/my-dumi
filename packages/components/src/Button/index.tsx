@@ -1,11 +1,10 @@
 import React from 'react';
 
 import { Button as AntButton } from 'antd';
+import type { ButtonProps as AntButtonProps } from 'antd/es/button';
 
 import AuronConfigWrapper from '../_internal/AuronConfigWrapper';
 import GlassContainer from '../_internal/GlassContainer';
-
-import type { ButtonProps as AntButtonProps } from 'antd/es/button';
 
 import './index.less';
 
@@ -44,8 +43,9 @@ const Button: React.FC<ButtonProps> = ({
   const typeClass = typeMap[type as string] || '';
   const sizeClass = sizeMap[size as string] || '';
   const glassClass = glass ? 'auron-btn--glass' : '';
+  const ghostClass = (rest as any).ghost ? 'auron-btn--ghost' : '';
   const combinedClass =
-    `auron-btn ${typeClass} ${sizeClass} ${glassClass} ${className}`.trim();
+    `auron-btn ${typeClass} ${sizeClass} ${ghostClass} ${glassClass} ${className}`.trim();
 
   const btn = (
     <AntButton {...rest} type={type} size={size} className={combinedClass}>

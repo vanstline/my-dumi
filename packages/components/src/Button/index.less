@@ -85,6 +85,47 @@
       background: @color-primary;
       border-color: @color-primary;
       opacity: 0.5;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background: @color-primary;
+        border-color: @color-primary;
+      }
+    }
+  }
+
+  // ─── Danger ───
+  &&.auron-btn--danger {
+    color: @color-error;
+    border-color: @color-error;
+
+    &:hover,
+    &:focus {
+      color: #fff;
+      background: @color-error-hover;
+      border-color: @color-error-hover;
+    }
+
+    &:active {
+      color: #fff;
+      background: @color-error-click;
+      border-color: @color-error-click;
+    }
+
+    &&-disabled,
+    &[disabled] {
+      color: @color-error;
+      border-color: @color-error;
+      opacity: 0.5;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: @color-error;
+        background: transparent;
+        border-color: @color-error;
+      }
     }
   }
 
@@ -93,11 +134,173 @@
     border-style: dashed;
   }
 
+  // ─── Link ───
+  &&.auron-btn--link {
+    color: @color-primary;
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+
+    &:hover,
+    &:focus {
+      color: @color-primary-hover;
+      background: transparent;
+      border-color: transparent;
+    }
+
+    &:active {
+      color: @color-primary-click;
+      background: transparent;
+      border-color: transparent;
+    }
+
+    &&-disabled,
+    &[disabled] {
+      color: @text-color-quaternary;
+      background: transparent;
+      border-color: transparent;
+      cursor: not-allowed;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: @text-color-quaternary;
+        background: transparent;
+        border-color: transparent;
+      }
+    }
+  }
+
+  // ─── Text ───
+  &&.auron-btn--text {
+    color: @text-color;
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+
+    &:hover,
+    &:focus {
+      color: @text-color;
+      background: rgba(0, 0, 0, 5%);
+      border-color: transparent;
+    }
+
+    &:active {
+      color: @text-color;
+      background: rgba(0, 0, 0, 10%);
+      border-color: transparent;
+    }
+
+    &&-disabled,
+    &[disabled] {
+      color: @text-color-quaternary;
+      background: transparent;
+      border-color: transparent;
+      cursor: not-allowed;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: @text-color-quaternary;
+        background: transparent;
+        border-color: transparent;
+      }
+    }
+  }
+
+  // ─── Ghost ───
+  // ghost 模式：透明背景，反色文字/边框
+  &&.auron-btn--ghost {
+    color: #fff;
+    background: transparent;
+    border-color: rgba(255, 255, 255, 55%);
+
+    &:hover,
+    &:focus {
+      color: @color-primary;
+      border-color: @color-primary-hover;
+    }
+
+    &:active {
+      color: @color-primary-click;
+      border-color: @color-primary-click;
+    }
+
+    &.auron-btn--primary {
+      color: @color-primary;
+      background: transparent;
+      border-color: @color-primary;
+
+      &:hover,
+      &:focus {
+        color: @color-primary-hover;
+        border-color: @color-primary-hover;
+      }
+
+      &:active {
+        color: @color-primary-click;
+        border-color: @color-primary-click;
+      }
+
+      &&-disabled,
+      &[disabled] {
+        color: rgba(255, 255, 255, 50%);
+        background: transparent;
+        border-color: rgba(255, 255, 255, 50%);
+      }
+    }
+
+    &.auron-btn--danger {
+      color: @color-error;
+      background: transparent;
+      border-color: @color-error;
+
+      &:hover,
+      &:focus {
+        color: @color-error-hover;
+        border-color: @color-error-hover;
+      }
+
+      &:active {
+        color: @color-error-click;
+        border-color: @color-error-click;
+      }
+
+      &&-disabled,
+      &[disabled] {
+        color: rgba(255, 255, 255, 50%);
+        background: transparent;
+        border-color: rgba(255, 255, 255, 50%);
+      }
+    }
+
+    &.auron-btn--link,
+    &.auron-btn--text {
+      color: #fff;
+      border-color: transparent;
+
+      &:hover,
+      &:focus {
+        background: rgba(255, 255, 255, 8%);
+      }
+
+      &:active {
+        background: rgba(255, 255, 255, 15%);
+      }
+
+      &&-disabled,
+      &[disabled] {
+        color: rgba(255, 255, 255, 30%);
+        background: transparent;
+        border-color: transparent;
+      }
+    }
+  }
+
   // ─── Glass Mode ───
   // 外层已有 LiquidGlass 容器提供折射/高光/阴影。
   // 内部按钮自身无边框无实体背景，但 hover/active 仍需视觉反馈。
   &&.auron-btn--glass {
-    background: transparent !important;
     border: none !important;
     color: #fff;
     box-shadow: none !important;
@@ -107,33 +310,99 @@
 
     &:hover,
     &:focus {
-      background: rgba(255, 255, 255, 10%) !important;
       color: #fff;
       text-shadow: 0 0 8px rgba(255, 255, 255, 60%);
     }
 
     &:active {
-      background: rgba(255, 255, 255, 20%) !important;
       color: rgba(255, 255, 255, 90%);
       transform: scale(0.97);
     }
 
-    &&-disabled,
-    &[disabled] {
+    // default、link、text、dashed + glass: 透明底
+    &:not(.auron-btn--primary):not(.auron-btn--danger) {
       background: transparent !important;
-      border: none !important;
-      color: rgba(255, 255, 255, 50%);
-      box-shadow: none !important;
-      transform: none;
 
       &:hover,
-      &:focus,
+      &:focus {
+        background: rgba(255, 255, 255, 10%) !important;
+      }
+
       &:active {
+        background: rgba(255, 255, 255, 20%) !important;
+      }
+
+      &&-disabled,
+      &[disabled] {
         background: transparent !important;
-        border: none !important;
         color: rgba(255, 255, 255, 50%);
-        box-shadow: none !important;
         transform: none;
+
+        &:hover,
+        &:focus,
+        &:active {
+          background: transparent !important;
+          color: rgba(255, 255, 255, 50%);
+          transform: none;
+        }
+      }
+    }
+
+    // primary + glass
+    &.auron-btn--primary {
+      background: rgba(49, 156, 255, 60%) !important;
+
+      &:hover,
+      &:focus {
+        background: rgba(90, 176, 255, 80%) !important;
+      }
+
+      &:active {
+        background: rgba(40, 124, 224, 80%) !important;
+      }
+
+      &&-disabled,
+      &[disabled] {
+        background: rgba(49, 156, 255, 40%) !important;
+        color: rgba(255, 255, 255, 60%);
+        transform: none;
+
+        &:hover,
+        &:focus,
+        &:active {
+          background: rgba(49, 156, 255, 40%) !important;
+          color: rgba(255, 255, 255, 60%);
+          transform: none;
+        }
+      }
+    }
+
+    // danger + glass
+    &.auron-btn--danger {
+      background: rgba(245, 63, 63, 60%) !important;
+
+      &:hover,
+      &:focus {
+        background: rgba(247, 101, 101, 80%) !important;
+      }
+
+      &:active {
+        background: rgba(216, 51, 51, 80%) !important;
+      }
+
+      &&-disabled,
+      &[disabled] {
+        background: rgba(245, 63, 63, 40%) !important;
+        color: rgba(255, 255, 255, 60%);
+        transform: none;
+
+        &:hover,
+        &:focus,
+        &:active {
+          background: rgba(245, 63, 63, 40%) !important;
+          color: rgba(255, 255, 255, 60%);
+          transform: none;
+        }
       }
     }
   }
@@ -206,6 +475,140 @@
       }
     }
 
+    &&.auron-btn--danger {
+      color: @color-error;
+      border-color: @color-error;
+
+      &:hover,
+      &:focus {
+        color: #fff;
+        background: @color-error-hover;
+        border-color: @color-error-hover;
+      }
+
+      &:active {
+        color: #fff;
+        background: @color-error-click;
+        border-color: @color-error-click;
+      }
+
+      &&-disabled,
+      &[disabled] {
+        color: @color-error;
+        background: transparent;
+        border-color: @color-error;
+      }
+    }
+
+    // ─── Link ───
+    &&.auron-btn--link {
+      color: @color-primary;
+      background: transparent;
+      border-color: transparent;
+
+      &:hover,
+      &:focus {
+        color: @color-primary-hover;
+        background: transparent;
+        border-color: transparent;
+      }
+
+      &:active {
+        color: @color-primary-click;
+        background: transparent;
+        border-color: transparent;
+      }
+
+      &&-disabled,
+      &[disabled] {
+        color: @text-color-quaternary-dark;
+        background: transparent;
+        border-color: transparent;
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: @text-color-quaternary-dark;
+          background: transparent;
+          border-color: transparent;
+        }
+      }
+    }
+
+    // ─── Text ───
+    &&.auron-btn--text {
+      color: @text-color-dark;
+      background: transparent;
+      border-color: transparent;
+
+      &:hover,
+      &:focus {
+        background: rgba(255, 255, 255, 8%);
+      }
+
+      &:active {
+        background: rgba(255, 255, 255, 15%);
+      }
+
+      &&-disabled,
+      &[disabled] {
+        color: @text-color-quaternary-dark;
+        background: transparent;
+        border-color: transparent;
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: @text-color-quaternary-dark;
+          background: transparent;
+          border-color: transparent;
+        }
+      }
+    }
+
+    // ─── Ghost ───
+    &&.auron-btn--ghost {
+      color: #fff;
+      background: transparent;
+      border-color: rgba(255, 255, 255, 55%);
+
+      &:hover,
+      &:focus {
+        color: @color-primary;
+        border-color: @color-primary-hover;
+      }
+
+      &:active {
+        color: @color-primary-click;
+        border-color: @color-primary-click;
+      }
+
+      &.auron-btn--primary {
+        color: @color-primary;
+        background: transparent;
+        border-color: @color-primary;
+      }
+
+      &.auron-btn--danger {
+        color: @color-error;
+        background: transparent;
+        border-color: @color-error;
+      }
+
+      &.auron-btn--link,
+      &.auron-btn--text {
+        color: #fff;
+        border-color: transparent;
+      }
+
+      &&-disabled,
+      &[disabled] {
+        color: rgba(255, 255, 255, 30%);
+        background: transparent;
+        border-color: rgba(255, 255, 255, 30%);
+      }
+    }
+
     // ─── 暗色 Glass Mode ───
     &&.auron-btn--glass {
       color: @text-color-dark;
@@ -213,19 +616,103 @@
 
       &:hover,
       &:focus {
-        background: rgba(255, 255, 255, 8%) !important;
         color: #fff;
         text-shadow: 0 0 8px rgba(255, 255, 255, 80%);
       }
 
       &:active {
-        background: rgba(255, 255, 255, 15%) !important;
         color: rgba(255, 255, 255, 95%);
       }
 
-      &&-disabled,
-      &[disabled] {
-        color: rgba(255, 255, 255, 30%);
+      // default + glass
+      &:not(.auron-btn--primary):not(.auron-btn--danger) {
+        background: transparent !important;
+
+        &:hover,
+        &:focus {
+          background: rgba(255, 255, 255, 8%) !important;
+        }
+
+        &:active {
+          background: rgba(255, 255, 255, 15%) !important;
+        }
+
+        &&-disabled,
+        &[disabled] {
+          background: transparent !important;
+          color: rgba(255, 255, 255, 30%);
+          transform: none;
+
+          &:hover,
+          &:focus,
+          &:active {
+            background: transparent !important;
+            color: rgba(255, 255, 255, 30%);
+            transform: none;
+          }
+        }
+      }
+
+      // primary + glass
+      &.auron-btn--primary {
+        background: rgba(49, 156, 255, 60%) !important;
+        color: #fff;
+        text-shadow: none;
+
+        &:hover,
+        &:focus {
+          background: rgba(90, 176, 255, 80%) !important;
+        }
+
+        &:active {
+          background: rgba(40, 124, 224, 80%) !important;
+        }
+
+        &&-disabled,
+        &[disabled] {
+          background: rgba(49, 156, 255, 40%) !important;
+          color: rgba(255, 255, 255, 60%);
+          transform: none;
+
+          &:hover,
+          &:focus,
+          &:active {
+            background: rgba(49, 156, 255, 40%) !important;
+            color: rgba(255, 255, 255, 60%);
+            transform: none;
+          }
+        }
+      }
+
+      // danger + glass
+      &.auron-btn--danger {
+        background: rgba(245, 63, 63, 60%) !important;
+        color: #fff;
+        text-shadow: none;
+
+        &:hover,
+        &:focus {
+          background: rgba(247, 101, 101, 80%) !important;
+        }
+
+        &:active {
+          background: rgba(216, 51, 51, 80%) !important;
+        }
+
+        &&-disabled,
+        &[disabled] {
+          background: rgba(245, 63, 63, 40%) !important;
+          color: rgba(255, 255, 255, 60%);
+          transform: none;
+
+          &:hover,
+          &:focus,
+          &:active {
+            background: rgba(245, 63, 63, 40%) !important;
+            color: rgba(255, 255, 255, 60%);
+            transform: none;
+          }
+        }
       }
     }
   }

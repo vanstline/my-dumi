@@ -104,10 +104,10 @@ nav:
 
 > 这些组件默认或强制使用 `LiquidGlass` 作为视觉容器
 
-- [ ] **Tabs** — 选项卡（Tab 内容区或整体可选 Glass）
+- [x] **Tabs** ✅ — 完全透传 antd v4 Tabs，逐行复刻样式；新增 `border?: boolean`（默认 `true`）控制是否显示导航栏与标签项边框，`border={false}` 时恢复 ink-bar 指示器
 - [ ] **Menu / NavMenu** — 导航菜单（展开面板强制 Glass）
-- [ ] **Modal** — 弹窗（内容区强制 wrap Glass）
-- [ ] **Drawer** — 抽屉（侧边变体，内容区强制 Glass）
+- [x] **Modal** ✅ — 弹窗（`glass` + 暗色主题；默认 footer 用 Auron Button 替换并自动注入 `glass`；静态方法注入 `prefixCls`；Modal.confirm 命令式层重写待 Icon 组件后继续）
+- [x] **Drawer** ✅ — 侧边抽屉（glass + 暗色主题），复用 Modal 已验证的 mask/portal/动画 逻辑
 - [x] **Popover** ✅ — 气泡卡片（`glass` 纯 CSS backdrop-filter；12 向 placement；暗色适配）
 - [x] **Tooltip** ✅ — 文字提示（`glass` 纯 CSS backdrop-filter；预设色；暗色适配）
 - [ ] **Message / Toast** — 全局提示（消息卡片强制 Glass）
