@@ -1,0 +1,172 @@
+@import (reference) '../styles/variables.less';
+
+@message-prefix-cls: ~'auron-ant-message';
+
+// ═══════════════════════════════════════════════════════════════
+//  Auron Message — 复刻 antd v4 message/style/index-pure.less
+//  颜色替换为 Design Token，消息卡片强制 Glass
+// ═══════════════════════════════════════════════════════════════
+
+.@{message-prefix-cls} {
+  position: fixed;
+  top: 8px;
+  left: 0;
+  z-index: @z-index-message;
+  width: 100%;
+  pointer-events: none;
+
+  &-notice {
+    padding: @spacing-sm;
+    text-align: center;
+  }
+
+  &-notice-content {
+    display: inline-block;
+    padding: 10px 16px;
+    pointer-events: all;
+    // Glass 效果（强制）
+    background: @glass-bg-light;
+    border: 1px solid @glass-border-light;
+    border-radius: @radius-xl;
+    box-shadow: @shadow-glass-light;
+    backdrop-filter: blur(20px) saturate(1.2);
+  }
+
+  // ─── 类型图标色 ───
+  &-success .anticon {
+    color: @color-success;
+  }
+
+  &-error .anticon {
+    color: @color-error;
+  }
+
+  &-warning .anticon {
+    color: @color-warning;
+  }
+
+  &-info .anticon,
+  &-loading .anticon {
+    color: @color-primary;
+  }
+
+  // anticon 图标定位
+  .anticon {
+    position: relative;
+    top: 1px;
+    margin-right: 8px;
+    font-size: @font-size-lg;
+  }
+}
+
+// ─── 文字色 ───
+.@{message-prefix-cls}-custom-content span {
+  color: @text-color;
+}
+
+// ─── Dark 模式 ───
+[data-prefers-color='dark'] {
+  .@{message-prefix-cls}-notice-content {
+    background: @glass-bg-dark;
+    border-color: @glass-border-dark;
+    box-shadow: @shadow-glass-dark;
+    backdrop-filter: blur(20px) saturate(1);
+  }
+
+  .@{message-prefix-cls}-custom-content span {
+    color: @text-color-dark;
+  }
+
+  .@{message-prefix-cls}-success .anticon {
+    color: @color-success;
+  }
+
+  .@{message-prefix-cls}-error .anticon {
+    color: @color-error;
+  }
+
+  .@{message-prefix-cls}-warning .anticon {
+    color: @color-warning;
+  }
+
+  .@{message-prefix-cls}-info .anticon,
+  .@{message-prefix-cls}-loading .anticon {
+    color: @color-primary;
+  }
+}
+
+// ─── 进入/离开动画（rc-notification move-up） ───
+.auron-ant-move-up-enter,
+.auron-ant-move-up-appear {
+  opacity: 0;
+  animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+
+.auron-ant-move-up-enter-active,
+.auron-ant-move-up-appear-active {
+  animation-name: auron-ant-move-up-in;
+  animation-play-state: running;
+}
+
+.auron-ant-move-up-leave {
+  animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+
+.auron-ant-move-up-leave-active {
+  animation-name: auron-ant-move-up-out;
+  animation-play-state: running;
+}
+
+// Message 离开特效（收缩）
+.@{message-prefix-cls}-notice.auron-ant-move-up-leave.auron-ant-move-up-leave-active {
+  animation-name: auron-ant-message-move-out;
+  animation-duration: 0.3s;
+}
+
+@keyframes auron-ant-move-up-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+    transform-origin: 0 0;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    transform-origin: 0 0;
+  }
+}
+
+@keyframes auron-ant-move-up-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+    transform-origin: 0 0;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+    transform-origin: 0 0;
+  }
+}
+
+@keyframes auron-ant-message-move-out {
+  0% {
+    max-height: 150px;
+    padding: 8px;
+    opacity: 1;
+  }
+
+  100% {
+    max-height: 0;
+    padding: 0;
+    opacity: 0;
+  }
+}
