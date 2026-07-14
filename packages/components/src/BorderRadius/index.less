@@ -42,3 +42,25 @@
     opacity: 0.8;
   }
 }
+
+// ─── Dark 模式 ───
+[data-prefers-color='dark'] {
+  .auron-border-radius {
+    th {
+      color: @text-color-tertiary-dark;
+    }
+
+    td {
+      color: @text-color-dark;
+    }
+
+    th,
+    td {
+      border-bottom-color: @border-color-dark;
+    }
+
+    .auron-radius-value {
+      color: @text-color-secondary-dark;
+    }
+  }
+}

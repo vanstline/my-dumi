@@ -68,3 +68,45 @@
     }
   }
 }
+
+// ─── Dark 模式 ───
+[data-prefers-color='dark'] {
+  .auron-font {
+    &-section-title {
+      color: @text-color-dark;
+    }
+
+    &-row {
+      border-bottom-color: @border-color-dark;
+    }
+
+    &-name {
+      color: @text-color-secondary-dark;
+    }
+
+    &-meta {
+      color: @text-color-tertiary-dark;
+    }
+
+    &-sample {
+      color: @text-color-dark;
+    }
+
+    &-family {
+      border-color: @border-color-dark;
+      background: @bg-color-container-dark;
+
+      &-name {
+        color: @text-color-secondary-dark;
+      }
+
+      &-value {
+        color: @text-color-tertiary-dark;
+      }
+
+      &-sample {
+        color: @text-color-dark;
+      }
+    }
+  }
+}

@@ -65,3 +65,29 @@
     }
   }
 }
+
+// ─── Dark 模式 ───
+[data-prefers-color='dark'] {
+  .auron-background {
+    &-card {
+      border-color: @border-color-dark;
+
+      &-light {
+        border-right-color: @border-color-dark;
+      }
+
+      &-info {
+        background: @bg-color-container-dark;
+        border-top-color: @border-color-dark;
+      }
+
+      &-name {
+        color: @text-color-dark;
+      }
+
+      &-desc {
+        color: @text-color-tertiary-dark;
+      }
+    }
+  }
+}
