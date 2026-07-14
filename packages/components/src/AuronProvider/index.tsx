@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { ConfigProvider } from 'antd';
-
 import type { ConfigProviderProps } from 'antd/es/config-provider';
 
 export type AuronProviderProps = RemovePrefixCls;

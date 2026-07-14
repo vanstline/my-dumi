@@ -1,13 +1,12 @@
 import React from 'react';
 
 import { Radio as AntRadio } from 'antd';
-
-import AuronConfigWrapper from '../_internal/AuronConfigWrapper';
-
 import type {
   RadioProps as AntRadioProps,
   RadioGroupProps,
 } from 'antd/es/radio';
+
+import AuronConfigWrapper from '../_internal/AuronConfigWrapper';
 
 import './index.less';
 

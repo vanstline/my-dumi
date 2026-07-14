@@ -1,10 +1,9 @@
 import React from 'react';
 
 import { Tabs as AntTabs } from 'antd';
+import type { TabsProps as AntTabsProps, TabPaneProps } from 'antd/es/tabs';
 
 import AuronConfigWrapper from '../_internal/AuronConfigWrapper';
-
-import type { TabsProps as AntTabsProps, TabPaneProps } from 'antd/es/tabs';
 
 import './index.less';
 

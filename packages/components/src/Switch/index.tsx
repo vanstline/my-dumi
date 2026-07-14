@@ -1,11 +1,10 @@
 import React from 'react';
 
 import { Switch as AntSwitch } from 'antd';
+import type { SwitchProps as AntSwitchProps } from 'antd/es/switch';
 
 import AuronConfigWrapper from '../_internal/AuronConfigWrapper';
 import GlassContainer from '../_internal/GlassContainer';
-
-import type { SwitchProps as AntSwitchProps } from 'antd/es/switch';
 
 import './index.less';
 

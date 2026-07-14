@@ -1,10 +1,9 @@
 import React from 'react';
 
 import { Spin as AntSpin } from 'antd';
+import type { SpinProps as AntSpinProps } from 'antd/es/spin';
 
 import AuronConfigWrapper from '../_internal/AuronConfigWrapper';
-
-import type { SpinProps as AntSpinProps } from 'antd/es/spin';
 
 import './index.less';
 

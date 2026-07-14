@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { icons } from 'lucide-react';
-
 import type { LucideIcon } from 'lucide-react';
+import { icons } from 'lucide-react';
 
 export interface IconProps {
   /** 图标名称，与 lucide-react 组件名一致 */

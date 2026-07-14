@@ -1,11 +1,10 @@
 import React from 'react';
 
 import { Badge as AntBadge } from 'antd';
-
-import AuronConfigWrapper from '../_internal/AuronConfigWrapper';
-
 import type { BadgeProps as AntBadgeProps } from 'antd/es/badge';
 import type { RibbonProps as AntRibbonProps } from 'antd/es/badge/Ribbon';
+
+import AuronConfigWrapper from '../_internal/AuronConfigWrapper';
 
 import './index.less';
 

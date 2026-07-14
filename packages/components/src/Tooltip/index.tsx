@@ -1,10 +1,9 @@
 import React from 'react';
 
 import { Tooltip as AntTooltip } from 'antd';
+import type { TooltipProps as AntTooltipProps } from 'antd/es/tooltip';
 
 import AuronConfigWrapper from '../_internal/AuronConfigWrapper';
-
-import type { TooltipProps as AntTooltipProps } from 'antd/es/tooltip';
 
 import './index.less';
 

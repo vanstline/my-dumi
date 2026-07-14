@@ -1,10 +1,9 @@
 import React from 'react';
 
 import { Popover as AntPopover } from 'antd';
+import type { PopoverProps as AntPopoverProps } from 'antd/es/popover';
 
 import AuronConfigWrapper from '../_internal/AuronConfigWrapper';
-
-import type { PopoverProps as AntPopoverProps } from 'antd/es/popover';
 
 import './index.less';
 

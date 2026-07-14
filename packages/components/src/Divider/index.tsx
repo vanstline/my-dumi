@@ -1,10 +1,9 @@
 import React from 'react';
 
 import { Divider as AntDivider } from 'antd';
+import type { DividerProps as AntDividerProps } from 'antd/es/divider';
 
 import AuronConfigWrapper from '../_internal/AuronConfigWrapper';
-
-import type { DividerProps as AntDividerProps } from 'antd/es/divider';
 
 import './index.less';
 

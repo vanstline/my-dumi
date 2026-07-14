@@ -1,11 +1,10 @@
 import React from 'react';
 
 import { Card as AntCard } from 'antd';
+import type { CardProps as AntCardProps } from 'antd/es/card';
 
 import AuronConfigWrapper from '../_internal/AuronConfigWrapper';
 import GlassContainer from '../_internal/GlassContainer';
-
-import type { CardProps as AntCardProps } from 'antd/es/card';
 
 import './index.less';
 

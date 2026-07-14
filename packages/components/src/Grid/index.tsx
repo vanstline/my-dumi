@@ -1,13 +1,12 @@
 import React from 'react';
 
 import { Col as AntCol, Row as AntRow } from 'antd';
-
-import AuronConfigWrapper from '../_internal/AuronConfigWrapper';
-
 import type {
   ColProps as AntColProps,
   RowProps as AntRowProps,
 } from 'antd/es/grid';
+
+import AuronConfigWrapper from '../_internal/AuronConfigWrapper';
 
 import './index.less';
 

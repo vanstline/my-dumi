@@ -1,13 +1,12 @@
 import React from 'react';
 
 import { Checkbox as AntCheckbox } from 'antd';
-
-import AuronConfigWrapper from '../_internal/AuronConfigWrapper';
-
 import type {
   CheckboxProps as AntCheckboxProps,
   CheckboxGroupProps,
 } from 'antd/es/checkbox';
+
+import AuronConfigWrapper from '../_internal/AuronConfigWrapper';
 
 import './index.less';
 
