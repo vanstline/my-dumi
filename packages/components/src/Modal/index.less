@@ -1,0 +1,421 @@
+@import (reference) '../styles/variables.less';
+
+@modal-prefix-cls: ~'auron-ant-modal';
+@confirm-prefix-cls: ~'@{modal-prefix-cls}-confirm';
+
+// ═══════════════════════════════════════════════════════════════
+//  Auron Modal — 复刻 antd v4 modal/style/modal.less
+//  颜色全部替换为 Design Token，前缀改为 auron-ant-modal
+// ═══════════════════════════════════════════════════════════════
+
+.@{modal-prefix-cls} {
+  position: relative;
+  top: 100px;
+  width: auto;
+  max-width: calc(100vw - 32px);
+  margin: 0 auto;
+  padding-bottom: @spacing-lg;
+
+  &-wrap {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: @z-index-modal;
+    overflow: auto;
+    outline: 0;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: @z-index-modal;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 6%);
+
+    &-hidden {
+      display: none;
+    }
+  }
+
+  &-title {
+    margin: 0;
+    color: @text-color;
+    font-weight: 500;
+    font-size: @font-size-lg;
+    line-height: 1.4;
+    word-wrap: break-word;
+  }
+
+  &-content {
+    position: relative;
+    background-color: @bg-color-container;
+    background-clip: padding-box;
+    border: 0;
+    border-radius: @radius-xs;
+    box-shadow: @shadow-lg;
+    pointer-events: auto;
+  }
+
+  &-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: @z-index-modal + 1;
+    padding: 0;
+    color: @text-color-tertiary;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &-x {
+      display: block;
+      width: @spacing-40;
+      height: @spacing-40;
+      font-size: @font-size-lg;
+      font-style: normal;
+      line-height: @spacing-40;
+      text-align: center;
+      text-transform: none;
+      text-rendering: auto;
+    }
+
+    &:focus,
+    &:hover {
+      color: @text-color;
+      text-decoration: none;
+    }
+  }
+
+  &-header {
+    padding: @spacing-md @spacing-lg;
+    color: @text-color;
+    background: @bg-color-container;
+    border-bottom: 1px solid @border-color;
+    border-radius: @radius-xs @radius-xs 0 0;
+  }
+
+  &-body {
+    padding: @spacing-md @spacing-lg;
+    font-size: @font-size-sm;
+    line-height: 1.5715;
+    word-wrap: break-word;
+  }
+
+  &-footer {
+    padding: @spacing-sm @spacing-md;
+    text-align: right;
+    background: @bg-color-container;
+    border-top: 1px solid @border-color;
+    border-radius: 0 0 @radius-xs @radius-xs;
+
+    // 兼容 antd 原生按钮（当用户手动传 footer 时可能用到）
+    .auron-ant-btn + .auron-ant-btn {
+      margin-bottom: 0;
+      margin-left: 8px;
+    }
+
+    // Auron Button 默认 footer 的间距
+    .auron-btn + .auron-btn {
+      margin-bottom: 0;
+      margin-left: 8px;
+    }
+
+    // 兼容 glass 模式下按钮被 LiquidGlass wrapper 隔开
+    > * + * {
+      margin-left: 8px;
+    }
+  }
+
+  &-open {
+    overflow: hidden;
+  }
+}
+
+// ─── centered ───
+.@{modal-prefix-cls}-centered {
+  text-align: center;
+
+  &::before {
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+    content: '';
+  }
+
+  .@{modal-prefix-cls} {
+    top: 0;
+    display: inline-block;
+    padding-bottom: 0;
+    text-align: left;
+    vertical-align: middle;
+  }
+}
+
+// ─── confirm ───
+.@{confirm-prefix-cls} {
+  .@{modal-prefix-cls}-header {
+    display: none;
+  }
+
+  .@{modal-prefix-cls}-body {
+    padding: @spacing-lg @spacing-xl;
+  }
+
+  &-body-wrapper {
+    &::after {
+      display: block;
+      clear: both;
+      content: '';
+    }
+  }
+
+  &-body {
+    .@{confirm-prefix-cls}-title {
+      display: block;
+      overflow: hidden;
+      color: @text-color;
+      font-weight: 500;
+      font-size: @font-size-md;
+      line-height: 1.4;
+    }
+
+    .@{confirm-prefix-cls}-content {
+      margin-top: @spacing-sm;
+      color: @text-color-secondary;
+      font-size: @font-size-sm;
+    }
+
+    > .anticon {
+      float: left;
+      margin-right: @spacing-md;
+      font-size: 22px;
+
+      + .@{confirm-prefix-cls}-title + .@{confirm-prefix-cls}-content {
+        margin-left: 38px;
+      }
+    }
+  }
+
+  .@{confirm-prefix-cls}-btns {
+    margin-top: @spacing-lg;
+    text-align: right;
+
+    .auron-ant-btn + .auron-ant-btn {
+      margin-bottom: 0;
+      margin-left: 8px;
+    }
+  }
+
+  &-error &-body > .anticon {
+    color: @color-error;
+  }
+
+  &-warning &-body > .anticon,
+  &-confirm &-body > .anticon {
+    color: @color-warning;
+  }
+
+  &-info &-body > .anticon {
+    color: @color-primary;
+  }
+
+  &-success &-body > .anticon {
+    color: @color-success;
+  }
+
+  .auron-modal-zoom-leave .@{confirm-prefix-cls}-btns {
+    pointer-events: none;
+  }
+}
+
+// ─── mobile ───
+@media (max-width: 767px) {
+  .@{modal-prefix-cls} {
+    max-width: calc(100vw - 16px);
+    margin: 8px auto;
+  }
+
+  .@{modal-prefix-cls}-centered {
+    .@{modal-prefix-cls} {
+      flex: 1;
+    }
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  Glass 模式
+// ═══════════════════════════════════════════════════════════════
+
+.auron-modal--glass .@{modal-prefix-cls} {
+  &-content {
+    background: @glass-bg-light;
+    box-shadow: @shadow-glass-light;
+    backdrop-filter: blur(20px) saturate(1.2);
+    border: 1px solid @glass-border-light;
+  }
+
+  &-header {
+    background: transparent;
+    border-bottom-color: rgba(255, 255, 255, 20%);
+  }
+
+  &-body {
+    color: @text-color;
+  }
+
+  &-footer {
+    background: transparent;
+    border-top-color: rgba(255, 255, 255, 20%);
+  }
+
+  &-close {
+    color: @text-color-tertiary;
+
+    &:hover {
+      color: @text-color;
+    }
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  Dark 模式
+// ═══════════════════════════════════════════════════════════════
+
+[data-prefers-color='dark'] {
+  .@{modal-prefix-cls} {
+    &-content {
+      background-color: @bg-color-container-dark;
+      box-shadow: @shadow-glass-dark;
+    }
+
+    &-header {
+      background: @bg-color-container-dark;
+      border-bottom-color: @border-color-dark;
+    }
+
+    &-title {
+      color: @text-color-dark;
+    }
+
+    &-body {
+      color: @text-color-dark;
+    }
+
+    &-footer {
+      background: @bg-color-container-dark;
+      border-top-color: @border-color-dark;
+    }
+
+    &-close {
+      color: @text-color-quaternary-dark;
+
+      &:hover {
+        color: @text-color-dark;
+      }
+    }
+  }
+
+  .@{confirm-prefix-cls} {
+    &-body {
+      .@{confirm-prefix-cls}-title {
+        color: @text-color-dark;
+      }
+
+      .@{confirm-prefix-cls}-content {
+        color: @text-color-secondary-dark;
+      }
+    }
+  }
+
+  // Dark + glass
+  .auron-modal--glass .@{modal-prefix-cls} {
+    &-content {
+      background: @glass-bg-dark;
+      box-shadow: @shadow-glass-dark;
+      backdrop-filter: blur(20px) saturate(1);
+      border-color: @glass-border-dark;
+    }
+
+    &-header {
+      background: transparent;
+      border-bottom-color: rgba(255, 255, 255, 10%);
+    }
+
+    &-body {
+      color: @text-color-dark;
+    }
+
+    &-footer {
+      background: transparent;
+      border-top-color: rgba(255, 255, 255, 10%);
+    }
+
+    &-close {
+      color: @text-color-quaternary-dark;
+
+      &:hover {
+        color: @text-color-dark;
+      }
+    }
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  独立动画（自闭环，不依赖 antd/dist/antd.css）
+// ═══════════════════════════════════════════════════════════════
+
+.auron-modal-fade-enter,
+.auron-modal-fade-appear {
+  opacity: 0;
+}
+
+.auron-modal-fade-enter-active,
+.auron-modal-fade-appear-active {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.auron-modal-fade-leave {
+  opacity: 1;
+}
+
+.auron-modal-fade-leave-active {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.auron-modal-zoom-enter,
+.auron-modal-zoom-appear {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.auron-modal-zoom-enter-active,
+.auron-modal-zoom-appear-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.3s, transform 0.3s cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+
+.auron-modal-zoom-leave {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.auron-modal-zoom-leave-active {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s, transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
