@@ -1,0 +1,240 @@
+@import (reference) '../styles/variables.less';
+
+.auron-nav-menu {
+  display: inline-block;
+  width: 54px;
+  padding: 7px;
+  border-radius: 54px;
+  background: transparent;
+  border: 1px solid @glass-border-light;
+  box-shadow: @shadow-glass-light;
+  box-sizing: border-box;
+}
+
+.auron-nav-menu-glass-shell {
+  display: inline-block;
+  width: 54px;
+  border-radius: 54px;
+}
+
+.auron-nav-menu-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.auron-nav-menu-item {
+  position: relative;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: @text-color-secondary;
+  cursor: pointer;
+  transition: color 0.18s ease, background 0.18s ease;
+
+  &:hover {
+    color: @text-color;
+    background: fade(@text-color, 5%);
+  }
+
+  &--selected {
+    color: @color-primary;
+    background: fade(@color-primary, 8%);
+  }
+}
+
+.auron-nav-menu--glass {
+  border: 0;
+  box-shadow: none;
+
+  .auron-nav-menu-item--selected {
+    background: @glass-bg-light;
+    border: 1px solid @glass-border-light;
+    box-shadow: @shadow-glass-light;
+  }
+}
+
+.auron-nav-menu-icon-image {
+  display: block;
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.auron-nav-menu-icon-name {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-size: 11px;
+  line-height: 1;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.auron-nav-menu-icon-placeholder {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border: 1px dashed currentcolor;
+  opacity: 0.65;
+}
+
+.auron-nav-menu-popover {
+  // Popover placement already reserves a small hit area. Keep the visual
+  // gap at 12px while bridging it for reliable hover movement.
+  margin-left: 0;
+  // The panel is visually 12px away, while this transparent bridge keeps
+  // hover continuous between the trigger and the panel.
+  padding-left: 12px;
+  margin-top: -1px;
+  transition: none !important;
+
+  .auron-ant-popover-content,
+  .auron-ant-popover-inner,
+  .auron-ant-popover-inner-content {
+    border-radius: 22px;
+  }
+
+  .auron-ant-popover-content {
+    transform: translateX(-8px);
+  }
+
+  &.auron-nav-menu-popover--glass .auron-ant-popover-inner {
+    background: transparent;
+    box-shadow: none;
+    border: 0;
+  }
+
+  &.auron-nav-menu-popover--glass .auron-ant-popover-arrow {
+    display: none;
+  }
+
+  .auron-ant-popover-inner-content {
+    padding: 0;
+  }
+}
+
+.auron-nav-menu-panel {
+  min-width: 125px;
+  padding: 10px 8px;
+  border-radius: 22px;
+}
+
+.auron-nav-menu-glass-panel {
+  display: inline-block;
+  min-width: 125px;
+  border-radius: 22px;
+}
+
+.auron-nav-menu-panel-label {
+  margin: 0;
+  padding: 4px 12px 2px;
+  color: rgba(0, 0, 0, 40%);
+  font-size: @font-size-sm;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.auron-nav-menu-submenu {
+  min-width: 125px;
+  background: transparent;
+  border: 0;
+
+  &.auron-ant-menu {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    background: transparent;
+    border-inline-end: 0;
+  }
+
+  &.auron-ant-menu-root,
+  &.auron-ant-menu-vertical {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+  }
+
+  ul,
+  li {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .auron-ant-menu-item::after {
+    display: none;
+  }
+
+  .auron-ant-menu-item {
+    height: auto;
+    min-height: 24px;
+    margin: 4px 0;
+    padding: 2px 12px;
+    border-radius: 12px;
+    color: @text-color;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+
+  .auron-ant-menu-item-selected,
+  .auron-ant-menu-item:hover {
+    color: @color-primary;
+    background: fade(@color-primary, 8%);
+  }
+}
+
+[data-prefers-color='dark'] {
+  .auron-nav-menu {
+    border-color: @glass-border-dark;
+    box-shadow: @shadow-glass-dark;
+  }
+
+  .auron-nav-menu-item {
+    color: @text-color-secondary-dark;
+
+    &:hover {
+      color: @text-color-dark;
+      background: fade(#fff, 7%);
+    }
+
+    &--selected {
+      color: @color-primary;
+      background: fade(@color-primary, 15%);
+    }
+  }
+
+  .auron-nav-menu--glass {
+    .auron-nav-menu-item--selected {
+      background: @glass-bg-dark;
+      border-color: @glass-border-dark;
+      box-shadow: @shadow-glass-dark;
+    }
+  }
+
+  .auron-nav-menu-panel-label {
+    color: rgba(255, 255, 255, 55%);
+  }
+
+  .auron-nav-menu-submenu {
+    .auron-ant-menu-item {
+      color: @text-color-dark;
+    }
+
+    .auron-ant-menu-item-selected,
+    .auron-ant-menu-item:hover {
+      color: @color-primary;
+      background: fade(@color-primary, 15%);
+    }
+  }
+}

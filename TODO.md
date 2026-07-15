@@ -113,7 +113,7 @@
 
 ### P3 — 导航与全局状态
 
-- [ ] **Menu / NavMenu** — 导航菜单（展开面板强制 Glass）
+- [x] **Menu / NavMenu** ✅ — 侧边栏图标导航 + 二级浮层；兼容 Ant Design `Menu` 的 `items`、`onClick`、`onSelect`、受控选中态；`glass` 模式使用真实 `LiquidGlass` 并自动跟随主题
 - [x] **Message / Toast** ✅ — 全局提示（消息卡片强制 Glass，已初始化 prefixCls）
 
 ### P4 — 收尾
@@ -168,6 +168,7 @@ packages/components/src/
 
 - `.dumi/global.less` 中 `[data-route^='/designs']` 在 dumi 2.x 已失效，需改用运行时方案（监听路由 + body class）
 - `gen-exports.js` 未生成 `export type { XProps }`，TypeScript 类型导出可能不完整（如需类型导出需单独补充）
+- `NavMenu` 目前只支持两级菜单；构建验证需在兼容项目 lockfile 的 pnpm 环境中执行
 
 ---
 

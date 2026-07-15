@@ -18,6 +18,7 @@ export { default as Icon } from './Icon';
 export { default as Loading } from './Loading';
 export { default as Message } from './Message';
 export { default as Modal } from './Modal';
+export { default as NavMenu } from './NavMenu';
 export { default as Popover } from './Popover';
 export { default as Radio } from './Radio';
 export { default as Space } from './Space';
