@@ -1,0 +1,203 @@
+@import (reference) '../styles/variables.less';
+
+.auron-tag {
+  display: inline-flex;
+  height: 24px;
+  align-items: center;
+  margin: 0 8px 8px 0;
+  padding: 0 8px;
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: @font-size-sm;
+  line-height: 1;
+  vertical-align: middle;
+  white-space: nowrap;
+  box-sizing: border-box;
+
+  > .anticon,
+  > .auron-anticon,
+  > .auron-ant-tag-icon,
+  > svg,
+  > img,
+  > .auron-tag-icon-image,
+  > .auron-tag-icon-name {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+
+  > span {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+  }
+
+  .auron-ant-tag-close-icon {
+    display: inline-flex;
+    width: 14px;
+    height: 14px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+
+  .anticon-close,
+  .auron-anticon-close,
+  .auron-ant-tag-close-icon > svg {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+  }
+}
+
+.auron-tag--filled {
+  color: @text-color;
+  background: fade(@text-color, 6%);
+  border-color: fade(@text-color, 18%);
+}
+
+// Ant Design applies preset color classes; map them to Auron's bordered style.
+.auron-tag--filled.auron-ant-tag-red,
+.auron-tag--filled.auron-tag-color-red,
+.auron-tag--filled.auron-ant-tag-volcano {
+  color: @color-error;
+  background: fade(@color-error, 8%);
+  border-color: fade(@color-error, 55%);
+}
+
+.auron-tag--filled.auron-ant-tag-green,
+.auron-tag--filled.auron-tag-color-green,
+.auron-tag--filled.auron-ant-tag-lime {
+  color: @color-success;
+  background: fade(@color-success, 8%);
+  border-color: fade(@color-success, 55%);
+}
+
+.auron-tag--filled.auron-ant-tag-orange,
+.auron-tag--filled.auron-tag-color-orange,
+.auron-tag--filled.auron-ant-tag-gold,
+.auron-tag--filled.auron-ant-tag-yellow {
+  color: @color-warning;
+  background: fade(@color-warning, 8%);
+  border-color: fade(@color-warning, 55%);
+}
+
+.auron-tag--filled.auron-ant-tag-blue,
+.auron-tag--filled.auron-tag-color-blue,
+.auron-tag--filled.auron-ant-tag-geekblue,
+.auron-tag--filled.auron-ant-tag-cyan {
+  color: @color-primary;
+  background: fade(@color-primary, 8%);
+  border-color: fade(@color-primary, 55%);
+}
+
+.auron-tag--filled.auron-ant-tag-purple,
+.auron-tag--filled.auron-tag-color-purple,
+.auron-tag--filled.auron-ant-tag-magenta {
+  color: @purple-05;
+  background: fade(@purple-05, 8%);
+  border-color: fade(@purple-05, 55%);
+}
+
+.auron-tag--outlined {
+  color: @color-primary;
+  background: transparent;
+  border-color: currentcolor;
+}
+
+.auron-tag--glass {
+  color: @text-color;
+  background: fade(#fff, 18%);
+  border-color: @glass-tag-border-light;
+  backdrop-filter: blur(20px) saturate(1.2);
+}
+
+.auron-tag--liquid {
+  color: @text-color;
+  background: transparent;
+  border-color: transparent;
+}
+
+.auron-tag-glass {
+  display: inline-flex;
+  border-radius: 999px;
+
+  .auron-tag {
+    margin: 0;
+  }
+}
+
+.auron-tag-glass-spacing {
+  display: inline-block;
+  margin: 0 8px 8px 0;
+  vertical-align: middle;
+}
+
+.auron-tag-icon-image {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+.auron-tag-icon-name {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  line-height: 1;
+}
+
+[data-prefers-color='dark'] {
+  .auron-tag--filled {
+    background: fade(#fff, 10%);
+  }
+
+  .auron-tag--outlined {
+    color: @brand-04;
+  }
+
+  .auron-tag--glass {
+    color: @text-color-dark;
+    background: fade(#000, 22%);
+    border-color: @glass-tag-border-dark;
+  }
+}
+
+.auron-tag--liquid.auron-ant-tag-red,
+.auron-tag--liquid.auron-tag-color-red,
+.auron-tag--liquid.auron-ant-tag-volcano {
+  color: @color-error;
+}
+
+.auron-tag--liquid.auron-ant-tag-green,
+.auron-tag--liquid.auron-tag-color-green,
+.auron-tag--liquid.auron-ant-tag-lime {
+  color: @color-success;
+}
+
+.auron-tag--liquid.auron-ant-tag-orange,
+.auron-tag--liquid.auron-tag-color-orange,
+.auron-tag--liquid.auron-ant-tag-gold,
+.auron-tag--liquid.auron-ant-tag-yellow {
+  color: @color-warning;
+}
+
+.auron-tag--liquid.auron-ant-tag-blue,
+.auron-tag--liquid.auron-tag-color-blue,
+.auron-tag--liquid.auron-ant-tag-geekblue,
+.auron-tag--liquid.auron-ant-tag-cyan {
+  color: @color-primary;
+}
+
+.auron-tag--liquid.auron-ant-tag-purple,
+.auron-tag--liquid.auron-tag-color-purple,
+.auron-tag--liquid.auron-ant-tag-magenta {
+  color: @purple-05;
+}
