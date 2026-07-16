@@ -126,8 +126,8 @@
 
 > 根据业务需求优先级逐个推进
 
-- [ ] **List** — 列表（item 可选 Glass）
-- [ ] **Tag** — 标签（颜色变体 + 可关闭，可选 Glass）
+- [ ] **List / Table** — 基于 Ant Design Table 的数据表格（行/单元格视觉与 Glass 适配）
+- [x] **Tag** ✅ — 基于 Ant Design Tag；支持 filled/outlined/glass 变体、图标、可关闭、CheckableTag 和真实 LiquidGlass
 - [ ] **Tree** — 树形控件（递归 + 展开/收起 + 拖拽）
 - [ ] **Steps** — 步骤条（步骤卡片可选 Glass）
 - [ ] **Descriptions** — 描述列表（整体可选 Glass）
@@ -172,7 +172,7 @@ packages/components/src/
 
 ---
 
-## 阶段 5：表单与数据录入（暂缓，阶段 3 完成后推进）
+## 阶段 5：表单与数据录入（当前推进）
 
 > 最复杂的组件批次，依赖 `rc-field-form`、`rc-select` 等底层库做逻辑层，只做视觉层封装
 
