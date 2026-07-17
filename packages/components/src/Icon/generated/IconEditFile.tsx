@@ -1,0 +1,19 @@
+import React from 'react';
+
+export type IconEditFileProps = React.SVGProps<SVGSVGElement>;
+
+const IconEditFile: React.FC<IconEditFileProps> = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    width="24"
+    height="24"
+    {...props}
+    dangerouslySetInnerHTML={{
+      __html:
+        '\n<g id="icon_edit_file">\n<path id="Union" d="M20 7.29297V11L19.5 12L19 11V8H14V3H4V21H9.5L10.5 21.5L9.5 22H3V2H14.707L20 7.29297ZM21.207 16.5L15.707 22H13V19.293L18.5 13.793L21.207 16.5ZM14 19.707V21H15.293L19.793 16.5L18.5 15.207L14 19.707ZM15 7H18.293L15 3.70703V7Z" fill="currentColor" fill-opacity="0.9"/>\n</g>\n',
+    }}
+  />
+);
+
+export default IconEditFile;

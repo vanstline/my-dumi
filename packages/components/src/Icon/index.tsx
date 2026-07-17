@@ -3,24 +3,37 @@ import React from 'react';
 import type { LucideIcon } from 'lucide-react';
 import { icons } from 'lucide-react';
 
-export interface IconProps {
-  /** 图标名称，与 lucide-react 组件名一致 */
-  name: string;
-  /** 图标尺寸 */
+import { builtInIcons, specialIcons } from './registry';
+
+export type IconComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>;
+
+export interface IconProps extends React.HTMLAttributes<HTMLSpanElement> {
+  /** Lucide 图标名称，支持 kebab-case / camelCase / PascalCase */
+  name?: string;
+  /** 直接传入 SVG ReactNode 或 SVG 组件 */
+  component?: React.ReactNode | IconComponent;
+  /** 图标尺寸，默认 24px */
   size?: number;
-  /** 图标颜色 */
+  /** 图标颜色，默认跟随主题 currentcolor */
   color?: string;
-  /** 外部传入自定义 className */
-  className?: string;
-  /** 自定义样式 */
-  style?: React.CSSProperties;
-  /** 点击回调 */
-  onClick?: () => void;
+  strokeWidth?: number;
+  absoluteStrokeWidth?: boolean;
 }
 
-/** 从 lucide-react 按名称获取图标组件。支持 kebab-case / camelCase / PascalCase */
+const registeredIcons: Record<string, React.ReactNode | IconComponent> = {
+  ...builtInIcons,
+  ...specialIcons,
+};
+
+/** 注册项目内置 SVG，之后可通过 <Icon name="xxx" /> 使用。 */
+export function registerIcon(
+  name: string,
+  component: React.ReactNode | IconComponent,
+) {
+  registeredIcons[name] = component;
+}
+
 function getLucideIcon(name: string): LucideIcon | null {
-  // 统一转 PascalCase，兼容 'arrow-up-right' → 'ArrowUpRight'
   const iconName = name
     .split(/[-_]/)
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
@@ -28,27 +41,65 @@ function getLucideIcon(name: string): LucideIcon | null {
   return (icons as Record<string, LucideIcon>)[iconName] || null;
 }
 
+function renderComponent(
+  component: React.ReactNode | IconComponent,
+  props: Record<string, unknown>,
+) {
+  if (React.isValidElement(component))
+    return React.cloneElement(component, props);
+  if (typeof component === 'function') {
+    const Component = component;
+    // @ts-ignore
+    return <Component {...(props as React.SVGProps<SVGSVGElement>)} />;
+  }
+  return component;
+}
+
 const Icon: React.FC<IconProps> = ({
   name,
-  size = 16,
-  color,
+  component,
+  size = 24,
+  color = 'currentcolor',
+  strokeWidth,
+  absoluteStrokeWidth,
   className = '',
   style,
-  onClick,
+  ...rest
 }) => {
-  const LucideIcon = getLucideIcon(name);
-  if (!LucideIcon) {
-    console.warn(`[Auron Icon] 未找到 lucide 图标: ${name}`);
-    return null;
+  const registered = name ? registeredIcons[name] : undefined;
+  const LucideIcon =
+    name && !registered && !component ? getLucideIcon(name) : null;
+  const iconProps = {
+    width: size,
+    height: size,
+    size,
+    color,
+    strokeWidth,
+    absoluteStrokeWidth,
+    'aria-hidden': rest['aria-label'] ? undefined : true,
+  };
+
+  let content: React.ReactNode = component ? (
+    renderComponent(component, iconProps)
+  ) : registered ? (
+    renderComponent(registered, iconProps)
+  ) : LucideIcon ? (
+    <LucideIcon {...iconProps} />
+  ) : null;
+
+  // @ts-ignore
+  if (!content && process.env.NODE_ENV !== 'production' && name) {
+    console.warn(`[Auron Icon] 未找到图标: ${name}`);
   }
+  if (!content) return null;
 
   return (
     <span
+      {...rest}
       className={`auron-icon ${className}`.trim()}
-      style={style}
-      onClick={onClick}
+      style={{ width: size, height: size, color, ...style }}
     >
-      <LucideIcon size={size} color={color} />
+      {content}
     </span>
   );
 };

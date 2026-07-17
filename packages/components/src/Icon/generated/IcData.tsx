@@ -1,0 +1,19 @@
+import React from 'react';
+
+export type IcDataProps = React.SVGProps<SVGSVGElement>;
+
+const IcData: React.FC<IcDataProps> = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    width="24"
+    height="24"
+    {...props}
+    dangerouslySetInnerHTML={{
+      __html:
+        '\n<g id="ic_data">\n<g id="Vector">\n<path d="M18.2329 4.12732V5.12732H3.979V21.1693H20.021V10.3119L20.521 9.31189L21.021 10.3119V22.1693H2.979V4.12732H18.2329Z" fill="currentColor" fill-opacity="0.9"/>\n<path d="M8.68628 17.2292L8.18628 18.2292L7.68628 17.2292V13.0447L8.18628 12.0447L8.68628 13.0447L8.68628 17.2292Z" fill="currentColor" fill-opacity="0.9"/>\n<path d="M12.5215 17.2288L12.0215 18.2288L11.5215 17.2288C11.5215 13.5031 11.5215 13.4143 11.5215 9.68872L12.0215 8.68872L12.5215 9.68872V17.2288Z" fill="currentColor" fill-opacity="0.9"/>\n<path d="M16.5007 17.2292L16.0007 18.2292L15.5007 17.2292V13.0447L16.0007 12.0447L16.5007 13.0447V17.2292Z" fill="currentColor" fill-opacity="0.9"/>\n<path d="M18.9033 4.76466L16.0918 7.57618L15.2625 7.70191L15.3848 6.86818L17.4883 4.76369L15.3848 2.66017L15.2625 1.83057L16.0918 1.95314L18.9033 4.76466Z" fill="currentColor" fill-opacity="0.9"/>\n</g>\n</g>\n',
+    }}
+  />
+);
+
+export default IcData;

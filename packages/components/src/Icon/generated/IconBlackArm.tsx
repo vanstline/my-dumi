@@ -1,0 +1,19 @@
+import React from 'react';
+
+export type IconBlackArmProps = React.SVGProps<SVGSVGElement>;
+
+const IconBlackArm: React.FC<IconBlackArmProps> = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    width="24"
+    height="24"
+    {...props}
+    dangerouslySetInnerHTML={{
+      __html:
+        '\n<g id="icon_black_arm">\n<path id="Union" d="M20.5 4L19.5 4.5H15.707L13.707 6.5L15.707 8.5H19.5L20.5 9L19.5 9.5H15.293L12.793 7H8.45801C8.31216 7.86917 7.79078 8.60794 7.06836 9.05273L10.3271 16.5H21.5V21.5H2.5V16.5H9.23535L6.1416 9.42969C5.93479 9.47477 5.72033 9.5 5.5 9.5C3.84315 9.5 2.5 8.15685 2.5 6.5C2.5 4.84315 3.84315 3.5 5.5 3.5C6.98647 3.5 8.21993 4.58118 8.45801 6H12.793L15.293 3.5H19.5L20.5 4ZM3.5 20.5H20.5V17.5H3.5V20.5ZM5.5 4.5C4.39543 4.5 3.5 5.39543 3.5 6.5C3.5 7.60457 4.39543 8.5 5.5 8.5C6.60457 8.5 7.5 7.60457 7.5 6.5C7.5 5.39543 6.60457 4.5 5.5 4.5Z" fill="currentColor" fill-opacity="0.9"/>\n</g>\n',
+    }}
+  />
+);
+
+export default IconBlackArm;

@@ -1,0 +1,19 @@
+import React from 'react';
+
+export type IconTipProps = React.SVGProps<SVGSVGElement>;
+
+const IconTip: React.FC<IconTipProps> = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    width="24"
+    height="24"
+    {...props}
+    dangerouslySetInnerHTML={{
+      __html:
+        '\n<g id="icon_tip">\n<path id="Subtract" fill-rule="evenodd" clip-rule="evenodd" d="M12 4.05078C16.4183 4.05078 20 7.6325 20 12.0508C19.9999 16.4689 16.4182 20.0508 12 20.0508C7.5818 20.0508 4.00013 16.4689 4 12.0508C4 7.6325 7.58172 4.05078 12 4.05078ZM11.3389 16.4521L12 17.1123L12.6611 16.4521L12 15.791L11.3389 16.4521ZM11.5254 8.4043V13.0605L12.0254 14.0605L12.5254 13.0605V8.4043L12.0254 7.4043L11.5254 8.4043Z" fill="#319CFF"/>\n</g>\n',
+    }}
+  />
+);
+
+export default IconTip;

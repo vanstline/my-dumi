@@ -1,0 +1,19 @@
+import React from 'react';
+
+export type IcLayoutProps = React.SVGProps<SVGSVGElement>;
+
+const IcLayout: React.FC<IcLayoutProps> = (props) => (
+  <svg
+    viewBox="0 0 80 80"
+    fill="none"
+    width="24"
+    height="24"
+    {...props}
+    dangerouslySetInnerHTML={{
+      __html:
+        '\n<g id="ic_layout">\n<path id="Rectangle 5043 (Stroke)" d="M71.5002 9.50049V28.5005H8.50024V9.50049H71.5002ZM11.5002 25.5005H68.5002V12.5005H11.5002V25.5005Z" fill="#319CFF"/>\n<path id="Rectangle 5044 (Stroke)" d="M28.5002 33.5002V72.5002H8.50024V33.5002H28.5002ZM11.5002 69.5002H25.5002V36.5002H11.5002V69.5002Z" fill="#319CFF"/>\n<path id="Rectangle 5045 (Stroke)" d="M71.5002 33.5002V58.5002L70.0002 61.5002L68.5002 58.5002V36.5002H36.5002V69.5002H68.5002L71.5002 71.0002L68.5002 72.5002H33.5002V33.5002H71.5002Z" fill="#319CFF"/>\n</g>\n',
+    }}
+  />
+);
+
+export default IcLayout;

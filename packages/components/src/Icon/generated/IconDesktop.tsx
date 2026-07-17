@@ -1,0 +1,19 @@
+import React from 'react';
+
+export type IconDesktopProps = React.SVGProps<SVGSVGElement>;
+
+const IconDesktop: React.FC<IconDesktopProps> = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    width="24"
+    height="24"
+    {...props}
+    dangerouslySetInnerHTML={{
+      __html:
+        '\n<g id="icon_desktop">\n<g id="Union">\n<path d="M17.5 18L17 19L16.5 18V7.5H3.5V20.5H16.5L17.5 21L16.5 21.5H2.5V6.5H17.5V18Z" fill="currentColor" fill-opacity="0.9"/>\n<path d="M21.5 20.5L21 21.5L20.5 20.5V3.5H3.5L2.5 3L3.5 2.5H21.5V20.5Z" fill="currentColor" fill-opacity="0.9"/>\n<path d="M10.5 10V18L10 19L9.5 18V10L10 9L10.5 10Z" fill="currentColor" fill-opacity="0.9"/>\n</g>\n</g>\n',
+    }}
+  />
+);
+
+export default IconDesktop;

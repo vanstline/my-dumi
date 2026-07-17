@@ -1,0 +1,19 @@
+import React from 'react';
+
+export type IconTimeProps = React.SVGProps<SVGSVGElement>;
+
+const IconTime: React.FC<IconTimeProps> = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    width="24"
+    height="24"
+    {...props}
+    dangerouslySetInnerHTML={{
+      __html:
+        '\n<g id="icon_time">\n<g id="Subtract">\n<path d="M12 1.5C17.799 1.5 22.5 6.20101 22.5 12C22.5 14.1912 21.8269 16.2241 20.6787 17.9072L19.7158 18.2617L19.8701 17.3174C20.8981 15.8 21.5 13.9708 21.5 12C21.5 6.75329 17.2467 2.5 12 2.5C6.75329 2.5 2.5 6.75329 2.5 12C2.5 17.2467 6.75329 21.5 12 21.5C13.9669 21.5 15.7919 20.899 17.3076 19.875L18.3545 19.7803L17.9668 20.6387C16.2723 21.8116 14.2169 22.5 12 22.5C6.20101 22.5 1.5 17.799 1.5 12C1.5 6.20101 6.20101 1.5 12 1.5Z" fill="currentColor" fill-opacity="0.9"/>\n<path d="M12.5039 7V11.7979L16.082 15.376L16.2432 16.2441L15.3457 16.0537L11.6504 12.3584C11.5567 12.2647 11.504 12.1373 11.5039 12.0049V7L12.0039 6L12.5039 7Z" fill="currentColor" fill-opacity="0.9"/>\n</g>\n</g>\n',
+    }}
+  />
+);
+
+export default IconTime;

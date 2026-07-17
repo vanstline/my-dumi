@@ -1,0 +1,19 @@
+import React from 'react';
+
+export type IconBlackTipProps = React.SVGProps<SVGSVGElement>;
+
+const IconBlackTip: React.FC<IconBlackTipProps> = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    width="24"
+    height="24"
+    {...props}
+    dangerouslySetInnerHTML={{
+      __html:
+        '\n<g id="icon_black_tip">\n<path id="Subtract" d="M12 1.5C17.799 1.5 22.5 6.20101 22.5 12C22.5 14.1912 21.8269 16.2241 20.6787 17.9072L19.7158 18.2617L19.8701 17.3174C20.8981 15.8 21.5 13.9708 21.5 12C21.5 6.75329 17.2467 2.5 12 2.5C6.75329 2.5 2.5 6.75329 2.5 12C2.5 17.2467 6.75329 21.5 12 21.5C13.9669 21.5 15.7919 20.899 17.3076 19.875L18.3545 19.7803L17.9668 20.6387C16.2723 21.8116 14.2169 22.5 12 22.5C6.20101 22.5 1.5 17.799 1.5 12C1.5 6.20101 6.20101 1.5 12 1.5Z" fill="currentColor" fill-opacity="0.9"/>\n<path id="Line 1 (Stroke)" d="M12.5339 13L12.0339 14L11.5339 13L11.5339 7L12.0339 6L12.5339 7L12.5339 13Z" fill="currentColor" fill-opacity="0.9"/>\n<line id="Line 2" x1="12.4032" y1="15.9804" x2="11.6961" y2="16.6875" stroke="currentColor" stroke-opacity="0.9"/>\n</g>\n',
+    }}
+  />
+);
+
+export default IconBlackTip;

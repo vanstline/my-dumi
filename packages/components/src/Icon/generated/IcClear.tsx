@@ -1,0 +1,19 @@
+import React from 'react';
+
+export type IcClearProps = React.SVGProps<SVGSVGElement>;
+
+const IcClear: React.FC<IcClearProps> = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    width="24"
+    height="24"
+    {...props}
+    dangerouslySetInnerHTML={{
+      __html:
+        '\n<g id="ic_clear">\n<g id="Vector">\n<path d="M14.5 3V7H22V12H2V7H9.5V3H14.5ZM10.5 8H3V11H21V8H13.5V4H10.5V8Z" fill="currentColor" fill-opacity="0.9"/>\n<path d="M20.5 11.043V17.543L20 18.543L19.5 17.543V12.043H4.5V20.043H19.5L20.5 20.543L19.5 21.043H3.5V11.043H20.5Z" fill="currentColor" fill-opacity="0.9"/>\n<path d="M7.5 17L8 16L8.5 17V20.9922H7.5V17Z" fill="currentColor" fill-opacity="0.9"/>\n<path d="M11.5 16.9918L12 15.9918L12.5 16.9918V20.9918H11.5V16.9918Z" fill="currentColor" fill-opacity="0.9"/>\n<path d="M15.5 17L16 16L16.5 17V20.9922H15.5V17Z" fill="currentColor" fill-opacity="0.9"/>\n<path d="M18.5 20.043V21.043H5.5V20.043H18.5Z" fill="currentColor" fill-opacity="0.9"/>\n</g>\n</g>\n',
+    }}
+  />
+);
+
+export default IcClear;

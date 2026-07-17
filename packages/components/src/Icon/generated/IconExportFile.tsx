@@ -1,0 +1,19 @@
+import React from 'react';
+
+export type IconExportFileProps = React.SVGProps<SVGSVGElement>;
+
+const IconExportFile: React.FC<IconExportFileProps> = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    width="24"
+    height="24"
+    {...props}
+    dangerouslySetInnerHTML={{
+      __html:
+        '\n<g id="icon_export_file">\n<path id="Union" d="M21 7.29297V11L20.5 12L20 11V8H15V3H5V21H10.5L11.5 21.5L10.5 22H4V2H15.707L21 7.29297ZM14.1465 17.3535H18.9395L17.5 15.9141L17.1465 14.8535L18.207 15.207L20.8535 17.8535L18.207 20.5L17.1465 20.8535L17.5 19.793L18.9395 18.3535H14.1465L13.1465 17.8535L14.1465 17.3535ZM16 7H19.293L16 3.70703V7Z" fill="currentColor" fill-opacity="0.9"/>\n</g>\n',
+    }}
+  />
+);
+
+export default IconExportFile;

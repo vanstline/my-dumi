@@ -7,3 +7,4 @@ docs-dist
 .DS_Store
 .pnpm-store
 .claude
+.superpowers

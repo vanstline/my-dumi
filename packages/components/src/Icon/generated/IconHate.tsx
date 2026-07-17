@@ -1,0 +1,19 @@
+import React from 'react';
+
+export type IconHateProps = React.SVGProps<SVGSVGElement>;
+
+const IconHate: React.FC<IconHateProps> = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    width="24"
+    height="24"
+    {...props}
+    dangerouslySetInnerHTML={{
+      __html:
+        '\n<g id="icon_hate">\n<path id="Union" d="M13.4189 14.9316L22 14.9316L19.5322 5.72363L18.8057 4.94238L18.8057 5.90918L20.6963 13.9316L12.4189 13.9316L12.4189 20.5L10.4062 20.5L7.12988 12.6475L7.12988 3.41113L17.5195 3.41113L18.5195 2.91113L17.5195 2.41113L7.12988 2.41113L7.12988 2.4043L1.62988 2.4043L1.62988 13.4043L6.36133 13.4043L9.61133 21.1924L9.73926 21.5L13.4189 21.5L13.4189 14.9316ZM2.62988 3.4043L6.12988 3.4043L6.12988 12.4043L2.62988 12.4043L2.62988 3.4043Z" fill="currentColor" fill-opacity="0.9"/>\n</g>\n',
+    }}
+  />
+);
+
+export default IconHate;

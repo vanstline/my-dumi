@@ -2,7 +2,25 @@
 
 .auron-icon {
   display: inline-flex;
+  width: 24px;
+  height: 24px;
   align-items: center;
   justify-content: center;
+  color: rgba(0, 0, 0, 100%);
   cursor: inherit;
+  line-height: 0;
+  vertical-align: middle;
+
+  > svg,
+  > * {
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+[data-prefers-color='dark'] {
+  .auron-icon {
+    color: rgba(233, 233, 233, 100%);
+  }
 }

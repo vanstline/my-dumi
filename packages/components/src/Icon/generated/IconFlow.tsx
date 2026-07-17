@@ -1,0 +1,19 @@
+import React from 'react';
+
+export type IconFlowProps = React.SVGProps<SVGSVGElement>;
+
+const IconFlow: React.FC<IconFlowProps> = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    width="24"
+    height="24"
+    {...props}
+    dangerouslySetInnerHTML={{
+      __html:
+        '\n<g id="icon_flow">\n<g id="Vector">\n<path d="M12.1631 2.02734L23.5059 5.94824L19.1371 7.35242L18.2314 7.30762L18.727 6.45328L20.4932 5.96484L12 3.02832L3.5127 5.96289L11.9971 8.96777L15.2078 7.71334L16.2451 7.95117L15.52 8.66098L12.0029 10.0312L11.833 9.97168L0.486328 5.95117L11.8369 2.02734L12 1.9707L12.1631 2.02734Z" fill="currentColor" fill-opacity="0.9"/>\n<path d="M21.8085 10.5286L12 14.0293L2.22422 10.5373L1.52832 9.83496L2.49209 9.57725L12 12.9697L21.5684 9.5611L22.4717 9.83496L21.8085 10.5286Z" fill="currentColor" fill-opacity="0.9"/>\n<path d="M21.8433 14.5192L12 18L2.23078 14.5391L1.52832 13.835L2.5452 13.5915L12 16.9697L21.5039 13.57L22.4717 13.835L21.8433 14.5192Z" fill="currentColor" fill-opacity="0.9"/>\n<path d="M21.7697 18.539L12 22.0293L2.30552 18.6999L1.52832 17.835L2.67542 17.6264L12 20.9697L21.4676 17.6316L22.4717 17.835L21.7697 18.539Z" fill="currentColor" fill-opacity="0.9"/>\n</g>\n</g>\n',
+    }}
+  />
+);
+
+export default IconFlow;

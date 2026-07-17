@@ -1,0 +1,19 @@
+import React from 'react';
+
+export type IcExpandProps = React.SVGProps<SVGSVGElement>;
+
+const IcExpand: React.FC<IcExpandProps> = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    width="24"
+    height="24"
+    {...props}
+    dangerouslySetInnerHTML={{
+      __html:
+        '\n<g id="ic_expand">\n<path id="Vector (Stroke)" d="M8.17884 7.41811L8.35533 8.30164L7.46212 8.11546L2.77721 3.48328L3.48033 2.77234L8.17884 7.41811Z" fill="currentColor" fill-opacity="0.9"/>\n<path id="Vector (Stroke)_2" d="M8.14808 16.5629L3.35941 21.2969L2.65628 20.5869L7.45691 15.9506L8.3555 15.6484L8.14808 16.5629Z" fill="currentColor" fill-opacity="0.9"/>\n<path id="Vector (Stroke)_3" d="M21.3477 20.5898L20.6406 21.2969L15.7994 16.4558L15.6973 15.6465L16.5648 15.8247L21.3477 20.5898Z" fill="currentColor" fill-opacity="0.9"/>\n<path id="Vector (Stroke)_4" d="M21.3477 3.30933L16.72 7.93701L15.6465 8.30347L15.934 7.30894L20.6406 2.60229L21.3477 3.30933Z" fill="currentColor" fill-opacity="0.9"/>\n<path id="Vector (Stroke)_5" d="M20.5 3.5H17L16 3L17 2.5H21.5V7L21 8L20.5 7V3.5Z" fill="currentColor" fill-opacity="0.9"/>\n<path id="Vector (Stroke)_6" d="M20.5 17L21 16L21.5 17V21.5H17L16 21L17 20.5H20.5V17Z" fill="currentColor" fill-opacity="0.9"/>\n<path id="Vector (Stroke)_7" d="M2.5 17L3 16L3.5 17V20.5H7L8 21L7 21.5H2.5V17Z" fill="currentColor" fill-opacity="0.9"/>\n<path id="Vector (Stroke)_8" d="M2.5 2.5H7L8 3L7 3.5H3.5V7L3 8L2.5 7V2.5Z" fill="currentColor" fill-opacity="0.9"/>\n</g>\n',
+    }}
+  />
+);
+
+export default IcExpand;
