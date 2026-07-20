@@ -17,7 +17,8 @@ Icon 默认使用主题色：Light 为 `rgba(0, 0, 0, 1)`，Dark 为 `rgba(233, 
 
 ```tsx | inline
 import React from 'react';
-import { Icon, Message } from '@my-dumi/components';
+import { Icon } from '@my-dumi/icons';
+import { Message } from '@my-dumi/components';
 
 import { builtInIconNames, iconMap } from './registry';
 console.log(builtInIconNames);
@@ -91,7 +92,8 @@ export default () => (
 
 ```tsx | inline
 import React from 'react';
-import { Icon, Message } from '@my-dumi/components';
+import { Icon } from '@my-dumi/icons';
+import { Message } from '@my-dumi/components';
 
 const copyIconCode = async (name: string) => {
   const text = `<Icon name="${name}" />`;
@@ -153,7 +155,8 @@ export default () => (
 
 ```tsx | inline
 import React from 'react';
-import { Icon, Message } from '@my-dumi/components';
+import { Icon } from '@my-dumi/icons';
+import { Message } from '@my-dumi/components';
 
 const copyIconCode = async (name: string) => {
   const text = `<Icon name="${name}" />`;
@@ -217,7 +220,8 @@ export default () => (
 
 ```tsx | inline
 import React from 'react';
-import { Icon, Message } from '@my-dumi/components';
+import { Icon } from '@my-dumi/icons';
+import { Message } from '@my-dumi/components';
 
 const copyIconCode = async (name: string) => {
   const text = `<Icon name="${name}" />`;
@@ -281,7 +285,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Icon } from '@my-dumi/components';
+import { Icon } from '@my-dumi/icons';
 
 const CustomIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" {...props}>

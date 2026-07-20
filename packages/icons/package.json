@@ -1,18 +1,8 @@
 {
-  "name": "@my-dumi/components",
+  "name": "@my-dumi/icons",
   "version": "0.0.1",
-  "private": false,
-  "description": "A react library developed with dumi",
-  "homepage": "https://gitlab.auson.cc/components#readme",
-  "bugs": {
-    "url": "https://gitlab.auson.cc/components/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://gitlab.auson.cc/components"
-  },
+  "description": "Auron inline SVG icons",
   "license": "MIT",
-  "author": "Tao",
   "sideEffects": false,
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -22,18 +12,18 @@
   ],
   "scripts": {
     "build": "father build && tsc -p ./tsconfig.build.json",
-    "icons:generate": "node scripts/generate-icons.js"
+    "icons:generate": "node generate-icons.js"
   },
   "dependencies": {
     "@babel/runtime": "^7.29.0",
-    "@my-dumi/icons": "workspace:*",
-    "@my-dumi/liquid-glass": "workspace:*",
-    "antd": "^4.24.16",
     "lucide-react": "^1.23.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0"
+    "@types/react-dom": "^17.0.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "typescript": "^5.0.0"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

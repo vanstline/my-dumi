@@ -11,10 +11,10 @@ export default defineConfig({
     name: 'Auron',
     //头部菜单栏
     nav: [
-      {
-        title: '规范',
-        link: '/spec',
-      },
+      // {
+      //   title: '规范',
+      //   link: '/spec',
+      // },
       {
         title: '设计',
         link: '/designs/color',
@@ -58,6 +58,8 @@ export default defineConfig({
       { type: 'components', dir: 'packages/components/src' },
       { type: 'hooks', dir: 'packages/hooks/src' },
       { type: 'liquid-glass', dir: 'packages/liquid-glass/src' },
+      // Icon 独立发布，但文档归入 components 的“基础原子”分类
+      { type: 'components', dir: 'packages/icons/src' },
       // { type: 'tools', dir: 'packages/tools/src' },
     ],
   },
@@ -71,6 +73,7 @@ export default defineConfig({
     '@my-dumi/liquid-glass': toForwardSlash(
       join(__dirname, 'packages/liquid-glass/src'),
     ),
+    '@my-dumi/icons': toForwardSlash(join(__dirname, 'packages/icons/src')),
     // '@wjcao/utils': toForwardSlash(join(__dirname, 'packages/tools/src')),
   },
 });
