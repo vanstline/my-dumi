@@ -138,6 +138,9 @@
 );
 @bg-color-container-dark: #1a1a1a;
 @bg-color-elevated-dark: #2c2c2c;
+// Shared disabled control surfaces.
+@disabled-bg-light: rgba(237, 237, 237, 1);
+@disabled-bg-dark: #595959;
 
 // ─── Border Colors ───
 @border-color: rgba(0, 0, 0, 0.06);
@@ -192,6 +195,14 @@
 // Glass Tag 边框：比容器边框更清晰，保证浅色/暗色主题下都有辨识度
 @glass-tag-border-light: rgba(255, 255, 255, 0.75);
 @glass-tag-border-dark: rgba(255, 255, 255, 0.35);
+@input-glass-bg-light: linear-gradient(180deg, #f5f5f5 0%, #fff 100%);
+@input-glass-border-light: #fefefe;
+@input-glass-bg-dark: linear-gradient(180deg, #1c1c1c 0%, #272727 100%);
+@input-glass-border-dark: #535353;
+@input-glass-shadow-light: inset 0 1px 1px rgba(255, 255, 255, 0.72),
+  inset 0 -1px 1px rgba(190, 190, 190, 0.28);
+@input-glass-shadow-dark: inset 0 1px 1px rgba(255, 255, 255, 0.08),
+  inset 0 -1px 1px rgba(0, 0, 0, 0.28);
 @glass-arrow-bg-dark: rgba(60, 60, 61, 0.5);
 
 // ─── Fonts ───

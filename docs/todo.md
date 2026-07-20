@@ -185,7 +185,7 @@ packages/components/src/
 
 > 最复杂的组件批次，依赖 `rc-field-form`、`rc-select` 等底层库做逻辑层，只做视觉层封装
 
-- [ ] **Input / TextArea** — 基础输入框
+- [x] **Input / TextArea** — Ant Design v4 API wrapper, three sizes, Password, TextArea/showCount, states, and CSS Glass demos completed.
 - [ ] **Select / Dropdown** — 下拉菜单（下拉面板强制 Glass）
 - [ ] **Search** — 搜索框（Input + Button + 下拉）
 - [ ] **TimePicker** — 时间选择器（建议基于 `dayjs`）

@@ -26,6 +26,7 @@ export interface AuronCheckableTagProps
   glass?: boolean;
   variant?: TagVariant;
   color?: string;
+  icon?: React.ReactNode;
 }
 
 function renderIcon(

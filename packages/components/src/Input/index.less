@@ -1,0 +1,313 @@
+@import (reference) '../styles/variables.less';
+
+@input-prefix-cls: ~'auron-ant-input';
+
+// Ant Design v4 input structure with Auron tokens and prefix replacement.
+.@{input-prefix-cls} {
+  display: inline-block;
+  width: 100%;
+  min-width: 0;
+  padding: 10px 16px;
+  color: @text-color;
+  font-size: 14px;
+  line-height: 22px;
+  background: @bg-color-container;
+  background-image: none;
+  border: 1px solid @border-color;
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.3s;
+  box-sizing: border-box;
+
+  &:hover {
+    border-color: @color-primary-hover;
+  }
+
+  &:focus,
+  &-focused {
+    border-color: @color-primary;
+    outline: 0;
+    box-shadow: 0 0 0 2px fade(@color-primary, 15%);
+  }
+
+  &::placeholder {
+    color: @text-color-quaternary;
+  }
+
+  &[disabled],
+  &-disabled {
+    color: @text-color-quaternary;
+    background: @disabled-bg-light;
+    border-color: @border-color;
+    cursor: not-allowed;
+  }
+
+  &-lg {
+    padding: 10px 16px;
+    font-size: 16px;
+    line-height: 24px;
+    border-radius: 16px;
+  }
+
+  &-sm {
+    padding: 6px 8px;
+    font-size: 12px;
+    line-height: 20px;
+    border-radius: 8px;
+  }
+
+  &-glass {
+    background: @input-glass-bg-light;
+    border-color: @input-glass-border-light;
+    backdrop-filter: blur(20px) saturate(1.2);
+  }
+
+  &-textarea {
+    max-width: 100%;
+    height: auto;
+    min-height: 32px;
+    line-height: 1.5715;
+    vertical-align: bottom;
+    resize: vertical;
+    border-radius: 12px;
+
+    &-lg {
+      border-radius: 16px;
+    }
+
+    &-sm {
+      border-radius: 8px;
+    }
+  }
+
+  &-affix-wrapper {
+    display: inline-flex;
+    width: 100%;
+    min-height: 44px;
+    padding: 0 16px;
+    color: @text-color;
+    background: @bg-color-container;
+    border: 1px solid @border-color;
+    border-radius: 12px;
+    transition: all 0.3s;
+    box-sizing: border-box;
+
+    &[disabled],
+    &-disabled {
+      background: @disabled-bg-light;
+    }
+
+    &:hover,
+    &-focused,
+    &:focus-within {
+      border-color: @color-primary;
+      outline: 0;
+      box-shadow: 0 0 0 2px fade(@color-primary, 15%);
+    }
+
+    > .@{input-prefix-cls} {
+      flex: 1;
+      min-width: 0;
+      padding: 0;
+      color: inherit;
+      background: transparent;
+      border: 0;
+      outline: 0;
+      box-shadow: none;
+    }
+
+    &-lg {
+      border-radius: 16px;
+      min-height: 48px;
+    }
+
+    &-sm {
+      min-height: 32px;
+      padding: 0 8px;
+      border-radius: 8px;
+    }
+
+    &-glass {
+      background: fade(#fff, 22%);
+      border-color: fade(#fff, 55%);
+      backdrop-filter: blur(20px) saturate(1.2);
+    }
+  }
+
+  &-prefix,
+  &-suffix {
+    display: flex;
+    flex: none;
+    align-items: center;
+    line-height: 1;
+
+    > *:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+
+  &-prefix {
+    margin-right: 4px;
+  }
+
+  &-suffix {
+    margin-left: 4px;
+  }
+
+  &-clear-icon {
+    margin: 0 4px;
+    color: @text-color-quaternary;
+    cursor: pointer;
+    font-size: 14px;
+
+    &:hover {
+      color: @text-color-secondary;
+    }
+  }
+
+  &-status-error {
+    border-color: @color-error;
+
+    &:focus,
+    &-focused,
+    &:focus-within {
+      border-color: @color-error;
+      box-shadow: 0 0 0 2px fade(@color-error, 15%);
+    }
+  }
+
+  &-status-warning {
+    border-color: @color-warning;
+
+    &:focus,
+    &-focused,
+    &:focus-within {
+      border-color: @color-warning;
+      box-shadow: 0 0 0 2px fade(@color-warning, 15%);
+    }
+  }
+}
+
+.auron-ant-input-password-icon {
+  font-size: 16px;
+}
+
+.auron-input--glass {
+  background: @input-glass-bg-light;
+  background-clip: padding-box;
+  border-color: @input-glass-border-light;
+  box-shadow: @input-glass-shadow-light;
+  backdrop-filter: blur(20px) saturate(1.2);
+
+  &:focus,
+  &:focus-visible,
+  &-focused {
+    border-color: @input-glass-border-light;
+    box-shadow: @input-glass-shadow-light;
+  }
+}
+
+.auron-ant-input-affix-wrapper.auron-input--glass {
+  background: @input-glass-bg-light;
+  background-clip: padding-box;
+  border-color: @input-glass-border-light;
+  box-shadow: @input-glass-shadow-light;
+  backdrop-filter: blur(20px) saturate(1.2);
+
+  &:focus,
+  &:focus-visible,
+  &-focused,
+  &:focus-within {
+    border-color: @input-glass-border-light;
+    box-shadow: @input-glass-shadow-light;
+  }
+}
+
+.auron-ant-input-group {
+  display: table;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.auron-ant-input-group-wrapper {
+  display: inline-block;
+  width: 100%;
+  text-align: start;
+  vertical-align: top;
+}
+
+// Ant TextArea renders the counter on its show-count wrapper. Keep the
+// wrapper and counter styles locally because Auron does not import Ant CSS.
+.auron-ant-input-textarea-show-count {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+
+  &::after {
+    display: block;
+    color: @text-color-quaternary;
+    font-size: 14px;
+    line-height: 1.5715;
+    text-align: right;
+    content: attr(data-count);
+  }
+
+  > .@{input-prefix-cls} {
+    padding-bottom: 24px;
+  }
+}
+
+[data-prefers-color='dark'] .auron-ant-input-textarea-show-count::after {
+  color: @text-color-quaternary-dark;
+}
+
+[data-prefers-color='dark'] {
+  .@{input-prefix-cls},
+  .@{input-prefix-cls}-affix-wrapper {
+    color: @text-color-dark;
+    background: @bg-color-container-dark;
+    border-color: @border-color-dark;
+
+    &[disabled],
+    &.@{input-prefix-cls}-disabled,
+    &.@{input-prefix-cls}-affix-wrapper-disabled {
+      background: @disabled-bg-dark;
+    }
+
+    &::placeholder {
+      color: @text-color-quaternary-dark;
+    }
+
+    &-glass,
+    &.@{input-prefix-cls}-glass {
+      background: @input-glass-bg-dark;
+      border-color: @input-glass-border-dark;
+    }
+  }
+
+  .auron-input--glass,
+  .auron-ant-input-affix-wrapper.auron-input--glass {
+    background: @input-glass-bg-dark;
+    background-clip: padding-box;
+    border-color: @input-glass-border-dark;
+    box-shadow: @input-glass-shadow-dark;
+
+    &:focus,
+    &:focus-visible,
+    &-focused,
+    &:focus-within {
+      border-color: @input-glass-border-dark;
+      box-shadow: @input-glass-shadow-dark;
+    }
+  }
+
+  .auron-input--glass {
+    &:focus,
+    &:focus-visible,
+    &-focused {
+      border-color: @input-glass-border-dark;
+      box-shadow: @input-glass-shadow-dark;
+    }
+  }
+}
