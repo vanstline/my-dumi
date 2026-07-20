@@ -12,7 +12,7 @@ Auron 加载指示器，完全基于 antd v4 Spin 透传，仅替换默认 indic
 ## 基础用法
 
 ```tsx
-import { Loading } from '@my-dumi/components';
+import { Loading } from '@auron/components';
 import React from 'react';
 
 export default () => <Loading />;
@@ -21,7 +21,7 @@ export default () => <Loading />;
 ## 尺寸
 
 ```tsx
-import { Loading } from '@my-dumi/components';
+import { Loading } from '@auron/components';
 import React from 'react';
 
 export default () => (
@@ -40,7 +40,7 @@ export default () => (
 传入自定义 SVG 替代默认圆点动画：
 
 ```tsx
-import { Loading } from '@my-dumi/components';
+import { Loading } from '@auron/components';
 import React from 'react';
 
 const SvgIndicator = (
@@ -71,7 +71,7 @@ export default () => <Loading indicator={SvgIndicator} tip="加载中…" />;
 通过 `style` 覆盖 currentColor，让图标在不同背景上呈现不同颜色：
 
 ```tsx
-import { Loading } from '@my-dumi/components';
+import { Loading } from '@auron/components';
 import React from 'react';
 
 export default () => (
@@ -95,7 +95,7 @@ export default () => (
 在内容区域外嵌套 `Loading`，常用于异步数据加载时遮罩内容区。
 
 ```tsx
-import { Loading } from '@my-dumi/components';
+import { Loading } from '@auron/components';
 import React, { useState } from 'react';
 
 export default () => {

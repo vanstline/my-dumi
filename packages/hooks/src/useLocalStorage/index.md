@@ -8,8 +8,8 @@
 
 ```jsx
 import React from 'react';
-import { Button } from '@my-dumi/components';
-import { useLocalStorage } from '@my-dumi/hooks';
+import { Button } from '@auron/components';
+import { useLocalStorage } from '@auron/hooks';
 
 export default () => {
   const [value, setValue, remove] = useLocalStorage('demo-key', 'hello');

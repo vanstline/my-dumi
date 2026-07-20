@@ -15,7 +15,7 @@ Auron 按钮，基于 antd v4 逻辑骨架，视觉层由 Design Token 完全接
 
 ```jsx
 import React from 'react';
-import { Button } from '@my-dumi/components';
+import { Button } from '@auron/components';
 
 export default () => (
   <>
@@ -29,7 +29,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Button } from '@my-dumi/components';
+import { Button } from '@auron/components';
 
 export default () => (
   <>
@@ -42,7 +42,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Button } from '@my-dumi/components';
+import { Button } from '@auron/components';
 
 export default () => (
   <div
@@ -72,7 +72,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Button } from '@my-dumi/components';
+import { Button } from '@auron/components';
 
 export default () => (
   <>
@@ -97,7 +97,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Button } from '@my-dumi/components';
+import { Button } from '@auron/components';
 
 export default () => (
   <div
@@ -127,7 +127,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Button } from '@my-dumi/components';
+import { Button } from '@auron/components';
 
 export default () => (
   <>
@@ -149,7 +149,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Button } from '@my-dumi/components';
+import { Button } from '@auron/components';
 
 export default () => (
   <Button type="primary" onClick={() => alert('Clicked!')}>

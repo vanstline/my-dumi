@@ -15,7 +15,7 @@ group:
 
 ```jsx
 import React from 'react';
-import { Badge } from '@my-dumi/components';
+import { Badge } from '@auron/components';
 
 export default () => (
   <>
@@ -38,7 +38,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Badge } from '@my-dumi/components';
+import { Badge } from '@auron/components';
 
 export default () => (
   <>
@@ -57,7 +57,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Badge } from '@my-dumi/components';
+import { Badge } from '@auron/components';
 
 export default () => (
   <>
@@ -78,7 +78,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Badge } from '@my-dumi/components';
+import { Badge } from '@auron/components';
 
 export default () => (
   <Badge color="#722ed1" count={7} offset={[10, -8]}>
@@ -91,7 +91,7 @@ export default () => (
 
 ```jsx
 import React, { useState } from 'react';
-import { Badge } from '@my-dumi/components';
+import { Badge } from '@auron/components';
 
 export default () => {
   const [count, setCount] = useState(5);
@@ -145,7 +145,7 @@ export default () => {
 
 ```jsx
 import React from 'react';
-import { Badge } from '@my-dumi/components';
+import { Badge } from '@auron/components';
 
 export default () => (
   <Badge.Ribbon text="HOTS">
@@ -160,7 +160,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Badge } from '@my-dumi/components';
+import { Badge } from '@auron/components';
 
 export default () => (
   <>

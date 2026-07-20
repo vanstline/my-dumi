@@ -14,7 +14,7 @@ group:
 默认展示 `top` 定位的基础选项卡。
 
 ```tsx
-import { Tabs } from '@my-dumi/components';
+import { Tabs } from '@auron/components';
 import React from 'react';
 
 const { TabPane } = Tabs;
@@ -39,7 +39,7 @@ export default () => (
 支持 `top`、`bottom`、`left`、`right` 四种定位。
 
 ```tsx
-import { Tabs } from '@my-dumi/components';
+import { Tabs } from '@auron/components';
 import React from 'react';
 
 const { TabPane } = Tabs;
@@ -71,7 +71,7 @@ export default () => (
 ## 新增和关闭页签 模式
 
 ```tsx
-import { Tabs } from '@my-dumi/components';
+import { Tabs } from '@auron/components';
 import React, { useRef, useState } from 'react';
 
 const initialItems = [
@@ -153,7 +153,7 @@ export default App;
 提供 `small`、`default`、`large` 三种尺寸。
 
 ```tsx
-import { Tabs } from '@my-dumi/components';
+import { Tabs } from '@auron/components';
 import React from 'react';
 
 const { TabPane } = Tabs;
@@ -191,7 +191,7 @@ export default () => (
 ## 受控模式
 
 ```tsx
-import { Tabs } from '@my-dumi/components';
+import { Tabs } from '@auron/components';
 import React, { useState } from 'react';
 
 const { TabPane } = Tabs;
@@ -222,7 +222,7 @@ export default () => {
 通过 `border={false}` 移除导航栏和标签项的边框，恢复经典的 ink-bar 指示器样式。
 
 ```tsx
-import { Tabs } from '@my-dumi/components';
+import { Tabs } from '@auron/components';
 import React from 'react';
 
 const { TabPane } = Tabs;

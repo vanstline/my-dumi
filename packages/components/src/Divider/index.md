@@ -15,7 +15,7 @@ group:
 
 ```jsx
 import React from 'react';
-import { Divider } from '@my-dumi/components';
+import { Divider } from '@auron/components';
 
 export default () => (
   <>
@@ -35,7 +35,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Divider } from '@my-dumi/components';
+import { Divider } from '@auron/components';
 
 export default () => (
   <span>
@@ -50,7 +50,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Divider } from '@my-dumi/components';
+import { Divider } from '@auron/components';
 
 export default () => (
   <>

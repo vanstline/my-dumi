@@ -4,7 +4,7 @@
 
 ```jsx | inline
 import React from 'react';
-import { Background } from '@my-dumi/components';
+import { Background } from '@auron/components';
 
 export default () => <Background />;
 ```

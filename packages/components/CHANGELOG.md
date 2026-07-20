@@ -1,4 +1,4 @@
-# @my-dumi/components
+# @auron/components
 
 ## 0.0.1
 

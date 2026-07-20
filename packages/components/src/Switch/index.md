@@ -12,7 +12,7 @@ group:
 ## 基础用法
 
 ```tsx
-import { Switch } from '@my-dumi/components';
+import { Switch } from '@auron/components';
 import React, { useState } from 'react';
 
 export default () => {
@@ -24,7 +24,7 @@ export default () => {
 ## 文字与加载
 
 ```tsx
-import { Switch } from '@my-dumi/components';
+import { Switch } from '@auron/components';
 import React from 'react';
 
 export default () => (
@@ -39,7 +39,7 @@ export default () => (
 ## 三种尺寸
 
 ```tsx
-import { Switch } from '@my-dumi/components';
+import { Switch } from '@auron/components';
 import React from 'react';
 
 export default () => (
@@ -56,7 +56,7 @@ export default () => (
 ## 玻璃模式
 
 ```tsx
-import { Switch } from '@my-dumi/components';
+import { Switch } from '@auron/components';
 import React from 'react';
 
 export default () => (

@@ -9,7 +9,7 @@ nav:
 
 # Auron 组件库开发计划
 
-> 所有组件默认支持 `LiquidGlass` 玻璃视觉，组件库底层基于 `@my-dumi/liquid-glass`。
+> 所有组件默认支持 `LiquidGlass` 玻璃视觉，组件库底层基于 `@auron/liquid-glass`。
 
 ---
 
@@ -33,7 +33,7 @@ nav:
 
 - [x] **2. components 关联 liquid-glass**
 
-  - ✅ `packages/components/package.json` 已添加 `"@my-dumi/liquid-glass": "workspace:*"`
+  - ✅ `packages/components/package.json` 已添加 `"@auron/liquid-glass": "workspace:*"`
 
 - [x] **3. 创建 GlassContainer 封装层**
 
@@ -198,6 +198,6 @@ packages/components/src/
 
 ## 备注
 
-- `LiquidGlass` 来自 `@my-dumi/liquid-glass`，作为所有组件的可选/强制视觉容器
+- `LiquidGlass` 来自 `@auron/liquid-glass`，作为所有组件的可选/强制视觉容器
 - 优先用 `glass?: boolean` 让调用方控制是否启用玻璃效果（除强制 Glass 的浮层类组件）
 - 复杂组件（Form、Tree、Select）建议引入成熟底层库（如 `rc-field-form`、`rc-tree`、`rc-select`）做逻辑层，只做视觉层封装

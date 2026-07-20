@@ -11,7 +11,7 @@
 ```tsx
 import React from 'react';
 import { usePrefersColor } from 'dumi';
-import { LiquidGlass } from '@my-dumi/liquid-glass';
+import { LiquidGlass } from '@auron/liquid-glass';
 
 export default () => {
   const [color] = usePrefersColor();
@@ -42,7 +42,7 @@ export default () => {
 ```tsx
 import React from 'react';
 import { usePrefersColor } from 'dumi';
-import { LiquidGlass } from '@my-dumi/liquid-glass';
+import { LiquidGlass } from '@auron/liquid-glass';
 
 export default () => {
   const [color] = usePrefersColor();
@@ -65,7 +65,7 @@ export default () => {
 
 ```tsx
 import React from 'react';
-import { LiquidGlass } from '@my-dumi/liquid-glass';
+import { LiquidGlass } from '@auron/liquid-glass';
 const seed = Math.floor(Math.random() * 100000);
 
 export default () => (
@@ -101,7 +101,7 @@ export default () => (
 ```tsx
 import React from 'react';
 import { usePrefersColor } from 'dumi';
-import { LiquidGlass } from '@my-dumi/liquid-glass';
+import { LiquidGlass } from '@auron/liquid-glass';
 
 export default () => {
   const [color] = usePrefersColor();
@@ -146,7 +146,7 @@ export default () => {
 ```tsx
 import React from 'react';
 import { usePrefersColor } from 'dumi';
-import { LiquidGlass } from '@my-dumi/liquid-glass';
+import { LiquidGlass } from '@auron/liquid-glass';
 
 export default () => {
   const [color] = usePrefersColor();
@@ -178,7 +178,7 @@ export default () => {
 ```tsx
 import React from 'react';
 import { usePrefersColor } from 'dumi';
-import { LiquidGlass } from '@my-dumi/liquid-glass';
+import { LiquidGlass } from '@auron/liquid-glass';
 
 export default () => {
   const [color] = usePrefersColor();
@@ -219,7 +219,7 @@ export default () => {
 ```tsx
 import React from 'react';
 import { usePrefersColor } from 'dumi';
-import { LiquidGlass } from '@my-dumi/liquid-glass';
+import { LiquidGlass } from '@auron/liquid-glass';
 
 export default () => {
   const [color] = usePrefersColor();

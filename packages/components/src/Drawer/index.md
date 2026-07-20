@@ -14,7 +14,7 @@ group:
 ## 基础用法
 
 ```tsx
-import { Drawer, Button } from '@my-dumi/components';
+import { Drawer, Button } from '@auron/components';
 import React, { useState } from 'react';
 
 export default () => {
@@ -45,7 +45,7 @@ export default () => {
 ## 四向位置
 
 ```tsx
-import { Drawer, Button } from '@my-dumi/components';
+import { Drawer, Button } from '@auron/components';
 import React, { useState } from 'react';
 
 export default () => {
@@ -90,7 +90,7 @@ export default () => {
 默认操作按钮会自动同步 `glass` 状态。
 
 ```tsx
-import { Drawer, Button } from '@my-dumi/components';
+import { Drawer, Button } from '@auron/components';
 import React, { useState } from 'react';
 
 export default () => {
@@ -122,7 +122,7 @@ export default () => {
 通过 `extra` 属性完全覆盖默认的取消/确定按钮。
 
 ```tsx
-import { Drawer, Button } from '@my-dumi/components';
+import { Drawer, Button } from '@auron/components';
 import React, { useState } from 'react';
 
 export default () => {
@@ -158,7 +158,7 @@ export default () => {
 `footer` 独立于默认操作按钮，可用于展示额外信息或辅助操作。
 
 ```tsx
-import { Drawer, Button, Switch } from '@my-dumi/components';
+import { Drawer, Button, Switch } from '@auron/components';
 import React, { useState } from 'react';
 
 export default () => {

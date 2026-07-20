@@ -1,5 +1,5 @@
 {
-  "name": "@my-dumi/components",
+  "name": "@auron/components",
   "version": "0.0.1",
   "private": false,
   "description": "A react library developed with dumi",
@@ -25,9 +25,9 @@
     "icons:generate": "node scripts/generate-icons.js"
   },
   "dependencies": {
+    "@auron/icons": "workspace:*",
+    "@auron/liquid-glass": "workspace:*",
     "@babel/runtime": "^7.29.0",
-    "@my-dumi/icons": "workspace:*",
-    "@my-dumi/liquid-glass": "workspace:*",
     "antd": "^4.24.16",
     "lucide-react": "^1.23.0"
   },

@@ -15,7 +15,7 @@ Auron 卡片，基于 antd v4 逻辑骨架，视觉层由 Design Token 完全接
 
 ```jsx
 import React from 'react';
-import { Card, Button } from '@my-dumi/components';
+import { Card, Button } from '@auron/components';
 
 export default () => (
   <Card
@@ -37,7 +37,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Card, Button } from '@my-dumi/components';
+import { Card, Button } from '@auron/components';
 
 export default () => (
   <div
@@ -65,7 +65,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Card } from '@my-dumi/components';
+import { Card } from '@auron/components';
 
 export default () => (
   <Card>无标题的纯内容卡片，适合用于简单的信息展示场景。</Card>

@@ -66,14 +66,14 @@ export default defineConfig({
   favicons: ['/favicon.ico'],
   //别名：dumi 2不再感知 monorepo,需要手动配置包名到 src 的 alias。
   alias: {
-    '@my-dumi/components': toForwardSlash(
+    '@auron/components': toForwardSlash(
       join(__dirname, 'packages/components/src'),
     ),
-    '@my-dumi/hooks': toForwardSlash(join(__dirname, 'packages/hooks/src')),
-    '@my-dumi/liquid-glass': toForwardSlash(
+    '@auron/hooks': toForwardSlash(join(__dirname, 'packages/hooks/src')),
+    '@auron/liquid-glass': toForwardSlash(
       join(__dirname, 'packages/liquid-glass/src'),
     ),
-    '@my-dumi/icons': toForwardSlash(join(__dirname, 'packages/icons/src')),
+    '@auron/icons': toForwardSlash(join(__dirname, 'packages/icons/src')),
     // '@wjcao/utils': toForwardSlash(join(__dirname, 'packages/tools/src')),
   },
 });

@@ -12,7 +12,7 @@ group:
 ## 基础用法
 
 ```tsx
-import { NavMenu } from '@my-dumi/components';
+import { NavMenu } from '@auron/components';
 import React from 'react';
 
 const bgStyle: React.CSSProperties = {
@@ -72,7 +72,7 @@ export default () => {
 叶子节点 hover 不显示子面板，点击触发 `onClick`。
 
 ```tsx
-import { NavMenu } from '@my-dumi/components';
+import { NavMenu } from '@auron/components';
 import React from 'react';
 
 const bgStyle: React.CSSProperties = {
@@ -117,7 +117,7 @@ export default () => {
 ## 受控模式
 
 ```tsx
-import { NavMenu, Button } from '@my-dumi/components';
+import { NavMenu, Button } from '@auron/components';
 import React, { useState } from 'react';
 
 const bgStyle: React.CSSProperties = {

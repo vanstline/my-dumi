@@ -1,7 +1,7 @@
-# my-dumi
+# auron
 
-[![NPM version](https://img.shields.io/npm/v/my-dumi.svg?style=flat)](https://npmjs.org/package/my-dumi)
-[![NPM downloads](http://img.shields.io/npm/dm/my-dumi.svg?style=flat)](https://npmjs.org/package/my-dumi)
+[![NPM version](https://img.shields.io/npm/v/auron.svg?style=flat)](https://npmjs.org/package/auron)
+[![NPM downloads](http://img.shields.io/npm/dm/auron.svg?style=flat)](https://npmjs.org/package/auron)
 
 A react library developed with dumi
 

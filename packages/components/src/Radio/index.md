@@ -12,7 +12,7 @@ group:
 ## 基础用法
 
 ```tsx
-import { Radio } from '@my-dumi/components';
+import { Radio } from '@auron/components';
 import React, { useState } from 'react';
 
 export default () => {
@@ -30,7 +30,7 @@ export default () => {
 ## 禁用状态
 
 ```tsx
-import { Radio } from '@my-dumi/components';
+import { Radio } from '@auron/components';
 import React from 'react';
 
 export default () => (
@@ -46,7 +46,7 @@ export default () => (
 ## 玻璃模式
 
 ```tsx
-import { Radio } from '@my-dumi/components';
+import { Radio } from '@auron/components';
 import React from 'react';
 
 export default () => (

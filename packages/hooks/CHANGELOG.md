@@ -1,4 +1,4 @@
-# @my-dumi/hooks
+# @auron/hooks
 
 ## 0.0.1
 

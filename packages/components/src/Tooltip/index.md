@@ -15,7 +15,7 @@ group:
 
 ```jsx
 import React from 'react';
-import { Tooltip, Button } from '@my-dumi/components';
+import { Tooltip, Button } from '@auron/components';
 
 export default () => (
   <Tooltip title="这是一段提示文案">
@@ -30,7 +30,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Tooltip, Button } from '@my-dumi/components';
+import { Tooltip, Button } from '@auron/components';
 
 const placements = [
   'top',
@@ -64,7 +64,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Tooltip, Button } from '@my-dumi/components';
+import { Tooltip, Button } from '@auron/components';
 
 export default () => (
   <div style={{ display: 'flex', gap: 16 }}>
@@ -94,7 +94,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Tooltip, Button } from '@my-dumi/components';
+import { Tooltip, Button } from '@auron/components';
 
 export default () => (
   <div
@@ -119,7 +119,7 @@ export default () => (
 
 ```jsx
 import React, { useState } from 'react';
-import { Tooltip, Button } from '@my-dumi/components';
+import { Tooltip, Button } from '@auron/components';
 
 export default () => {
   const [open, setOpen] = useState(false);

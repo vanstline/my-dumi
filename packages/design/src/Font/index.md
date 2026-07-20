@@ -4,7 +4,7 @@
 
 ```jsx | inline
 import React from 'react';
-import { Font } from '@my-dumi/components';
+import { Font } from '@auron/components';
 
 export default () => <Font />;
 ```

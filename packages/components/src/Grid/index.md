@@ -15,7 +15,7 @@ group:
 
 ```jsx
 import React from 'react';
-import { Grid } from '@my-dumi/components';
+import { Grid } from '@auron/components';
 const { Row, Col } = Grid;
 
 export default () => (
@@ -37,7 +37,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Grid } from '@my-dumi/components';
+import { Grid } from '@auron/components';
 const { Row, Col } = Grid;
 
 export default () => (
@@ -67,7 +67,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Grid } from '@my-dumi/components';
+import { Grid } from '@auron/components';
 const { Row, Col } = Grid;
 
 export default () => (

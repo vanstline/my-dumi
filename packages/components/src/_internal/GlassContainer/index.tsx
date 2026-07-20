@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { LiquidGlass, LiquidGlassProps } from '@my-dumi/liquid-glass';
+import { LiquidGlass, LiquidGlassProps } from '@auron/liquid-glass';
 
 export interface GlassContainerProps extends LiquidGlassProps {
   /** 子元素 */

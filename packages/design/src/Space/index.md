@@ -4,7 +4,7 @@
 
 ```jsx | inline
 import React from 'react';
-import { Space } from '@my-dumi/components';
+import { Space } from '@auron/components';
 
 export default () => <Space />;
 ```

@@ -15,7 +15,7 @@ group:
 
 ```jsx
 import React from 'react';
-import { Popover, Button } from '@my-dumi/components';
+import { Popover, Button } from '@auron/components';
 
 export default () => (
   <Popover title="标题" content="气泡卡片的内容区域">
@@ -28,7 +28,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Popover, Button } from '@my-dumi/components';
+import { Popover, Button } from '@auron/components';
 
 const placements = [
   'top',
@@ -62,7 +62,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Popover, Button } from '@my-dumi/components';
+import { Popover, Button } from '@auron/components';
 
 export default () => (
   <div style={{ display: 'flex', gap: 16 }}>
@@ -86,7 +86,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Popover, Button } from '@my-dumi/components';
+import { Popover, Button } from '@auron/components';
 
 export default () => (
   <div
@@ -111,7 +111,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Popover, Button } from '@my-dumi/components';
+import { Popover, Button } from '@auron/components';
 
 const content = (
   <div>

@@ -4,7 +4,7 @@
 
 ```jsx | inline
 import React from 'react';
-import { Color } from '@my-dumi/components';
+import { Color } from '@auron/components';
 
 export default () => <Color />;
 ```

@@ -12,7 +12,7 @@ group:
 ## 基础用法
 
 ```tsx
-import { Modal, Button } from '@my-dumi/components';
+import { Modal, Button } from '@auron/components';
 import React, { useState } from 'react';
 
 export default () => {
@@ -43,7 +43,7 @@ export default () => {
 通过 `glass` 属性启用液态玻璃背景效果。
 
 ```tsx
-import { Modal, Button } from '@my-dumi/components';
+import { Modal, Button } from '@auron/components';
 import React, { useState } from 'react';
 
 export default () => {
@@ -75,7 +75,7 @@ export default () => {
 ## 确认对话框
 
 ```tsx
-import { Modal, Button } from '@my-dumi/components';
+import { Modal, Button } from '@auron/components';
 import React from 'react';
 
 export default () => {

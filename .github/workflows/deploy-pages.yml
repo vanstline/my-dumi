@@ -12,7 +12,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: false
 
 jobs:
@@ -48,7 +48,7 @@ jobs:
       - name: Configure npm registry for CI
         run: |
           echo "registry=https://registry.npmjs.org/" > .npmrc.ci
-          echo "@my-dumi:registry=https://maven.auson.cc/repository/npm-hosted/" >> .npmrc.ci
+          echo "@auron:registry=https://maven.auson.cc/repository/npm-hosted/" >> .npmrc.ci
           mv .npmrc .npmrc.bak
           mv .npmrc.ci .npmrc
 
@@ -57,7 +57,7 @@ jobs:
 
       - name: Build docs
         env:
-          BASE_PATH: /my-dumi/
+          BASE_PATH: /auron/
         run: pnpm run docs:build
 
       - name: Upload artifact

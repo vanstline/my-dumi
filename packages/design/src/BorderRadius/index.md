@@ -4,7 +4,7 @@
 
 ```jsx | inline
 import React from 'react';
-import { BorderRadius } from '@my-dumi/components';
+import { BorderRadius } from '@auron/components';
 
 export default () => <BorderRadius />;
 ```

@@ -18,7 +18,7 @@ import {
   CloseCircleFilled,
   InfoCircleFilled,
 } from '@ant-design/icons';
-import { Tag } from '@my-dumi/components';
+import { Tag } from '@auron/components';
 
 const colors = ['red', 'green', 'orange', 'blue', 'cyan', 'default', 'purple'];
 
@@ -50,7 +50,7 @@ export default () => (
 
 ```tsx
 import React, { useState } from 'react';
-import { Button, Tag } from '@my-dumi/components';
+import { Button, Tag } from '@auron/components';
 
 export default () => {
   const [tags, setTags] = useState(['标签一', '标签二']);
@@ -90,7 +90,7 @@ import {
   CloseCircleFilled,
   InfoCircleFilled,
 } from '@ant-design/icons';
-import { Tag } from '@my-dumi/components';
+import { Tag } from '@auron/components';
 
 const backgroundStyle: React.CSSProperties = {
   padding: 24,
@@ -133,7 +133,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Tag } from '@my-dumi/components';
+import { Tag } from '@auron/components';
 
 const backgroundStyle: React.CSSProperties = {
   padding: 24,
@@ -164,7 +164,7 @@ export default () => (
 
 ```tsx
 import React, { useState } from 'react';
-import { Tag } from '@my-dumi/components';
+import { Tag } from '@auron/components';
 
 export default () => {
   const [checked, setChecked] = useState(false);

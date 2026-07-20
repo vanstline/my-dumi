@@ -8,8 +8,8 @@
 
 ```jsx
 import React from 'react';
-import { Button } from '@my-dumi/components';
-import { useToggle } from '@my-dumi/hooks';
+import { Button } from '@auron/components';
+import { useToggle } from '@auron/hooks';
 
 export default () => {
   const [open, toggle, setOpen, setClose] = useToggle(false);
@@ -29,8 +29,8 @@ export default () => {
 
 ```jsx
 import React from 'react';
-import { Button } from '@my-dumi/components';
-import { useToggle } from '@my-dumi/hooks';
+import { Button } from '@auron/components';
+import { useToggle } from '@auron/hooks';
 
 export default () => {
   const [status, toggle] = useToggle('active', {

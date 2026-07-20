@@ -12,7 +12,7 @@ group:
 ## 基础用法
 
 ```tsx
-import { Checkbox } from '@my-dumi/components';
+import { Checkbox } from '@auron/components';
 import React from 'react';
 
 export default () => (
@@ -27,7 +27,7 @@ export default () => (
 ## 多选组
 
 ```tsx
-import { Checkbox } from '@my-dumi/components';
+import { Checkbox } from '@auron/components';
 import React from 'react';
 
 const plainOptions = ['Apple', 'Pear', 'Orange'];
@@ -60,7 +60,7 @@ export default () => {
 ## 玻璃模式
 
 ```tsx
-import { Checkbox } from '@my-dumi/components';
+import { Checkbox } from '@auron/components';
 import React from 'react';
 
 export default () => (

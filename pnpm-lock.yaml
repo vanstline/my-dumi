@@ -98,10 +98,10 @@ importers:
       '@babel/runtime':
         specifier: ^7.29.0
         version: 7.29.7
-      '@my-dumi/icons':
+      '@auron/icons':
         specifier: workspace:*
         version: link:../icons
-      '@my-dumi/liquid-glass':
+      '@auron/liquid-glass':
         specifier: workspace:*
         version: link:../liquid-glass
       antd:

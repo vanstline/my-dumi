@@ -14,7 +14,7 @@ group:
 ## 基础用法
 
 ```tsx
-import { Message, Button } from '@my-dumi/components';
+import { Message, Button } from '@auron/components';
 import React from 'react';
 
 export default () => (
@@ -27,7 +27,7 @@ export default () => (
 ## 不同类型的提示
 
 ```tsx
-import { Message, Button, Space } from '@my-dumi/components';
+import { Message, Button, Space } from '@auron/components';
 import React from 'react';
 
 export default () => {
@@ -55,7 +55,7 @@ export default () => {
 ## 修改时长
 
 ```tsx
-import { Message, Button } from '@my-dumi/components';
+import { Message, Button } from '@auron/components';
 import React from 'react';
 
 export default () => (
